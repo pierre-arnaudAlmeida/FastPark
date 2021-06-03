@@ -7,8 +7,9 @@ export interface User extends Entity {
      username: string;
      firstName: string;
      lastName: string;
-     birthDay: string;
-     phoneNumber: string;
-     gender: string;
      role: string;
+     //TODO Ajouter position avec un type geopoint
+     phoneNumber: string;
+     creationDate: string;
+     updateDate: string;
 }
