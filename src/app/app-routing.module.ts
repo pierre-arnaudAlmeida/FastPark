@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'edit-park/:id',
     loadChildren: () => import('./pages/edit-park/edit-park.module').then( m => m.EditParkPageModule)
   },
+  {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+  },
 ];
 
 @NgModule({

@@ -4,6 +4,7 @@
         "no-content-message": "Aucun Résultat",
         "add-title": "Ajouter",
         "parks-title": "Parkings",
+        "settings-title": "Paramètres",
 
 
 
@@ -12,7 +13,6 @@
         "archives-title": "Archives",
         "home-title": "Menu",
         "profile-title": "Profil",
-        "settings-title": "Paramètres",
         "quizz-title": "Quizz",
         "credits-title": "Credits",
         "authorization-title": "Autorisations",

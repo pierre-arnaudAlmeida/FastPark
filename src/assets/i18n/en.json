@@ -4,7 +4,7 @@
         "no-content-message": "No result",
         "add-title": "Add",
         "parks-title": "Parks",
-
+        "settings-title": "Settings",
 
 
         "valid" : "Valid",
@@ -12,7 +12,6 @@
         "archives-title": "Archives",
         "home-title": "Home",
         "profile-title": "Profile",
-        "settings-title": "Settings",
         "quizz-title": "Quizz",
         "credits-title": "Credits",
         "authorization-title": "Authorizations",
