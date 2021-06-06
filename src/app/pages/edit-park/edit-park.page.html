@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>editPark</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item name="item-name">
+      <ion-label>{{ 'PARK.parking-name-title' | translate }}</ion-label>
+      <ion-input required="true" type="text" autocomplete="on" [(ngModel)]='park.name'
+        (change)='onChangeName()'></ion-input>
+    </ion-item>
+    
+    <ion-button id="button-delete-account" expand="full" fill="clear" (click)="deleteAccount()">
+      <ion-label color="danger">{{ 'PROFILE.delete-account' | translate }}</ion-label>
+    </ion-button>
+  </ion-list>
+</ion-content>
