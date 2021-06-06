@@ -1,19 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      {{ 'UTILS.app-name' | translate }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>{{ 'UTILS.home-title' | translate }}</strong>
-  </div>
+  <ion-grid>
+    <ion-row *ngFor="let p of allParks">
+      <ion-col>
+        <ion-card clear [routerLink]="['/edit-park/', p.id]">
+          <ion-card-header>
+            <ion-card-title>{{ p.name }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-button fill="clear" disabled="true" id="no-result-title" *ngIf='allParks?.length === 0'>
+      <ion-icon name="close-circle-outline"></ion-icon>{{ 'UTILS.no-content-message' | translate }}
+    </ion-button>
+  </ion-grid>
 </ion-content>

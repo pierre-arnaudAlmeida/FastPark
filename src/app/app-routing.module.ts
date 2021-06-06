@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'add-park',
+    loadChildren: () => import('./pages/add-park/add-park.module').then( m => m.AddParkPageModule)
+  },
+  {
+    path: 'edit-park/:id',
+    loadChildren: () => import('./pages/edit-park/edit-park.module').then( m => m.EditParkPageModule)
+  },
 ];
 
 @NgModule({
