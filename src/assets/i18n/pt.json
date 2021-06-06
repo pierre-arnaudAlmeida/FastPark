@@ -1,5 +1,12 @@
 {
     "UTILS": {
+        "app-name": "FastPark",
+        "no-content-message": "Nenhum resultado",
+        "add-title": "Adicionar",
+        "parks-title": "Parques",
+
+
+
         "valid" : "Validar",
         "cancel": "Cancelar",
         "archives-title": "Arquivo",
@@ -30,7 +37,6 @@
         "success-upload-message": "Arquivo corretamente enviado",
         "infos-title": "Informações",
         "contact-title": "Contatos",
-        "add-title": "Adicionar",
         "import-title": "Importar",
         "firstname": "Nome",
         "lastname": "Apelido",
@@ -38,8 +44,11 @@
         "birthday": "Data de nacimento",
         "phone-number": "Telemóvel",
         "delete-title": "Eliminar",
-        "no-content-title": "Nenhum resultado",
         "language-message": "Idioma atualizado"
+    },
+    "PARK": {
+        "add-park-title" : "Adicionar parque de estacionamento",
+        "parking-name-title": "Nome do parque"
     },
     "RUNPAGE": {
     },
