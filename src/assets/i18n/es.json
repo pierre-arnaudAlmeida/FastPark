@@ -5,15 +5,7 @@
         "add-title": "Añadir",
         "parks-title": "Parques",
         "settings-title": "Parámetros",
-
-
-
-        "valid" : "Validar",
-        "cancel": "Anular",
-        "archives-title": "Archivos",
-        "home-title": "Menú",
-        "profile-title": "Perfil",
-        "quizz-title": "Quizz",
+        "theme-title": "Modo oscuro",
         "credits-title": "Créditos",
         "authorization-title": "Permisos",
         "display-title": "Visualización",
@@ -21,8 +13,13 @@
         "notifications-title": "Notificaciones",
         "policy-title": "Política de uso de datos",
         "terms-title": "Condiciones de uso",
-        "group-list-title": "Grupos",
-        "group-title": "Grupo",
+
+
+        
+        "valid" : "Validar",
+        "cancel": "Anular",
+        "home-title": "Menú",
+        "profile-title": "Perfil",
         "login-title": "Iniciar sesión",
         "sign-up-title": "Registrarse",
         "email-title": "Email",
@@ -36,8 +33,6 @@
         "error-choose-message": "Se ha producido un error durante la selección",
         "success-upload-message": "Archivo correctamente subido",
         "infos-title": "Infos",
-        "contact-title": "Contactos",
-        "import-title": "Importar",
         "firstname": "Nombre",
         "lastname": "Apellido",
         "gender": "Sexo",
@@ -49,7 +44,6 @@
     "PARK": {
         "add-park-title" : "Añadir parque de estacionamiento",
         "parking-name-title": "Nombre del parque",
-
         "parking-manager-title": "Manager Name",
         "parking-address-title": "Direccion",
         "parking-phone-title": "Teléfono",
@@ -62,7 +56,6 @@
     "MENU": {
     },
     "HOME": {
-        "popup-quizz-launch-header": "Usted quiere continuar este quizz"
     },
     "PROFILE": {
         "gender-placeholder": "Escojer",
@@ -97,55 +90,17 @@
         "reset-password-button": "¿ Contraseña olvidada ?"
     },
     "SETTINGS": {
-        "theme-title": "Modo oscuro"
-    },
-    "QUIZZ": {
-        "question-range": "Pregunta {{currentQuestionIndexToDisplay}} / {{numberOfQuestions}}",
-        "question-sentence": "Pregunta : {{currentQuestion.sentence}}",
-        "valid": "Validar mis respuestas",
-        "right-answer-title": "¡ Bien hecho",
-        "right-answer-message": "Usted respondió bien esta pregunta",
-        "wrong-answer-title": "Daño",
-        "wrong-answer-message": "Cometiste errores"
     },
     "CREDITS": {
-        "authors": "Esta aplicación ha sido desarrollada por M.Pierre-Arnaud ALMEIDA y M.Cheikna DANSOKO"
+        "authors": "Esta aplicación ha sido desarrollada por M.Pierre-Arnaud ALMEIDA"
     },
     "LANGUAGES": {
-    },
-    "ARCHIVES": {
     },
     "NOTIFICATIONS": {
     },
     "AUTHORIZATIONS": {
     },
     "DISPLAY": {
-    },
-    "GROUP": {
-        "popup-group-launch-header" : "¿ Usted quiere ir para este grupo ?",
-        "popup-new-group-header": "Crear un nuevo grupo",
-        "popup-new-group-title": "Nombre del grupo",
-        "creation-date": "Fecha de creación",
-        "quit-group-title": "Dejar el grupo",
-        "add-quizz": "Añadir un cuestionario",
-        "delete-quizz": "Eliminar un cuestionario",
-        "add-participant": "Añadir un participante",
-        "delete-participant": "Borrar un participante",
-        "list-participants": "Lista de participantes",
-        "leave-title": "dejo el grupo",
-        "creation-title": "Grupo creado",
-        "add-member-message": "Persona agregada",
-        "add-quizz-message": "Quizz agregado",
-        "delete-contact-message": "Contacto eliminado",
-        "delete-member-message": "Personas eliminadas",
-        "delete-quizz-message": "Quizz eliminados"
-    },
-    "CONTACT": {
-        "popup-new-contact-header": "Añadir un contacto",
-        "scan-title": "Escanear",
-        "popup-add-contact": "Contacto correctamente añadido",
-        "delete-contact": "Borrar el contacto",
-        "deletion-contact-succeed": "Contacto eliminado"
     },
     "RESET-PASSWORD": {
         "message": "Ingrese su email :",
@@ -168,8 +123,8 @@
         "fields-error-message": "Falta el apellido o el nombre"
     },
     "POLICY": {
-        "part1-title": "Esta política de confidencialidad y uso de los datos recopilados se aplica a todos los sitios, aplicaciones, servicios y servicios de PtoB.",
-        "part1-subtitle": "La protección de sus datos personales es esencial, y PtoB se compromete a :",
+        "part1-title": "Esta política de confidencialidad y uso de los datos recopilados se aplica a todos los sitios, aplicaciones, servicios y servicios de FastPark.",
+        "part1-subtitle": "La protección de sus datos personales es esencial, y FastPark se compromete a :",
         "part1-itemlist1": "Nunca recopile ni use datos sin un propósito específico y legítimo.",
         "part1-itemlist2": "Recopile y utilice datos solo si es necesario para la prestación de los servicios solicitados, o si se recopila con su consentimiento expreso, a la luz de información clara.",
         "part1-itemlist3": "Mantenga los datos por un tiempo limitado, de acuerdo con los servicios y los servicios prestados.",
@@ -177,7 +132,7 @@
         "part1-itemlist5": "Solo realice transferencias de datos si es necesario, de conformidad con las normas legales y de seguridad.",
         "part1-itemlist6": "Asegure el respeto de sus derechos de acceso, modificación, eliminación y portabilidad de sus datos.",
         "part2-title": "¿ Por qué recopilar sus datos personales ?",
-        "part2-subtitle": "PtoB recopila y utiliza datos sobre usted solo para fines específicos y limitados.",
+        "part2-subtitle": "FastPark recopila y utiliza datos sobre usted solo para fines específicos y limitados.",
         "part2-subpart1-title": "Objetivos principales",
         "part2-subpart1-subtitle": "La recopilación de sus datos personales es esencial para la prestación del servicio o el servicio y, si se niega a proporcionarnos sus datos, los servicios correspondientes no pueden ser devueltos.",
         "part2-subpart1-itemlist1.1": "Responda a sus solicitudes (servicio de asistencia de preguntas y respuestas) :",
@@ -185,10 +140,10 @@
         "part2-subpart1-itemlist1.3": "Usted envía la documentación útil a su información.",
         "part2-subpart2-title": "Objetivos secundarios",
         "part2-subpart2-subtitle": "Además del servicio o servicio solicitado, puede aceptar o rechazar que sus datos se utilicen para los siguientes fines :",
-        "part2-subpart2-itemlist1": "Para ofrecerte información sobre nuestras novedades. PtoB ofrece regularmente nuevas herramientas. Puede recibir noticias sobre nuestras noticias, si las acepta al recopilar sus datos personales.",
-        "part2-subpart2-itemlist2": "Recopile su opinión sobre nuestros servicios o servicios: Para mejorar nuestros servicios, PtoB solo realiza encuestas de satisfacción. Puede aceptar participar si lo menciona específicamente al recopilar sus datos.",
+        "part2-subpart2-itemlist1": "Para ofrecerte información sobre nuestras novedades. FastPark ofrece regularmente nuevas herramientas. Puede recibir noticias sobre nuestras noticias, si las acepta al recopilar sus datos personales.",
+        "part2-subpart2-itemlist2": "Recopile su opinión sobre nuestros servicios o servicios: Para mejorar nuestros servicios, FastPark solo realiza encuestas de satisfacción. Puede aceptar participar si lo menciona específicamente al recopilar sus datos.",
         "part3-title": "¿ Qué datos recogemos ? ¿ Cómo los recogemos ?",
-        "part3-subtitle1.1": "PtoB se asegura de recopilar únicamente los datos estrictamente necesarios para los servicios que solicita y para los fines descritos en el capítulo anterior.",
+        "part3-subtitle1.1": "FastPark se asegura de recopilar únicamente los datos estrictamente necesarios para los servicios que solicita y para los fines descritos en el capítulo anterior.",
         "part3-subtitle1.2": "Los datos se recogen directamente del usuario de la aplicación.",
         "part3-subtitle2": "Dependiendo de los servicios solicitados, recopilaremos los siguientes datos personales :",
         "part3-itemlist1.1": "Identificación o datos de contacto (nombre, dirección de correo electrónico, número de teléfono): estos datos son esenciales para cualquier registro. Nos los comunica cuando se registra, por ejemplo, completando un formulario.",
@@ -199,47 +154,47 @@
         "part4-itemlist1": "Los datos recopilados para responder a una pregunta (línea de ayuda de preguntas y respuestas) se conservan hasta 1 año; Se destruyen al final de cada año calendario.",
         "part4-itemlist2": "Los datos recopilados para el registro se mantienen hasta la solicitud de eliminación.",
         "part5-title": "¿ Qué medios se utilizan para garantizar la seguridad de sus datos ?",
-        "part5-subtitle1": "PtoB está atento a la seguridad de sus datos, y para ello dedica importantes medios humanos y técnicos para garantizar su protección.",
-        "part5-subtitle2": "PtoB se compromete a tener en cuenta la protección de sus datos al diseñar nuevas herramientas o servicios.",
+        "part5-subtitle1": "FastPark está atento a la seguridad de sus datos, y para ello dedica importantes medios humanos y técnicos para garantizar su protección.",
+        "part5-subtitle2": "FastPark se compromete a tener en cuenta la protección de sus datos al diseñar nuevas herramientas o servicios.",
         "part5-subtitle3": "Nuestros procesos, nuestros métodos organizativos internos, las garantías que solicitamos a nuestros subcontratistas, así como las normas de protección técnica tienen como objetivo garantizar que sus datos personales estén protegidos.",
-        "part5-subtitle4": "En caso de violación de sus datos personales, PtoB se compromete a informarle lo antes posible y tomar todas las medidas necesarias para limitar los riesgos relacionados con esta violación.",
+        "part5-subtitle4": "En caso de violación de sus datos personales, FastPark se compromete a informarle lo antes posible y tomar todas las medidas necesarias para limitar los riesgos relacionados con esta violación.",
         "part5-subtitle5": "Por ejemplo :",
         "part5-itemlist1": "Solo el personal autorizado para tratar sus solicitudes, dentro del marco descrito por los propósitos en el capítulo I anterior, puede acceder a sus datos.",
         "part5-itemlist2": "Se implementan medidas de seguridad técnicas y organizativas. actualizaciones por parches, antivirus, antispam, gestión de vulnerabilidades, seguridad periférica de cortafuegos, detección de intrusos y sistemas de prevención, pero también gestión de cuentas de usuario y autorizaciones, análisis de riesgos.",
-        "part5-itemlist3": "El uso de un subcontratista y la transferencia de dichos datos al subcontratista responsable de usarlos en nombre de PtoB se limita estrictamente a la administración y el enrutamiento de las suscripciones a la exclusión de cualquier otra explotación comercial. Al actuar en nuestro nombre, los subcontratistas deben comprometerse a garantizar la seguridad de los datos confiados por PtoB y comprometerse a un nivel de seguridad comparable al de PtoB.",
-        "part5-itemlist4": "PtoB no utiliza ningún subcontratista instalado fuera de la Unión Europea, en un área geográfica donde las normas que garantizan la seguridad de los datos personales serían menos estrictas que las vigentes en Francia y, por lo tanto, sus datos no lo hacen, por parte de PtoB, no sujeto a transferencia fuera de la UE.",
-        "part5-itemlist5": "PtoB no comercializa sus datos bajo ninguna circunstancia.",
+        "part5-itemlist3": "El uso de un subcontratista y la transferencia de dichos datos al subcontratista responsable de usarlos en nombre de FastPark se limita estrictamente a la administración y el enrutamiento de las suscripciones a la exclusión de cualquier otra explotación comercial. Al actuar en nuestro nombre, los subcontratistas deben comprometerse a garantizar la seguridad de los datos confiados por FastPark y comprometerse a un nivel de seguridad comparable al de FastPark.",
+        "part5-itemlist4": "FastPark no utiliza ningún subcontratista instalado fuera de la Unión Europea, en un área geográfica donde las normas que garantizan la seguridad de los datos personales serían menos estrictas que las vigentes en Francia y, por lo tanto, sus datos no lo hacen, por parte de FastPark, no sujeto a transferencia fuera de la UE.",
+        "part5-itemlist5": "FastPark no comercializa sus datos bajo ninguna circunstancia.",
         "part6-title": "¿ Cuáles son tus derechos y cómo puedes ejercerlos ?",
         "part6-subtitle1": "De conformidad con las disposiciones del Reglamento Nº 2016/679, conocido como el Reglamento General de Protección de Datos (GDPR), usted tiene los siguientes derechos sobre sus datos :",
-        "part6-itemlist1": "Derecho de acceso e interrogación: tiene la posibilidad de solicitarnos que sepamos qué datos tiene PtoB sobre usted.",
+        "part6-itemlist1": "Derecho de acceso e interrogación: tiene la posibilidad de solicitarnos que sepamos qué datos tiene FastPark sobre usted.",
         "part6-itemlist2": "Derecho de corrección y borrado: tiene la posibilidad de corregir los datos que le conciernen y de solicitar la eliminación.",
-        "part6-itemlist3": "Derecho de oposición: tiene la posibilidad de oponerse a que PtoB use sus datos por una razón legítima. Las consecuencias de su oposición dependen del propósito por el cual su oposición es servida sobre nosotros; para ciertos propósitos (consulte el Capítulo I, propósitos principales), su negativa nos puede llevar a no poder brindarle el servicio o servicio solicitado.",
+        "part6-itemlist3": "Derecho de oposición: tiene la posibilidad de oponerse a que FastPark use sus datos por una razón legítima. Las consecuencias de su oposición dependen del propósito por el cual su oposición es servida sobre nosotros; para ciertos propósitos (consulte el Capítulo I, propósitos principales), su negativa nos puede llevar a no poder brindarle el servicio o servicio solicitado.",
         "part6-itemlist4": "Derecho de portabilidad: tiene la posibilidad de solicitar al INRS que recupere sus datos personales para poder disponer de ellos en formato electrónico.",
-        "part6-itemlist5.1": "Todos estos derechos se pueden ejercer directamente con PtoB, por correo a la siguiente dirección :",
+        "part6-itemlist5.1": "Todos estos derechos se pueden ejercer directamente con FastPark, por correo a la siguiente dirección :",
         "part6-itemlist5.2": "common.rail@gmail.com",
         "part6-itemlist6": "Para cualquier otra pregunta o información, puede dirigir sus mensajes a esta misma dirección."
     },
     "TERMS": {
         "art1-title": "ARTÍCULO 1 - OBJETO DE LAS CONDICIONES GENERALES DE USO",
-        "art1-item1": "El propósito de estos términos y condiciones (en adelante, «TOS») es definir las reglas para el uso de la aplicación móvil «PtoB» (en adelante, « la Aplicación» ).",
+        "art1-item1": "El propósito de estos términos y condiciones (en adelante, «TOS») es definir las reglas para el uso de la aplicación móvil «FastPark» (en adelante, « la Aplicación» ).",
         "art1-item2": "Al instalar la Aplicación en su terminal y/o acceder a la Aplicación, acepta sin reservas todos estos Términos y acepta cumplir con sus obligaciones. En caso de que no acepte los Términos del Servicio o tenga reservas, no utilice la Aplicación",
-        "art1-item3": "Los Términos expresan el acuerdo completo entre usted y PtoB aplicable al uso de la Aplicación. PtoB se reserva el derecho de modificar estos Términos al actualizarlos en cualquier momento. La versión del GTC que se aplica entre usted y PtoB es la versión vigente en el momento de su conexión y su uso de la Aplicación. Por lo tanto, le recomendamos que consulte esta página con regularidad para leer la GCU vigente cuando utilice la Aplicación.",
+        "art1-item3": "Los Términos expresan el acuerdo completo entre usted y FastPark aplicable al uso de la Aplicación. FastPark se reserva el derecho de modificar estos Términos al actualizarlos en cualquier momento. La versión del GTC que se aplica entre usted y FastPark es la versión vigente en el momento de su conexión y su uso de la Aplicación. Por lo tanto, le recomendamos que consulte esta página con regularidad para leer la GCU vigente cuando utilice la Aplicación.",
         "art2-title": "ARTÍCULO 2 - OBJETO Y FUNCIONALIDADES DE LA SOLICITUD",
         "art2-item1": "La aplicación te permite :",
         "art2-item2": "Consultar documentos sobre temas específicos.",
         "art2-item3": "Pon a prueba tus conocimientos sobre pruebas",
-        "art2-item4": "Estas características pueden ser enriquecidas o modificadas en cualquier momento por PtoB sin incurrir en responsabilidad como tal.",
+        "art2-item4": "Estas características pueden ser enriquecidas o modificadas en cualquier momento por FastPark sin incurrir en responsabilidad como tal.",
         "art3-title": "ARTÍCULO 3 - ACCESO A LA SOLICITUD",
         "art3-item1": "Para acceder a la Aplicación, debe tener un dispositivo móvil y acceso a Internet.",
         "art3-item2": "La aplicación se puede descargar de forma gratuita desde las plataformas Apple Store y Google Play Store en los siguientes dispositivos móviles :",
         "art3-item3": "Teléfono móvil Apple® Iphone® con sistema operativo iOS que ejecuta iOS 10.0 o superior",
         "art3-item4": "Teléfono móvil con el sistema operativo mínimo Android® Lollipop (API 21). La versión de software de la Aplicación se puede actualizar de vez en cuando para agregar nuevas funciones y servicios.",
         "art3-item5": "Una vez que la aplicación está instalada en su terminal, solo necesita iniciar sesión con su dirección de correo electrónico.",
-        "art3-item6": "Si se le hace referencia en PtoB, recibirá una notificación en su buzón que le permitirá validar su cuenta.",
-        "art3-item7": "Si aún no es parte de la comunidad, no dude en comunicarse con nosotros para disfrutar de todos los beneficios de PtoB en esta dirección. : common.rail94@gmail.com",
+        "art3-item6": "Si se le hace referencia en FastPark, recibirá una notificación en su buzón que le permitirá validar su cuenta.",
+        "art3-item7": "Si aún no es parte de la comunidad, no dude en comunicarse con nosotros para disfrutar de todos los beneficios de FastPark en esta dirección. : common.rail94@gmail.com",
         "art3-item8": "Usted acepta, al usar y navegar por la Aplicación, proporcionar información verdadera, precisa y completa como sea posible. También acepta actualizar esta información tan pronto como sea posible en caso de un cambio en la información.",
         "art4-title": "ARTÍCULO 4 - LICENCIA DE USO",
-        "art4-item1": "PtoB le otorga un derecho personal para utilizar la Aplicación y su contenido. Este derecho se otorga de forma no exclusiva, revocable, no transferible, no transferible, en todo el mundo y de forma gratuita y para el uso exclusivo de la Aplicación, con la exclusión de cualquier otro propósito.",
+        "art4-item1": "FastPark le otorga un derecho personal para utilizar la Aplicación y su contenido. Este derecho se otorga de forma no exclusiva, revocable, no transferible, no transferible, en todo el mundo y de forma gratuita y para el uso exclusivo de la Aplicación, con la exclusión de cualquier otro propósito.",
         "art4-item2": "Está estrictamente prohibido acceder y / o usar y / o intentar acceder o usar los códigos fuente u objetos de la Aplicación.",
         "art4-item3": "No adquiere ningún derecho de propiedad intelectual sobre la Aplicación o su contenido, ni ningún otro derecho que no sea el conferido por estos Términos.",
         "art5-title": "ARTÍCULO 5 - DATOS PERSONALES",
@@ -247,18 +202,18 @@
         "art5-item2": "Sus derechos de acceso y rectificación se pueden ejercer enviándonos un correo electrónico a la dirección common.rail94@gmail.com",
         "art6-title": "ARTÍCULO 6 - PROPIEDAD INTELECTUAL",
         "art6-item1": "Todo el contenido de la Aplicación se rige por la legislación francesa, comunitaria e internacional sobre derechos de autor y propiedad intelectual.",
-        "art6-item2": "Todos los derechos de reproducción y representación relacionados con la Aplicación están reservados por PtoB, incluidas las representaciones gráficas, iconográficas y fotográficas, independientemente del territorio de protección y de si estos derechos han sido archivados o no. no.",   
+        "art6-item2": "Todos los derechos de reproducción y representación relacionados con la Aplicación están reservados por FastPark, incluidas las representaciones gráficas, iconográficas y fotográficas, independientemente del territorio de protección y de si estos derechos han sido archivados o no. no.",   
         "art6-item3": "La reproducción y / o representación de la totalidad o parte de la Aplicación, cualquiera que sea el medio, incluidos todos los nombres comerciales, marcas registradas, logotipos, nombres de dominio y otros signos distintivos, está formalmente prohibida y constituye una infracción sancionada por el Código de propiedad intelectual.",
-        "art6-item4": "Las palabras PtoB y todos los logotipos son marcas registradas de PtoB",
+        "art6-item4": "Las palabras FastPark y todos los logotipos son marcas registradas de FastPark",
         "art7-title": "ARTÍCULO 7 - DISPONIBILIDAD DE LA SOLICITUD",
-        "art7-item1": "La aplicación es accesible en línea los 7 días de la semana y las 24 horas del día. Sin embargo, dada la complejidad de Internet y la afluencia, en ciertos momentos, de los usuarios de Internet, PtoB no ofrece ninguna garantía de continuidad. del servicio y no puede ser considerado responsable en caso de imposibilidad temporal de acceder a la totalidad o parte de la Aplicación. No se concede ningún derecho de compensación bajo este párrafo. PtoB se reserva el derecho de rescindir, sin previo aviso, sin compensación y a su entera discreción, ya sea de forma permanente o provisional, para proporcionar todo o parte del Servicio o las funciones.",
+        "art7-item1": "La aplicación es accesible en línea los 7 días de la semana y las 24 horas del día. Sin embargo, dada la complejidad de Internet y la afluencia, en ciertos momentos, de los usuarios de Internet, FastPark no ofrece ninguna garantía de continuidad. del servicio y no puede ser considerado responsable en caso de imposibilidad temporal de acceder a la totalidad o parte de la Aplicación. No se concede ningún derecho de compensación bajo este párrafo. FastPark se reserva el derecho de rescindir, sin previo aviso, sin compensación y a su entera discreción, ya sea de forma permanente o provisional, para proporcionar todo o parte del Servicio o las funciones.",
         "art8-title": "ARTICLE 8 - LIMITATION DE RESPONSABILITE – ABSENCE DE GARANTIE", 
-        "art8-item1": "PtoB se compromete a implementar todos los medios necesarios para garantizar el mejor acceso a la Aplicación.",
-        "art8-item2": "Usted es el único responsable de su identificador. Usted acuerda mantenerlos confidenciales y no pasarlos a terceros. Si se da cuenta de cualquier uso no autorizado de su cuenta, usted es responsable de informar a PtoB de inmediato escribiendo a la siguiente dirección : common.rail94@gmail.com",
+        "art8-item1": "FastPark se compromete a implementar todos los medios necesarios para garantizar el mejor acceso a la Aplicación.",
+        "art8-item2": "Usted es el único responsable de su identificador. Usted acuerda mantenerlos confidenciales y no pasarlos a terceros. Si se da cuenta de cualquier uso no autorizado de su cuenta, usted es responsable de informar a FastPark de inmediato escribiendo a la siguiente dirección : common.rail94@gmail.com",
         "art8-item3": "En general, usted acepta y reconoce que su uso de la Aplicación, incluida la información que transmite, es su única y total responsabilidad.",
-        "art8-item4": "Al utilizar la Aplicación, usted acepta no actuar de manera dañina o puede causar daños a la imagen, intereses o derechos de PtoB, dañar o inutilizar la Aplicación.",
-        "art8-item5": "PtoB no puede ser considerado responsable y no puede ser considerado responsable por cualquier daño directo o indirecto que resulte de la falta de disponibilidad de la Aplicación.",
-        "art8-item6": "PtoB no se responsabiliza de ningún daño resultante de la pérdida, alteración o uso fraudulento de los datos, la transmisión accidental de virus u otros elementos dañinos, la actitud o el comportamiento de un tercera.",
+        "art8-item4": "Al utilizar la Aplicación, usted acepta no actuar de manera dañina o puede causar daños a la imagen, intereses o derechos de FastPark, dañar o inutilizar la Aplicación.",
+        "art8-item5": "FastPark no puede ser considerado responsable y no puede ser considerado responsable por cualquier daño directo o indirecto que resulte de la falta de disponibilidad de la Aplicación.",
+        "art8-item6": "FastPark no se responsabiliza de ningún daño resultante de la pérdida, alteración o uso fraudulento de los datos, la transmisión accidental de virus u otros elementos dañinos, la actitud o el comportamiento de un tercera.",
         "art8-item7": "No incurre en responsabilidad por (i) la imposibilidad de acceder a la Aplicación, (ii) el uso indebido de la Aplicación (iii) la saturación de Internet, (iv) posibles averías en los terminales móviles utilizados por usted, (v) en caso de fuerza mayor o hecho fuera de su control.",
         "art9-title": "ARTÍCULO 9 - NO RENUNCIA",
         "art9-item1": "El hecho de que una de las partes no confíe en un incumplimiento por parte de la otra parte de cualquiera de las obligaciones mencionadas en estas CGU no puede interpretarse para el futuro como una exención de la obligación en causar.",
@@ -266,6 +221,6 @@
         "art10-item1": "Estos términos están sujetos a la ley francesa.",
         "art10-item2": "Cualquier disputa relacionada con la Aplicación o la interpretación de estos Términos se presentará ante el tribunal competente.",
         "art11-title": "ARTÍCULO 11 - CONTACTO",
-        "art11-item1": "Puede dirigir sus preguntas o comentarios sobre estos Términos a PtoB escribiendo a la siguiente dirección : common.rail94@gmail.com"
+        "art11-item1": "Puede dirigir sus preguntas o comentarios sobre estos Términos a FastPark escribiendo a la siguiente dirección : common.rail94@gmail.com"
     }
 }
