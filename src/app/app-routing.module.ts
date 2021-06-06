@@ -27,6 +27,30 @@ const routes: Routes = [
     path: 'languages',
     loadChildren: () => import('./pages/languages/languages.module').then( m => m.LanguagesPageModule)
   },
+  {
+    path: 'display',
+    loadChildren: () => import('./pages/display/display.module').then( m => m.DisplayPageModule)
+  },
+  {
+    path: 'authorization',
+    loadChildren: () => import('./pages/authorization/authorization.module').then( m => m.AuthorizationPageModule)
+  },
+  {
+    path: 'notifications',
+    loadChildren: () => import('./pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
+  },
+  {
+    path: 'terms',
+    loadChildren: () => import('./pages/terms/terms.module').then( m => m.TermsPageModule)
+  },
+  {
+    path: 'policy',
+    loadChildren: () => import('./pages/policy/policy.module').then( m => m.PolicyPageModule)
+  },
+  {
+    path: 'credits',
+    loadChildren: () => import('./pages/credits/credits.module').then( m => m.CreditsPageModule)
+  },
 ];
 
 @NgModule({
