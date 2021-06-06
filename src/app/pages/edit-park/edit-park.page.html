@@ -11,9 +11,37 @@
       <ion-input required="true" type="text" autocomplete="on" [(ngModel)]='park.name'
         (change)='onChangeName()'></ion-input>
     </ion-item>
+
+    <ion-item name="item-manager">
+      <ion-label>{{ 'PARK.parking-manager-title' | translate }}</ion-label>
+      <ion-input>link manager</ion-input>
+    </ion-item>
+
+    <ion-item name="item-address">
+      <ion-label>{{ 'PARK.parking-address-title' | translate }}</ion-label>
+      <ion-input>link address</ion-input>
+    </ion-item>
+
+    <ion-item name="item-phone-number">
+      <ion-label>{{ 'PARK.parking-phone-title' | translate }}</ion-label>
+      <ion-input required="true" type="number" autocomplete="on" [(ngModel)]='park.phoneNumber'
+        (change)='updatePark()'></ion-input>
+    </ion-item>
+
+    <ion-item name="item-free-places">
+      <ion-label>{{ 'PARK.parking-free-places-title' | translate }}</ion-label>
+      <ion-input required="true" type="number" autocomplete="on" [(ngModel)]='park.freePlaces'
+        (change)='updatePark()'></ion-input>
+    </ion-item>
+
+    <ion-item name="item-total-places">
+      <ion-label>{{ 'PARK.parking-total-places-title' | translate }}</ion-label>
+      <ion-input required="true" type="number" autocomplete="on" [(ngModel)]='park.totalPlaces'
+        (change)='updatePark()'></ion-input>
+    </ion-item>
     
     <ion-button id="button-delete-account" expand="full" fill="clear" (click)="deleteAccount()">
-      <ion-label color="danger">{{ 'PROFILE.delete-account' | translate }}</ion-label>
+      <ion-label color="danger">{{ 'PARK.delete-park' | translate }}</ion-label>
     </ion-button>
   </ion-list>
 </ion-content>
