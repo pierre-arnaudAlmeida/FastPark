@@ -48,7 +48,14 @@
     },
     "PARK": {
         "add-park-title" : "Ajouter un parking",
-        "parking-name-title": "Nom du parking"
+        "parking-name-title": "Nom du parking",
+
+        "parking-manager-title": "Nom du gestionnaire",
+        "parking-address-title": "Adresse",
+        "parking-phone-title": "Téléphone",
+        "parking-free-places-title": "Places libres",
+        "parking-total-places-title": "Places totales",
+        "delete-park": "Supprimer le parking"
     },
     "RUNPAGE": {
     },
