@@ -10,7 +10,7 @@
 <ion-content padding>
   <ion-list>
     <ion-item lines="none">
-      <ion-label>{{ 'SETTINGS.theme-title' | translate }}</ion-label>
+      <ion-label>{{ 'UTILS.theme-title' | translate }}</ion-label>
       <ion-toggle [checked]="isToggled" (ionChange)="toggleAppTheme()"></ion-toggle>
       <ion-icon name="moon" color="warning"></ion-icon>
     </ion-item>
@@ -31,7 +31,7 @@
       <ion-label>{{ 'UTILS.notifications-title' | translate }}</ion-label>
     </ion-item>
 
-    <ion-item lines="none" expand="full" fill="clear" routerLink="/menu/terms">
+    <ion-item lines="none" expand="full" fill="clear" routerLink="/terms">
       <ion-label>{{ 'UTILS.terms-title' | translate }}</ion-label>
     </ion-item>
 
