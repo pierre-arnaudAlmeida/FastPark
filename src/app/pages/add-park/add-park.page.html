@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'PARK.add-park-title' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item id="item-park-name">
+    <ion-label position="floating">{{ 'PARK.parking-name-title' | translate }}</ion-label>
+    <ion-input [(ngModel)]="park.name"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="createPark()" color="success" id="sign-in-button">
+    <ion-icon id="icon-in-button-colored" slot="icon-only" name="log-in"></ion-icon>
+    <label>{{ 'UTILS.add-title' | translate }}</label>
+  </ion-button>
+</ion-content>
