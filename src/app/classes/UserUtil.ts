@@ -76,7 +76,7 @@ export class EntityUtil {
             firstName: "",
             lastName: "",
             role: "",
-            //TODO Ajouter position avec un type geopoint
+            //position: null,
             phoneNumber: "",
             creationDate: new Date().toISOString(),
             updateDate: new Date().toISOString(),   
