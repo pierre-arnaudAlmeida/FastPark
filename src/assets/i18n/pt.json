@@ -13,6 +13,8 @@
         "notifications-title": "Notificações",
         "policy-title": "Política de uso de dados",
         "terms-title": "Termos de uso",
+        "login-button-title": "Iniciar sessão",
+        "sign-up-title": "Registrar-se",
 
 
 
@@ -22,10 +24,8 @@
         "home-title": "Menu",
         "profile-title": "Perfil",
         "login-title": "Iniciar sessão",
-        "sign-up-title": "Registrar-se",
         "email-title": "Email",
         "password-title": "Senha",
-        "login-button-title": "Iniciar sessão",
         "reset-title" : "Redefinir senha",
         "email-reset-title": "Redefinição",
         "popup-email-error": "O email não é válido !",

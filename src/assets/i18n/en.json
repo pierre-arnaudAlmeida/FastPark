@@ -13,18 +13,18 @@
         "notifications-title": "Notifications",
         "policy-title": "Data Usage Policy",
         "terms-title": "Terms of use",
+        "login-button-title": "Sign in",
+        "sign-up-title": "Sign-up",
 
 
-
+        
         "valid" : "Valid",
         "cancel": "Cancel",
         "home-title": "Home",
         "profile-title": "Profile",
         "login-title": "Sign in",
-        "sign-up-title": "Sign-up",
         "email-title": "Email",
         "password-title": "Password",
-        "login-button-title": "Sign in",
         "reset-title" : "Reset password",
         "email-reset-title": "Reset",
         "popup-email-error": "Invalid email !",

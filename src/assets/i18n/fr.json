@@ -13,6 +13,8 @@
         "notifications-title": "Notifications",
         "policy-title": "Politique d'utilisation de données",
         "terms-title": "Conditions d'utilisation",
+        "login-button-title": "Se connecter",
+        "sign-up-title": "S'inscrire",
 
 
 
@@ -22,10 +24,8 @@
         "home-title": "Menu",
         "profile-title": "Profil",
         "login-title": "Connexion",
-        "sign-up-title": "S'inscrire",
         "email-title": "Adresse mail",
         "password-title": "Mot de passe",
-        "login-button-title": "Se connecter",
         "reset-title" : "Réinitialisation du mot de passe",
         "email-reset-title": "Réinitialisation",
         "popup-email-error": "L'adresse mail n'est pas valide !",

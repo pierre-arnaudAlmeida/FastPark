@@ -13,18 +13,18 @@
         "notifications-title": "Notificaciones",
         "policy-title": "Política de uso de datos",
         "terms-title": "Condiciones de uso",
-
-
+        "login-button-title": "Iniciar sesión",
+        "sign-up-title": "Registrarse",
         
+
+
         "valid" : "Validar",
         "cancel": "Anular",
         "home-title": "Menú",
         "profile-title": "Perfil",
         "login-title": "Iniciar sesión",
-        "sign-up-title": "Registrarse",
         "email-title": "Email",
         "password-title": "Contraseña",
-        "login-button-title": "Iniciar sesión",
         "reset-title" : "Restablecer contraseña",
         "email-reset-title": "Restabelecimiento",
         "popup-email-error": "El email no es válido!",
