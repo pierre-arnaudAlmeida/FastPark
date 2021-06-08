@@ -51,6 +51,10 @@ const routes: Routes = [
     path: 'credits',
     loadChildren: () => import('./pages/credits/credits.module').then( m => m.CreditsPageModule)
   },
+  {
+    path: 'run',
+    loadChildren: () => import('./pages/run/run.module').then( m => m.RunPageModule)
+  },
 ];
 
 @NgModule({
