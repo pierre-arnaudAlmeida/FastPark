@@ -7,7 +7,32 @@
 <ion-content>
   <ion-item id="item-park-name">
     <ion-label position="floating">{{ 'PARK.parking-name-title' | translate }}</ion-label>
-    <ion-input [(ngModel)]="park.name"></ion-input>
+    <ion-input clear required="true" [(ngModel)]="park.name"></ion-input>
+  </ion-item>
+
+  <!--Mettre un modal pour choisir un user dans la liste des user-->
+  <ion-item name="item-manager">
+    <ion-label position="floating">{{ 'PARK.parking-manager-title' | translate }}</ion-label>
+  </ion-item>
+
+  <!--Mettre un modal pour rentrer une nouvelle adresse-->
+  <ion-item name="item-address">
+    <ion-label position="floating">{{ 'PARK.parking-address-title' | translate }}</ion-label>
+  </ion-item>
+
+  <ion-item name="item-phone-number">
+    <ion-label position="floating">{{ 'PARK.parking-phone-title' | translate }}</ion-label>
+    <ion-input required="true" type="number" [(ngModel)]='park.phoneNumber'></ion-input>
+  </ion-item>
+
+  <ion-item name="item-free-places">
+    <ion-label position="floating">{{ 'PARK.parking-free-places-title' | translate }}</ion-label>
+    <ion-input required="true" type="number" [(ngModel)]='park.freePlaces'></ion-input>
+  </ion-item>
+
+  <ion-item name="item-total-places">
+    <ion-label position="floating">{{ 'PARK.parking-total-places-title' | translate }}</ion-label>
+    <ion-input required="true" type="number" [(ngModel)]='park.totalPlaces'></ion-input>
   </ion-item>
 
   <ion-button (click)="createPark()" color="success" id="sign-in-button">

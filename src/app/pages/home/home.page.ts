@@ -5,7 +5,6 @@ import { EntityService } from '../../services/entity.service';
 import { Park } from '../../shared/Park';
 import { ParkUtil } from '../../classes/ParkUtil';
 import { Util } from '../../classes/Util';
-import { AlertController, ToastController } from '@ionic/angular';
 import { property } from '../../app.property';
 
 @Component({

@@ -25,16 +25,15 @@ export class AddParkPage implements OnInit {
   constructor(private entityService: EntityService, translateS: TranslateService) {
    }
 
-  ngOnInit() {
+  async ngOnInit() {
   }
 
   async createPark() {
-    //TODO Ajouter d'autres informations que le nom du parking
-    // ajouter le manager, l'adresse, le nombre de place
+    //TODO Ajouter le manager, l'adresse via un modal
     await this.entityService.create(this.park, ParkUtil.parkCollectionName).then(
       id => {
         this.park.id = id;
-        console.log(this.park.id);
       });
+    this.park = ParkUtil.getEmptyPark();
   }
 }
