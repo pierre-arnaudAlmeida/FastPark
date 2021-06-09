@@ -45,22 +45,3 @@
     </ion-button>
   </ion-list>
 </ion-content>
-
-<ion-tabs [ngClass]="selectedTheme">
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button routerLinkActive="tab-selected" routerLink="/home" class="ios" tab="home">
-      <ion-icon name="car"></ion-icon>
-      <ion-label>{{ 'UTILS.parks-title' | translate }}</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button routerLinkActive="tab-selected" routerLink="/add-park" class="ios" tab="add-park">
-      <ion-icon name="add-circle"></ion-icon>
-      <ion-label>{{ 'UTILS.add-title' | translate }}</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button routerLinkActive="tab-selected" routerLink="/settings" class="ios" tab="settings">
-      <ion-icon name="settings"></ion-icon>
-      <ion-label>{{ 'UTILS.settings-title' | translate }}</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
