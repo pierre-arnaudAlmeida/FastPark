@@ -8,4 +8,12 @@ export class Util {
     static isUserConnected() : boolean {
         return this.currentUserId != null;
     }
+
+    static get $currentUserId() : string{
+        return this.currentUserId;
+    }
+
+    static set $currentUserId(newId : string){
+        this.currentUserId = newId;
+    }
 }

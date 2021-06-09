@@ -2,7 +2,7 @@ import { DocumentChangeAction, DocumentSnapshot } from '@angular/fire/firestore'
 import { User } from '../shared/User';
 import { property } from "../app.property";
 
-export class EntityUtil {
+export class UserUtil {
 
     /* Noms des collections firebase avec pour : 
      *  - nom de propriété : nom de l'entité en minuscule suivit de 'CollectionName'
