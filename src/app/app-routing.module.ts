@@ -7,11 +7,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
     path: 'add-park',
     loadChildren: () => import('./pages/add-park/add-park.module').then( m => m.AddParkPageModule)
   },
@@ -55,6 +50,19 @@ const routes: Routes = [
     path: 'run',
     loadChildren: () => import('./pages/run/run.module').then( m => m.RunPageModule)
   },
+  {
+    path: '',
+    redirectTo: 'run',
+    pathMatch: 'full'
+  },  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
+  },
+
 ];
 
 @NgModule({
