@@ -51,10 +51,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/run/run.module').then( m => m.RunPageModule)
   },
   {
-    path: '',
-    redirectTo: 'run',
-    pathMatch: 'full'
-  },  {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
@@ -62,7 +58,11 @@ const routes: Routes = [
     path: 'signup',
     loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
   },
-
+  {
+    path: '',
+    redirectTo: 'run',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
