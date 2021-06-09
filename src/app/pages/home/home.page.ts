@@ -20,7 +20,7 @@ export class HomePage implements OnInit {
   constructor(private entityService: EntityService, translateS: TranslateService) {
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.entityService.getAll(property.collectionName.park).subscribe(data => {
       this.allParks = ParkUtil.mapCollection(data, property.collectionName.park);
     });

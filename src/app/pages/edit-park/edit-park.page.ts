@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Util } from '../../classes/Util';
+import { ActivatedRoute } from '@angular/router';
 import { Park } from '../../shared/Park';
 import { ParkUtil } from '../../classes/ParkUtil';
 import { EntityService } from '../../services/entity.service';
 import { TranslateService } from '@ngx-translate/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-edit-park',
@@ -17,7 +17,7 @@ export class EditParkPage implements OnInit {
   park: Park = ParkUtil.getEmptyPark();
   parkBeforeUpdate: Park;
   
-  constructor(translateS: TranslateService, private entityService: EntityService, private actRoute: ActivatedRoute) {
+  constructor(translateS: TranslateService, private entityService: EntityService, private actRoute: ActivatedRoute, private navCtrl: NavController) {
     this.park.id = this.actRoute.snapshot.paramMap.get('id');
    }
     
@@ -46,6 +46,11 @@ export class EditParkPage implements OnInit {
 
   async updatePark() {
     await this.entityService.update(this.park.id, this.park, ParkUtil.parkCollectionName);
+  }
+
+  async deletePark() {
+    await this.entityService.delete(this.park.id, ParkUtil.parkCollectionName);
+    this.navCtrl.navigateForward('/home');
   }
 
 }
