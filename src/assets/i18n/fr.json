@@ -15,17 +15,21 @@
         "terms-title": "Conditions d'utilisation",
         "login-button-title": "Se connecter",
         "sign-up-title": "S'inscrire",
+        "email-title": "Adresse mail",
+        "password-title": "Mot de passe",
+        "firstname": "Prénom",
+        "lastname": "Nom",
+        "phone-number": "Téléphone",
+        "login-title": "Connexion",
 
 
 
+        
         "valid" : "Valider",
         "cancel": "Annuler",
         "archives-title": "Archives",
         "home-title": "Menu",
         "profile-title": "Profil",
-        "login-title": "Connexion",
-        "email-title": "Adresse mail",
-        "password-title": "Mot de passe",
         "reset-title" : "Réinitialisation du mot de passe",
         "email-reset-title": "Réinitialisation",
         "popup-email-error": "L'adresse mail n'est pas valide !",
@@ -34,11 +38,6 @@
         "error-choose-message": "Une érreur est survenu pendant la selection",
         "success-upload-message": "Fichier correctement uploader",
         "infos-title": "Infos",
-        "firstname": "Prénom",
-        "lastname": "Nom",
-        "gender": "Sexe",
-        "birthday": "Date de naissance",
-        "phone-number": "Téléphone",
         "delete-title": "Supprimer",
         "language-message": "Langue mise à jour"
     },

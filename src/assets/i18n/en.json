@@ -15,16 +15,19 @@
         "terms-title": "Terms of use",
         "login-button-title": "Sign in",
         "sign-up-title": "Sign-up",
+        "email-title": "Email",
+        "firstname": "First Name",
+        "lastname": "Last Name",
+        "phone-number": "Phone Number",
+        "password-title": "Password",
+        "login-title": "Sign in",
 
 
-        
+
         "valid" : "Valid",
         "cancel": "Cancel",
         "home-title": "Home",
         "profile-title": "Profile",
-        "login-title": "Sign in",
-        "email-title": "Email",
-        "password-title": "Password",
         "reset-title" : "Reset password",
         "email-reset-title": "Reset",
         "popup-email-error": "Invalid email !",
@@ -33,11 +36,6 @@
         "error-choose-message": "An error occurred during the selection",
         "success-upload-message": "File correctly uploaded",
         "infos-title": "Infos",
-        "firstname": "First Name",
-        "lastname": "Last Name",
-        "gender": "Gender",
-        "birthday": "Birthday",
-        "phone-number": "Phone Number",
         "delete-title": "Delete",
         "language-message": "Language updated"
     },

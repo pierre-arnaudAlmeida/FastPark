@@ -15,16 +15,19 @@
         "terms-title": "Condiciones de uso",
         "login-button-title": "Iniciar sesión",
         "sign-up-title": "Registrarse",
-        
+        "email-title": "Email",
+        "firstname": "Nombre",
+        "lastname": "Apellido",
+        "phone-number": "Teléfono",
+        "password-title": "Contraseña",
+        "login-title": "Iniciar sesión",
+
 
 
         "valid" : "Validar",
         "cancel": "Anular",
         "home-title": "Menú",
         "profile-title": "Perfil",
-        "login-title": "Iniciar sesión",
-        "email-title": "Email",
-        "password-title": "Contraseña",
         "reset-title" : "Restablecer contraseña",
         "email-reset-title": "Restabelecimiento",
         "popup-email-error": "El email no es válido!",
@@ -33,11 +36,6 @@
         "error-choose-message": "Se ha producido un error durante la selección",
         "success-upload-message": "Archivo correctamente subido",
         "infos-title": "Infos",
-        "firstname": "Nombre",
-        "lastname": "Apellido",
-        "gender": "Sexo",
-        "birthday": "Fecha de nacimiento",
-        "phone-number": "Teléfono",
         "delete-title": "Borrar",
         "language-message": "Lengua actualizada"
     },

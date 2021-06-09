@@ -15,6 +15,13 @@
         "terms-title": "Termos de uso",
         "login-button-title": "Iniciar sessão",
         "sign-up-title": "Registrar-se",
+        "email-title": "Email",
+        "password-title": "Senha",
+        "firstname": "Nome",
+        "lastname": "Apelido",
+        "phone-number": "Telemóvel",
+        "login-title": "Iniciar sessão",
+
 
 
 
@@ -23,9 +30,6 @@
         "archives-title": "Arquivo",
         "home-title": "Menu",
         "profile-title": "Perfil",
-        "login-title": "Iniciar sessão",
-        "email-title": "Email",
-        "password-title": "Senha",
         "reset-title" : "Redefinir senha",
         "email-reset-title": "Redefinição",
         "popup-email-error": "O email não é válido !",
@@ -34,11 +38,6 @@
         "error-choose-message": "Ocorreu um erro durante a seleção",
         "success-upload-message": "Arquivo corretamente enviado",
         "infos-title": "Informações",
-        "firstname": "Nome",
-        "lastname": "Apelido",
-        "gender": "Sexo",
-        "birthday": "Data de nacimento",
-        "phone-number": "Telemóvel",
         "delete-title": "Eliminar",
         "language-message": "Idioma atualizado"
     },
