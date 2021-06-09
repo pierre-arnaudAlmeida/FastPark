@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { EntityService } from '../../services/entity.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Park } from '../../shared/Park';
 import { ParkUtil } from '../../classes/ParkUtil';
-import { AlertController, ToastController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-park',
@@ -22,7 +21,7 @@ export class AddParkPage implements OnInit {
 
   park: Park = ParkUtil.getEmptyPark();
 
-  constructor(private entityService: EntityService, translateS: TranslateService) {
+  constructor(private entityService: EntityService, translateS: TranslateService, private navCtrl: NavController) {
    }
 
   async ngOnInit() {
@@ -35,5 +34,6 @@ export class AddParkPage implements OnInit {
         this.park.id = id;
       });
     this.park = ParkUtil.getEmptyPark();
+    this.navCtrl.navigateForward('/home');
   }
 }
