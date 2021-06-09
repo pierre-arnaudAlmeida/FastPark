@@ -17,11 +17,14 @@ export class HomePage implements OnInit {
   allParks = [];
   park: Park = ParkUtil.getEmptyPark();
 
-  constructor(private entityService: EntityService, translateS: TranslateService) {
+  constructor(private router: Router, private entityService: EntityService, translateS: TranslateService) {
   }
 
-  ngOnInit() {
-    this.entityService.getAll(property.collectionName.park).subscribe(data => {
+  async ngOnInit() {
+    if (!Util.isUserConnected()) {
+      this.router.navigateByUrl("/login");
+    }
+    await this.entityService.getAll(property.collectionName.park).subscribe(data => {
       this.allParks = ParkUtil.mapCollection(data, property.collectionName.park);
     });
   }

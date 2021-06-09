@@ -4,6 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { Park } from '../../shared/Park';
 import { ParkUtil } from '../../classes/ParkUtil';
 import { NavController } from '@ionic/angular';
+import { Util } from '../../classes/Util';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-park',
@@ -21,10 +23,13 @@ export class AddParkPage implements OnInit {
 
   park: Park = ParkUtil.getEmptyPark();
 
-  constructor(private entityService: EntityService, translateS: TranslateService, private navCtrl: NavController) {
+  constructor(private router: Router, private entityService: EntityService, translateS: TranslateService, private navCtrl: NavController) {
    }
 
   async ngOnInit() {
+    if (!Util.isUserConnected()) {
+      this.router.navigateByUrl("/login");
+    }
   }
 
   async createPark() {
