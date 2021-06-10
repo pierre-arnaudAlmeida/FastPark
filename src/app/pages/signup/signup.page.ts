@@ -78,21 +78,12 @@ export class SignupPage implements OnInit {
     }
     else {
       await loading.present();
-      // Création de l'utilisateur avec email et mot de passe dans l'Authentification sur Firebase
       await this.afAuth.createUserWithEmailAndPassword(email, this.user.password).then(
-        // On entre ici si la création de l'utilisateur via Firebase Authentification s'est bien déroulée
         async (newUser) => {
-          //On vide le champ password afin qu'il ne soit pas sauvegardé de manière visible sur firebase
           this.user.password = "";
-          /* Création de l'entité User associée à l'utilisateur Firebase afin de stocker 
-           * plus d'informations comme le nom, l'age, le numéro de téléphone, ...
-           */
+          this.user.role = "USER"
           await this.entityService.create(this.user, UserUtil.userCollectionName).then(
-            // On entre ici si les données de l'utilisateur ont bien été créées
             id => {
-              /* Association entre l'authentification firebase (email, mot de passe) 
-               * avec l'entité User nouvellement créée 
-               */
               newUser.user.updateProfile({
                 displayName: id,
               });
