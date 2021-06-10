@@ -7,6 +7,7 @@ import { Util } from '../../classes/Util';
 import { User } from '../../shared/User';
 import { UserCredential } from '@firebase/auth-types';
 import { UserUtil } from '../../classes/UserUtil';
+import { AuthGuard } from '../../guards/auth.guard';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,7 @@ export class LoginPage implements OnInit {
 
   emailErrorCode: number;
 
-  constructor(public afAuth: AngularFireAuth, public alertController: AlertController, private router: Router, translateS: TranslateService, private loadingController: LoadingController) {
+  constructor(public aGuard: AuthGuard, public afAuth: AngularFireAuth, public alertController: AlertController, private router: Router, translateS: TranslateService, private loadingController: LoadingController) {
     /**
      * Récupération des différentes traductions pour les messages à afficher
      */
@@ -55,6 +56,7 @@ export class LoginPage implements OnInit {
          * Le display name est l'id de l'entité users de la base de données
          */
         Util.$currentUserId = userCredential.user.displayName;
+        this.aGuard.isLoggedIn = true;
         loading.dismiss();
         this.router.navigateByUrl('/home');
       }
