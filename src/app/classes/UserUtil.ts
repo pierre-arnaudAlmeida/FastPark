@@ -60,8 +60,8 @@ export class UserUtil {
                 role: payload.get('role'),
                 //TODO Ajouter position avec un type geopoint
                 phoneNumber: payload.get('phoneNumber'),
-                creationDate: new Date(payload.get('creationDate')).toISOString(),
-                updateDate: new Date(payload.get('updateDate')).toISOString(),
+                creationDate: new Date(payload.get('creationDate')),
+                updateDate: new Date(payload.get('updateDate')),
             }
         }
         throw new Error("The map of the entity name " + entityName + " does not exist");
