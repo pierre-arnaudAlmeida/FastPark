@@ -52,12 +52,10 @@ export class LoginPage implements OnInit {
     await this.afAuth.signInWithEmailAndPassword(this.user.email.trim().toLocaleLowerCase(), this.user.password).then(
       async data => {
         let userCredential: UserCredential = data;
-        /* Récupération du display name de l'user Credential lors de l'authentification.
-         * Le display name est l'id de l'entité users de la base de données
-         */
         Util.$currentUserId = userCredential.user.displayName;
         this.aGuard.isLoggedIn = true;
         loading.dismiss();
+        this.user = UserUtil.getEmptyUser();
         this.router.navigateByUrl('/home');
       }
     ).catch(async error => {
@@ -80,7 +78,4 @@ export class LoginPage implements OnInit {
     });
     await alert.present();
   }
-  DisabledAccount() {
-  }
-
 }
