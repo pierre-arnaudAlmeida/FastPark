@@ -6,6 +6,9 @@ import { User } from '../../shared/User';
 import { TranslateService } from '@ngx-translate/core';
 import { EntityService } from '../../services/entity.service';
 import { UserUtil } from 'src/app/classes/UserUtil';
+import { AuthGuard } from '../../guards/auth.guard';
+import { UserCredential } from '@firebase/auth-types';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -32,7 +35,7 @@ export class SignupPage implements OnInit {
 
   user: User = UserUtil.getEmptyUser();
 
-  constructor(public afAuth: AngularFireAuth, private navCtrl: NavController, public alertController: AlertController, translateS: TranslateService,
+  constructor(private router: Router, public aGuard: AuthGuard, public afAuth: AngularFireAuth, private navCtrl: NavController, public alertController: AlertController, translateS: TranslateService,
     private entityService: EntityService, private loadingController: LoadingController,public toastController: ToastController) {
     /**
      * Récupération des différentes traductions pour les messages à afficher
@@ -78,6 +81,8 @@ export class SignupPage implements OnInit {
     }
     else {
       await loading.present();
+      var password = this.user.password;
+
       await this.afAuth.createUserWithEmailAndPassword(email, this.user.password).then(
         async (newUser) => {
           this.user.password = "";
@@ -93,7 +98,18 @@ export class SignupPage implements OnInit {
           this.afAuth.currentUser.then((user) => {
             return user.sendEmailVerification();
           });
-          this.navCtrl.navigateForward('/login');
+
+          await this.afAuth.signInWithEmailAndPassword(email, password).then(
+            async data => {
+              let userCredential: UserCredential = data;
+              Util.$currentUserId = userCredential.user.displayName;
+              this.aGuard.isLoggedIn = true;
+              loading.dismiss();
+              this.router.navigateByUrl('/home');
+            }
+          ).catch(async error => {
+            this.navCtrl.navigateForward('/login');
+          });
         }
       ).catch(async error => {
         await this.showAlertMessage(this.alertAccountCreationErrorTitle, this.alertAccountCreationErrorMessage);
