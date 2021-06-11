@@ -232,26 +232,9 @@ export class ProfilePage implements OnInit {
   }
 
   async deleteAccount() {
-    const alert = await this.alertController.create({
-      header: this.actionDeleteAccountHeader,
-      message: this.actionDeleteAccountMessage,
-      buttons: [{
-        text: this.alertPasswordCancel,
-        role: 'cancel',
-        cssClass: 'secondary',
-      }, {
-        text: this.alertPasswordValid,
-        handler: () => {
-          this.afAuth.currentUser.then((user) => {
-            return user.delete();
-          });
-          this.entityService.delete(this.user.id, UserUtil.userCollectionName);
-          this.logout();
-        }
-      }
-      ]
+    await this.afAuth.currentUser.then((user) => {
+      return user.delete();
     });
-    await alert.present();
+    await this.entityService.delete(this.user.id, UserUtil.userCollectionName);
   }
-
 }
