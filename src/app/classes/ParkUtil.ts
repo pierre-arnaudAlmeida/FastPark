@@ -8,7 +8,7 @@ export class ParkUtil {
      *  - nom de propriété : nom de l'entité en minuscule suivit de 'CollectionName'
      *  - valeur : nom de la collection sur Firebase 
      */
-    static parkCollectionName: string = property.collectionName.park;
+    static parkCollectionName: string = property.collectionName.parks;
 
 
     /**
