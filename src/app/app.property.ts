@@ -2,11 +2,11 @@ export const property = {
 
     collectionName: {
         users : "users",
-        park : "park",
-        address : "address",
-        parkStat : "parkStat",
-        creditCard : "creditCard,",
-        payementInfo : "payementInfo"
+        parks : "parks",
+        addresses : "addresses",
+        parksStat : "parksStats",
+        creditsCards : "creditsCards,",
+        payementsInfos : "payementsInfos"
     },
 
     fileType: {
