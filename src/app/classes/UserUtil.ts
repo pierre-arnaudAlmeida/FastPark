@@ -1,6 +1,7 @@
 import { DocumentChangeAction, DocumentSnapshot } from '@angular/fire/firestore';
 import { User } from '../shared/User';
 import { property } from "../app.property";
+import firebase from 'firebase/app';
 
 export class UserUtil {
 
@@ -29,7 +30,7 @@ export class UserUtil {
                     firstName: e.payload.doc.data()['firstName'],
                     lastName: e.payload.doc.data()['lastName'],
                     role: e.payload.doc.data()['role'],
-                    //TODO Ajouter position avec un type geopoint
+                    position: e.payload.doc.data()['position'],
                     phoneNumber: e.payload.doc.data()['phoneNumber'],
                     creationDate: new Date(e.payload.doc.data()['creationDate']).toISOString(),
                     updateDate: new Date(e.payload.doc.data()['updateDate']).toISOString(),
@@ -58,7 +59,7 @@ export class UserUtil {
                 firstName: payload.get('firstName'),
                 lastName: payload.get('lastName'),
                 role: payload.get('role'),
-                //TODO Ajouter position avec un type geopoint
+                position: payload.get('position'),
                 phoneNumber: payload.get('phoneNumber'),
                 creationDate: new Date(payload.get('creationDate')),
                 updateDate: new Date(payload.get('updateDate')),
@@ -76,7 +77,7 @@ export class UserUtil {
             firstName: "",
             lastName: "",
             role: "",
-            //position: null,
+            position: new firebase.firestore.GeoPoint(0,0),
             phoneNumber: "",
             creationDate: new Date().toISOString(),
             updateDate: new Date().toISOString(),   

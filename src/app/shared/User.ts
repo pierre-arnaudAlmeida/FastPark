@@ -1,4 +1,5 @@
 import { Entity } from "./Entity";
+import firebase from 'firebase/app';
 
 export interface User extends Entity {
      id: string;
@@ -8,8 +9,7 @@ export interface User extends Entity {
      firstName: string;
      lastName: string;
      role: string;
-     //TODO Ajouter position avec un type geopoint
-     //position: GeoPoint;
+     position: firebase.firestore.GeoPoint;
      phoneNumber: string;
      creationDate: string;
      updateDate: string;
