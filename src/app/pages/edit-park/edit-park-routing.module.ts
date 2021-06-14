@@ -4,10 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { EditParkPage } from './edit-park.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: EditParkPage
-  }
+  { path: '', component: EditParkPage }
 ];
 
 @NgModule({
