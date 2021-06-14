@@ -22,6 +22,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 // Environment
 import { environment } from '../environments/environment';
 
+// Modal
+import { ModalAddAddressPageModule } from '../app/components/modal-add-address/modal-add-address.module';
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -37,6 +40,7 @@ export function createTranslateLoader(http: HttpClient) {
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
+    ModalAddAddressPageModule,
     HttpClientModule,
     IonicStorageModule.forRoot(),
     TranslateModule.forRoot({
