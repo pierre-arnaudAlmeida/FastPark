@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EntityService } from '../../services/entity.service';
-import { TranslateService } from '@ngx-translate/core';
 import { Park } from '../../shared/Park';
 import { ParkUtil } from '../../classes/ParkUtil';
 import { NavController } from '@ionic/angular';
@@ -22,9 +21,9 @@ export class AddParkPage implements OnInit {
   toastCreationMessage: any;
 
   park: Park = ParkUtil.getEmptyPark();
-
-  constructor(private router: Router, private entityService: EntityService, translateS: TranslateService, private navCtrl: NavController) {
-   }
+  
+  constructor(private router: Router, private entityService: EntityService, private navCtrl: NavController) {
+  }
 
   async ngOnInit() {
     if (!Util.isUserConnected()) {
@@ -41,4 +40,8 @@ export class AddParkPage implements OnInit {
     this.park = ParkUtil.getEmptyPark();
     this.navCtrl.navigateForward('/home');
   }
+
+  addAddress() {
+  }
+
 }

@@ -16,7 +16,7 @@
   </ion-item>
 
   <!--Mettre un modal pour rentrer une nouvelle adresse-->
-  <ion-item name="item-address">
+  <ion-item name="item-address" (click)="addAddress()">
     <ion-label position="floating">{{ 'PARK.parking-address-title' | translate }}</ion-label>
   </ion-item>
 
@@ -39,4 +39,28 @@
     <ion-icon id="icon-in-button-colored" slot="icon-only" name="log-in"></ion-icon>
     <label>{{ 'UTILS.add-title' | translate }}</label>
   </ion-button>
+
+  <ion-tabs [ngClass]="selectedTheme">
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button routerLinkActive="tab-selected" routerLink="home" class="ios" tab="home">
+        <ion-icon name="car"></ion-icon>
+        <ion-label>{{ 'UTILS.parks-title' | translate }}</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button routerLinkActive="tab-selected" routerLink="add-park" class="ios" tab="add-park">
+        <ion-icon name="add-circle"></ion-icon>
+        <ion-label>{{ 'UTILS.add-title' | translate }}</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button routerLinkActive="tab-selected" routerLink="profile" class="ios" tab="profile">
+        <ion-icon name="person"></ion-icon>
+        <ion-label>{{ 'UTILS.profile-title' | translate }}</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button routerLinkActive="tab-selected" routerLink="settings" class="ios" tab="settings">
+        <ion-icon name="settings"></ion-icon>
+        <ion-label>{{ 'UTILS.settings-title' | translate }}</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-content>
