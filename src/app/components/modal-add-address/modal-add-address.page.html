@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start" (click)="closeModal()">
+          <ion-icon name="arrow-back"></ion-icon>
+      </ion-buttons>
+    <ion-title>{{ 'ADDRESS.add-address-title' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item id="item-address-street-number">
+    <ion-label position="floating">{{ 'ADDRESS.address-street-number-title' | translate }}</ion-label>
+    <ion-input clear required="true" type="number" [(ngModel)]="address.street_number"></ion-input>
+  </ion-item>
+
+  <ion-item name="item-address-street-name">
+    <ion-label position="floating">{{ 'ADDRESS.address-street-name-title' | translate }}</ion-label>
+    <ion-input clear required="true" [(ngModel)]='address.street_name'></ion-input>
+  </ion-item>
+
+  <ion-item name="item-address-city">
+    <ion-label position="floating">{{ 'ADDRESS.address-city-title' | translate }}</ion-label>
+    <ion-input clear required="true" [(ngModel)]='address.city'></ion-input>
+  </ion-item>
+
+  <ion-item name="item-address-postal-code">
+    <ion-label position="floating">{{ 'ADDRESS.address-postal-code-title' | translate }}</ion-label>
+    <ion-input clear required="true" [(ngModel)]='address.postal_code'></ion-input>
+  </ion-item>
+
+  <ion-item name="item-address-country">
+    <ion-label position="floating">{{ 'ADDRESS.address-country-title' | translate }}</ion-label>
+    <ion-input clear required="true" [(ngModel)]='address.country'></ion-input>
+  </ion-item>
+
+  <ion-button (click)="validate()" color="success" id="sign-in-button">
+    <ion-icon id="icon-in-button-colored" slot="icon-only" name="log-in"></ion-icon>
+    <label>{{ 'UTILS.add-title' | translate }}</label>
+  </ion-button>
+</ion-content>
