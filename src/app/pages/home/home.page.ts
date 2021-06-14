@@ -24,8 +24,8 @@ export class HomePage implements OnInit {
     if (!Util.isUserConnected()) {
       this.router.navigateByUrl("/login");
     }
-    await this.entityService.getAll(property.collectionName.park).subscribe(data => {
-      this.allParks = ParkUtil.mapCollection(data, property.collectionName.park);
+    await this.entityService.getAll(property.collectionName.parks).subscribe(data => {
+      this.allParks = ParkUtil.mapCollection(data, property.collectionName.parks);
     });
   }
 }
