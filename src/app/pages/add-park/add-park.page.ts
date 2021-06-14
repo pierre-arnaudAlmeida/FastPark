@@ -34,7 +34,7 @@ export class AddParkPage implements OnInit {
   }
 
   async createPark() {
-    //TODO Ajouter le manager, l'adresse via un modal
+    //TODO Ajouter le manager via un modal
     await this.entityService.create(this.park, ParkUtil.parkCollectionName).then(
       id => {
         this.park.id = id;
@@ -51,6 +51,10 @@ export class AddParkPage implements OnInit {
     modalAddAddress.onDidDismiss().then((address_created) => {
       if (address_created !== null) {
         this.address = address_created.data;
+        this.entityService.create(this.address, AddressUtil.addressCollectionName).then(
+          id => {
+            this.address.id = id;
+          });
       }
     });
 
