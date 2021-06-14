@@ -74,11 +74,7 @@ export class ProfilePage implements OnInit {
     });
   }
 
-  async ngOnInit() {    
-    if (!Util.isUserConnected()) {
-      this.router.navigateByUrl('/login');
-    }
-
+  async ngOnInit() {
     await this.entityService.getById(Util.$currentUserId, UserUtil.userCollectionName).subscribe(data => {
       this.user = UserUtil.mapItem(data.payload, UserUtil.userCollectionName);
       this.userBeforeUpdate = Object.assign({}, this.user);

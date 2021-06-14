@@ -21,11 +21,7 @@ export class HomePage implements OnInit {
   constructor(private router: Router, private entityService: EntityService, public alertController: AlertController) {
   }
 
-  async ngOnInit() {
-    if (!Util.isUserConnected()) {
-      this.router.navigateByUrl("/login");
-    }
-    
+  async ngOnInit() { 
     await this.entityService.getAll(property.collectionName.parks).subscribe(data => {
       this.allParks = ParkUtil.mapCollection(data, property.collectionName.parks);
     });
@@ -41,9 +37,6 @@ export class HomePage implements OnInit {
     });
 
     await alert.present();
-
-    const { role } = await alert.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
   }
 
 }

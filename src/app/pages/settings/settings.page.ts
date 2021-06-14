@@ -23,9 +23,6 @@ export class SettingsPage implements OnInit {
   }
   
   async ngOnInit() {
-    if (!Util.isUserConnected()) {
-      this.router.navigateByUrl("/login");
-    }
   }
 
   toggleAppTheme() {
