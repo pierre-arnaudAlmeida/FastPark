@@ -47,7 +47,16 @@
         "parking-phone-title": "Phone Number",
         "parking-free-places-title": "Free places",
         "parking-total-places-title": "Total places",
-        "delete-park": "Delete park"
+        "delete-park": "Delete park",
+        "edit-name-title": "Update park"
+    },
+    "ADDRESS": {
+        "add-address-title" : "Add address",
+        "address-street-number-title": "Street number",
+        "address-street-name-title": "Street name",
+        "address-city-title": "City",
+        "address-postal-code-title": "Postal code",
+        "address-country-title": "Country"
     },
     "RUNPAGE": {
     },
@@ -73,7 +82,7 @@
         "popup-email-verification-message": "A verification email has been sent to you",
         "processing-message" : "Processing...",
         "verify-email": "Check email",
-        "picture-account": "Changer profile picture",
+        "picture-account": "Change profile picture",
         "popup-before-logout-message": "Are you sure you want to disconnect ?",
         "popup-before-email-verification-message": "Do you want to check your email ?",
         "popup-before-delete-account-message": "Are you sure you want to delete your account ?"

@@ -49,7 +49,16 @@
         "parking-phone-title": "Téléphone",
         "parking-free-places-title": "Places libres",
         "parking-total-places-title": "Places totales",
-        "delete-park": "Supprimer le parking"
+        "delete-park": "Supprimer le parking",
+        "edit-name-title": "Mettre à jour un parking"
+    },
+    "ADDRESS": {
+        "add-address-title" : "Ajouter une adresse",
+        "address-street-number-title": "Numero de rue",
+        "address-street-name-title": "Nom de rue",
+        "address-city-title": "Ville",
+        "address-postal-code-title": "Code postal",
+        "address-country-title": "Pays"
     },
     "RUNPAGE": {
     },
