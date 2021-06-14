@@ -1,9 +1,9 @@
 import { DocumentChangeAction, DocumentSnapshot } from '@angular/fire/firestore';
-import { User } from '../shared/User';
+import { Address } from '../shared/Address';
 import { property } from "../app.property";
 import firebase from 'firebase/app';
 
-export class UserUtil {
+export class AddressUtil {
 
     /* Noms des collections firebase avec pour : 
      *  - nom de propriété : nom de l'entité en minuscule suivit de 'CollectionName'
@@ -70,7 +70,7 @@ export class UserUtil {
             street_number: 0,
             street_name: "",
             city: "",
-            postal_code: 0,
+            postal_code: "",
             country: "",
             position: new firebase.firestore.GeoPoint(0,0),
             creationDate: new Date().toISOString(),
