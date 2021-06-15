@@ -48,7 +48,15 @@
         "parking-free-places-title": "Lugares libres",
         "parking-total-places-title": "Lugares totales",
         "delete-park": "Borrar parque",
-        "edit-name-title": "Actualizar um parque"
+        "edit-name-title": "Actualizar um parque",
+        "address-error-title": "Problema de la dirección",
+        "address-error-message": "La dirección no está completa",
+        "manager-error-title": "Problema del administrador",
+        "manager-error-message": "Gerente no seleccionado",
+        "fields-error-title": "Campos faltantes",
+        "fields-error-message": "El nombre o el primer nombre no están completos",
+        "place-number-error-title": "Problema en el número de plazas",
+        "place-number-error-message": "Número de plazas libres mayor que el número total de plazas"
     },
     "ADDRESS": {
         "add-address-title" : "Añadir una direccion",

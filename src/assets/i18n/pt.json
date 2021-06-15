@@ -50,7 +50,15 @@
         "parking-free-places-title": "Lugares livres",
         "parking-total-places-title": "Totol de lugares",
         "delete-park": "Eliminar parque",
-        "edit-name-title": "Atualizar um parque"
+        "edit-name-title": "Atualizar um parque",
+        "address-error-title": "Problema de endereço",
+        "address-error-message": "O endereço não está preenchido",
+        "manager-error-title": "Problema de gerente",
+        "manager-error-message": "Gerente não selecionado",
+        "fields-error-title": "Campos ausentes",
+        "fields-error-message": "O nome ou o primeiro nome não está preenchido",
+        "place-number-error-title": "Problema no número de lugares",
+        "place-number-error-message": "Número de vagas gratuitas maior que o número total de vagas"
     },
     "ADDRESS": {
         "add-address-title" : "Adicionar um endereço",

@@ -50,7 +50,15 @@
         "parking-free-places-title": "Places libres",
         "parking-total-places-title": "Places totales",
         "delete-park": "Supprimer le parking",
-        "edit-name-title": "Mettre à jour un parking"
+        "edit-name-title": "Mettre à jour un parking",
+        "address-error-title": "Problème d'adresse",
+        "address-error-message": "L'adresse n'est pas renseigné",
+        "manager-error-title": "Problème de manager",
+        "manager-error-message": "Manager non selectionné",
+        "fields-error-title": "Champs manquant",
+        "fields-error-message": "Le nom ou le prénom n'est pas renseigné",
+        "place-number-error-title": "Problème sur le nombre de place",
+        "place-number-error-message": "Nombre de place libre suppérieur au nombre de place total"
     },
     "ADDRESS": {
         "add-address-title" : "Ajouter une adresse",

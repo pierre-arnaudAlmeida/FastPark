@@ -48,7 +48,15 @@
         "parking-free-places-title": "Free places",
         "parking-total-places-title": "Total places",
         "delete-park": "Delete park",
-        "edit-name-title": "Update park"
+        "edit-name-title": "Update park",
+        "address-error-title": "Address problem",
+        "address-error-message": "The address is not filled in",
+        "manager-error-title": "Manager problem",
+        "manager-error-message": "Manager not selected",
+        "fields-error-title": "Missing fields",
+        "fields-error-message": "The name or the first name is not filled",
+        "place-number-error-title": "Problem on the number of places",
+        "place-number-error-message": "Number of free places greater than the total number of places"
     },
     "ADDRESS": {
         "add-address-title" : "Add address",
