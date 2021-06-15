@@ -1,8 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      {{ 'UTILS.app-name' | translate }}
-    </ion-title>
+    <ion-title>{{ 'UTILS.app-name' | translate }}</ion-title>
+    <ion-buttons slot="end" routerLinkActive="tab-selected" routerLink="add-park" class="ios" tab="add-park">
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -32,12 +33,7 @@
         <ion-icon name="car"></ion-icon>
         <ion-label>{{ 'UTILS.parks-title' | translate }}</ion-label>
       </ion-tab-button>
-  
-      <ion-tab-button routerLinkActive="tab-selected" routerLink="add-park" class="ios" tab="add-park">
-        <ion-icon name="add-circle"></ion-icon>
-        <ion-label>{{ 'UTILS.add-title' | translate }}</ion-label>
-      </ion-tab-button>
-  
+ 
       <ion-tab-button routerLinkActive="tab-selected" routerLink="profile" class="ios" tab="profile">
         <ion-icon name="person"></ion-icon>
         <ion-label>{{ 'UTILS.profile-title' | translate }}</ion-label>
