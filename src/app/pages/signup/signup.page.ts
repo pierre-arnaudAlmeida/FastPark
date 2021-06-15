@@ -37,9 +37,6 @@ export class SignupPage implements OnInit {
 
   constructor(private router: Router, public aGuard: AuthGuard, public afAuth: AngularFireAuth, private navCtrl: NavController, public alertController: AlertController, translateS: TranslateService,
     private entityService: EntityService, private loadingController: LoadingController,public toastController: ToastController) {
-    /**
-     * Récupération des différentes traductions pour les messages à afficher
-     */
     translateS.get('SIGNUP.email-error-title').subscribe((value: any) => { this.alertEmailErrorTitle = value; });
     translateS.get('SIGNUP.email-error-message').subscribe((value: any) => { this.alertEmailErrorMessage = value; });
     translateS.get('SIGNUP.password-error-title').subscribe((value: any) => { this.alertPasswordErrorTitle = value; });
@@ -56,13 +53,9 @@ export class SignupPage implements OnInit {
   ngOnInit() {
   }
 
-  /*
-   * On utilise async afin d'utiliser des "promises"
-   */
   async createAccount() {
 
     const loading = await this.loadingController.create({
-      //TODO à modifier pour les langues
       message: this.accountCreationLoadingMessage
     });
     var email: string = this.user.email.trim().toLocaleLowerCase();
@@ -128,9 +121,6 @@ export class SignupPage implements OnInit {
     await alert.present();
   }
 
-  /**
-   * Crée un toast pour dire que la suppression a été correctement réaliser
-   */
   async presentToast() {
     const toast = await this.toastController.create({
       message: this.alertAccountCreationTitle,
