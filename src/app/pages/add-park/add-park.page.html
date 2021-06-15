@@ -10,12 +10,10 @@
     <ion-input clear required="true" [(ngModel)]="park.name"></ion-input>
   </ion-item>
 
-  <!--Mettre un modal pour choisir un user dans la liste des user-->
-  <ion-item name="item-manager">
+  <ion-item name="item-manager" (click)="addManager()">
     <ion-label position="floating">{{ 'PARK.parking-manager-title' | translate }}</ion-label>
   </ion-item>
 
-  <!--Mettre un modal pour rentrer une nouvelle adresse-->
   <ion-item name="item-address" (click)="addAddress()">
     <ion-label position="floating">{{ 'PARK.parking-address-title' | translate }}</ion-label>
   </ion-item>
