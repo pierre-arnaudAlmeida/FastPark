@@ -58,6 +58,9 @@
         "address-postal-code-title": "Postal code",
         "address-country-title": "Country"
     },
+    "MANAGER": {
+        "add-manager-title" : "Add manager"
+    },
     "RUNPAGE": {
     },
     "MENU": {   

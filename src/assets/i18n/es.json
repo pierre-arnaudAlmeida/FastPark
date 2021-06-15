@@ -58,6 +58,9 @@
         "address-postal-code-title": "Código postal",
         "address-country-title": "País"
     },
+    "MANAGER": {
+        "add-manager-title" : "Añadir un gerente"
+    },
     "RUNPAGE": {
     },
     "MENU": {

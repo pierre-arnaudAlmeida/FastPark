@@ -60,6 +60,9 @@
         "address-postal-code-title": "Code postal",
         "address-country-title": "Pays"
     },
+    "MANAGER": {
+        "add-manager-title" : "Ajouter un gestionnaire"
+    },    
     "RUNPAGE": {
     },
     "MENU": {  
