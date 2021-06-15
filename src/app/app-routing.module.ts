@@ -79,11 +79,7 @@ const routes: Routes = [
     path: '',
     redirectTo: 'run',
     pathMatch: 'full'
-  },  {
-    path: 'modal-add-address',
-    loadChildren: () => import('./components/modal-add-address/modal-add-address.module').then( m => m.ModalAddAddressPageModule)
   },
-
 ];
 
 @NgModule({
