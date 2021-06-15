@@ -1,13 +1,16 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>{{ 'PARK.add-park-title' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back" routerLink="/home"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
   <ion-item id="item-park-name">
     <ion-label position="floating">{{ 'PARK.parking-name-title' | translate }}</ion-label>
-    <ion-input clear required="true" [(ngModel)]="park.name"></ion-input>
+    <ion-input [(ngModel)]="park.name"></ion-input>
   </ion-item>
 
   <ion-item name="item-manager" (click)="addManager()">
@@ -20,45 +23,21 @@
 
   <ion-item name="item-phone-number">
     <ion-label position="floating">{{ 'PARK.parking-phone-title' | translate }}</ion-label>
-    <ion-input required="true" type="number" [(ngModel)]='park.phoneNumber'></ion-input>
+    <ion-input type="number" [(ngModel)]='park.phoneNumber'></ion-input>
   </ion-item>
 
   <ion-item name="item-free-places">
     <ion-label position="floating">{{ 'PARK.parking-free-places-title' | translate }}</ion-label>
-    <ion-input required="true" type="number" [(ngModel)]='park.freePlaces'></ion-input>
+    <ion-input type="number" [(ngModel)]='park.freePlaces'></ion-input>
   </ion-item>
 
   <ion-item name="item-total-places">
     <ion-label position="floating">{{ 'PARK.parking-total-places-title' | translate }}</ion-label>
-    <ion-input required="true" type="number" [(ngModel)]='park.totalPlaces'></ion-input>
+    <ion-input type="number" [(ngModel)]='park.totalPlaces'></ion-input>
   </ion-item>
 
   <ion-button (click)="createPark()" color="success" id="sign-in-button">
     <ion-icon id="icon-in-button-colored" slot="icon-only" name="log-in"></ion-icon>
     <label>{{ 'UTILS.add-title' | translate }}</label>
   </ion-button>
-
-  <ion-tabs [ngClass]="selectedTheme">
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button routerLinkActive="tab-selected" routerLink="home" class="ios" tab="home">
-        <ion-icon name="car"></ion-icon>
-        <ion-label>{{ 'UTILS.parks-title' | translate }}</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button routerLinkActive="tab-selected" routerLink="add-park" class="ios" tab="add-park">
-        <ion-icon name="add-circle"></ion-icon>
-        <ion-label>{{ 'UTILS.add-title' | translate }}</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button routerLinkActive="tab-selected" routerLink="profile" class="ios" tab="profile">
-        <ion-icon name="person"></ion-icon>
-        <ion-label>{{ 'UTILS.profile-title' | translate }}</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button routerLinkActive="tab-selected" routerLink="settings" class="ios" tab="settings">
-        <ion-icon name="settings"></ion-icon>
-        <ion-label>{{ 'UTILS.settings-title' | translate }}</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
 </ion-content>
