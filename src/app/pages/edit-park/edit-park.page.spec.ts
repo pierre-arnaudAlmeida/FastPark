@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { EditParkPage } from './edit-park.page';
 
 describe('EditParkPage', () => {

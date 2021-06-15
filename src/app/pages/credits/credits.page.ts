@@ -7,9 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreditsPage implements OnInit {
 
-  /**
-   * Définition des différentes variables
-   */
   imageUrl : string = 'assets/imgs/pegasus.png';
   
   constructor() { }

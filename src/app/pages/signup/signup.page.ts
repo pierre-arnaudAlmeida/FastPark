@@ -17,9 +17,6 @@ import { Router } from '@angular/router';
 })
 export class SignupPage implements OnInit {
 
-  /**
-   * Définition des différentes variables
-   */
   alertEmailErrorTitle: any;
   alertEmailErrorMessage: any;
   alertPasswordErrorTitle: any;

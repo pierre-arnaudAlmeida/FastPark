@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from 'src/app/services/theme.service';
-import { Util } from '../../classes/Util';
 import { Router } from '@angular/router';
 
 @Component({
@@ -34,5 +33,4 @@ export class SettingsPage implements OnInit {
       this.isToggled = true;
     }
   }
-
 }

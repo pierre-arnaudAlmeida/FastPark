@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { AddParkPage } from './add-park.page';
 
 const routes: Routes = [

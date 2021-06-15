@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { EntityService } from '../../services/entity.service';
 import { Park } from '../../shared/Park';
 import { ParkUtil } from '../../classes/ParkUtil';
-import { Util } from '../../classes/Util';
 import { property } from '../../app.property';
-
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -18,7 +15,7 @@ export class HomePage implements OnInit {
   allParks = [];
   park: Park = ParkUtil.getEmptyPark();
 
-  constructor(private router: Router, private entityService: EntityService, public alertController: AlertController) {
+  constructor(private entityService: EntityService, public alertController: AlertController) {
   }
 
   async ngOnInit() { 

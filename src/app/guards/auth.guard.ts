@@ -3,7 +3,6 @@ import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } fro
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from "@angular/fire/auth";
-import { first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +18,7 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
  
-    let userAuthenticated = this.isLoggedIn; // Get the current authentication state from a Service!
+    let userAuthenticated = this.isLoggedIn;
       
     if (userAuthenticated) {
       return true;
