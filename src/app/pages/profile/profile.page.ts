@@ -203,6 +203,7 @@ export class ProfilePage implements OnInit {
   }
 
   async updateAccount() {
+    this.user.updateDate = new Date().toISOString();
     await this.entityService.update(Util.$currentUserId, this.user, UserUtil.userCollectionName);
   }
 
