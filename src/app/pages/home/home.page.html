@@ -29,17 +29,17 @@
 
   <ion-tabs [ngClass]="selectedTheme">
     <ion-tab-bar slot="bottom">
-      <ion-tab-button routerLinkActive="tab-selected" routerLink="home" class="ios" tab="home">
+      <ion-tab-button class="ios">
         <ion-icon name="car"></ion-icon>
         <ion-label>{{ 'UTILS.parks-title' | translate }}</ion-label>
       </ion-tab-button>
  
-      <ion-tab-button routerLinkActive="tab-selected" routerLink="profile" class="ios" tab="profile">
+      <ion-tab-button routerLink="profile" class="ios">
         <ion-icon name="person"></ion-icon>
         <ion-label>{{ 'UTILS.profile-title' | translate }}</ion-label>
       </ion-tab-button>
   
-      <ion-tab-button routerLinkActive="tab-selected" routerLink="settings" class="ios" tab="settings">
+      <ion-tab-button routerLink="settings" class="ios">
         <ion-icon name="settings"></ion-icon>
         <ion-label>{{ 'UTILS.settings-title' | translate }}</ion-label>
       </ion-tab-button>
