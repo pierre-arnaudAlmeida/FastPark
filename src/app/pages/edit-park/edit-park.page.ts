@@ -44,6 +44,9 @@ export class EditParkPage implements OnInit {
     this.updatePark();
   }
 
+  //TODO gerer le changement d'adresse
+  //TODO vérifier l'update des places
+  //TODO faire le changement du manager (avec le modal)
   async updatePark() {
     await this.entityService.update(this.park.id, this.park, ParkUtil.parkCollectionName);
   }

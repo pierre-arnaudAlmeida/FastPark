@@ -228,6 +228,7 @@ export class ProfilePage implements OnInit {
   }
 
   async deleteAccount() {
+    //TODO supprimer le managerId du parking
     await this.afAuth.currentUser.then((user) => {
       return user.delete();
     });

@@ -84,7 +84,6 @@ export class AddParkPage implements OnInit {
     return await modalAddManager.present();
   }
 
-  //TODO gerer le changement d'adresse
   async addAddress() {
     const modalAddAddress = await this.modal.create({
       component: ModalAddAddressPage
@@ -96,8 +95,8 @@ export class AddParkPage implements OnInit {
         this.entityService.create(this.address, AddressUtil.addressCollectionName).then(
           id => {
             this.address.id = id;
+            this.park.addressId = id;
           });
-        this.park.addressId = this.address.id;
       }
     });
 
