@@ -57,8 +57,8 @@ export class AddressUtil {
                 postal_code: payload.get('postal_code'),
                 country: payload.get('country'),
                 position: payload.get('position'),
-                creationDate: new Date(payload.get('creationDate')),
-                updateDate: new Date(payload.get('updateDate')),
+                creationDate: new Date(payload.get('creationDate')).toISOString(),
+                updateDate: new Date(payload.get('updateDate')).toISOString(),
             }
         }
         throw new Error("The map of the entity name " + entityName + " does not exist");

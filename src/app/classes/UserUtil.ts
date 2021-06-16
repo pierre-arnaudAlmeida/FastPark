@@ -61,8 +61,8 @@ export class UserUtil {
                 role: payload.get('role'),
                 position: payload.get('position'),
                 phoneNumber: payload.get('phoneNumber'),
-                creationDate: new Date(payload.get('creationDate')),
-                updateDate: new Date(payload.get('updateDate')),
+                creationDate: new Date(payload.get('creationDate')).toISOString(),
+                updateDate: new Date(payload.get('updateDate')).toISOString(),
             }
         }
         throw new Error("The map of the entity name " + entityName + " does not exist");

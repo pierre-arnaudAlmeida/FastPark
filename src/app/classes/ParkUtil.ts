@@ -56,8 +56,8 @@ export class ParkUtil {
                 phoneNumber: payload.get('phoneNumber'),
                 freePlaces: payload.get('freePlaces'),
                 totalPlaces: payload.get('totalPlaces'),
-                creationDate: new Date(payload.get('creationDate')),
-                updateDate: new Date(payload.get('updateDate')),
+                creationDate: new Date(payload.get('creationDate')).toISOString(),
+                updateDate: new Date(payload.get('updateDate')).toISOString(),
             }
         }
         throw new Error("The map of the entity name " + entityName + " does not exist");
