@@ -6,7 +6,7 @@ import { Address } from '../../shared/Address';
 import { AddressUtil } from '../../classes/AddressUtil';
 import { EntityService } from '../../services/entity.service';
 import { TranslateService } from '@ngx-translate/core';
-import { NavController, ModalController } from '@ionic/angular';
+import { NavController, ModalController, AlertController } from '@ionic/angular';
 import { ModalAddAddressPage } from '../../components/modal-add-address/modal-add-address.page';
 import { ModalAddManagerPage } from '../../components/modal-add-manager/modal-add-manager.page';
 
@@ -18,12 +18,29 @@ import { ModalAddManagerPage } from '../../components/modal-add-manager/modal-ad
 
 export class EditParkPage implements OnInit {
 
+  alertAddressErrorTitle: any;
+  alertAddressErrorMessage: any;
+  alertManagerErrorTitle: any;
+  alertManagerErrorMessage: any;
+  alertFieldsErrorTitle: any;
+  alertFieldsErrorMessage: any;
+  alertPlaceNumberErrorTitle: any;
+  alertPlaceNumberErrorMessage: any;
+
   park: Park = ParkUtil.getEmptyPark();
   address: Address = AddressUtil.getEmptyAddress();
   parkBeforeUpdate: Park;
   
-  constructor(translateS: TranslateService, private entityService: EntityService, private actRoute: ActivatedRoute, private navCtrl: NavController, private modal: ModalController) {
+  constructor(public alertController: AlertController, translateS: TranslateService, private entityService: EntityService, private actRoute: ActivatedRoute, private navCtrl: NavController, private modal: ModalController) {
     this.park.id = this.actRoute.snapshot.paramMap.get('id');
+    translateS.get('PARK.address-error-title').subscribe((value: any) => { this.alertAddressErrorTitle = value; });
+    translateS.get('PARK.address-error-message').subscribe((value: any) => { this.alertAddressErrorMessage = value; });
+    translateS.get('PARK.manager-error-title').subscribe((value: any) => { this.alertManagerErrorTitle = value; });
+    translateS.get('PARK.manager-error-message').subscribe((value: any) => { this.alertManagerErrorMessage = value; });
+    translateS.get('PARK.fields-error-title').subscribe((value: any) => { this.alertFieldsErrorTitle = value; });
+    translateS.get('PARK.fields-error-message').subscribe((value: any) => { this.alertFieldsErrorMessage = value; });
+    translateS.get('PARK.place-number-error-title').subscribe((value: any) => { this.alertPlaceNumberErrorTitle = value; });
+    translateS.get('PARK.place-number-error-message').subscribe((value: any) => { this.alertPlaceNumberErrorMessage = value; });
    }
     
   async ngOnInit() {
@@ -67,7 +84,6 @@ export class EditParkPage implements OnInit {
     return await modalAddManager.present();
   }
 
-  //TODO gerer le changement d'adresse
   async updateAddress() {
     const modalAddAddress = await this.modal.create({
       component: ModalAddAddressPage
@@ -88,13 +104,24 @@ export class EditParkPage implements OnInit {
     return await modalAddAddress.present();
   }
   
-  //TODO vérifier l'update des places
-  //verifier que l'id de l'adresse est renseigné
-  //telephone non vide
-  //nom non vide
+  //TODO vérifier que le numero de telephone est non vide
   async updatePark() {
-    this.park.updateDate = new Date().toISOString();
-    await this.entityService.update(this.park.id, this.park, ParkUtil.parkCollectionName);
+    if (this.park.addressId === "" || this.park.addressId === null) {
+      await this.showAlertMessage(this.alertAddressErrorTitle, this.alertAddressErrorMessage);
+    }
+    else if (this.park.managerId === "" || this.park.managerId === null) {
+      await this.showAlertMessage(this.alertManagerErrorTitle, this.alertManagerErrorMessage);
+    }
+    else if (this.park.name.trim().length== 0) {
+      await this.showAlertMessage(this.alertFieldsErrorTitle, this.alertFieldsErrorMessage);
+    }
+    else if (this.park.freePlaces > this.park.totalPlaces) {
+      await this.showAlertMessage(this.alertPlaceNumberErrorTitle, this.alertPlaceNumberErrorMessage);
+    }
+    else {
+      this.park.updateDate = new Date().toISOString();
+      await this.entityService.update(this.park.id, this.park, ParkUtil.parkCollectionName);
+    }
   }
 
   async deletePark() {
@@ -102,4 +129,12 @@ export class EditParkPage implements OnInit {
     this.navCtrl.navigateForward('/home');
   }
 
+  async showAlertMessage(title: string, message: string) {
+    const alert = await this.alertController.create({
+      header: title,
+      message: message,
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
 }
