@@ -30,18 +30,21 @@ export class ProfilePage implements OnInit {
   alertVerifiedEmailSendHeader: any;
   alertVerifiedEmailSendMessage: any;
   alertErrorHeader: any;
-  alertErrorChooseMessage: any;
   alertSuccessHeader: any;
-  alertSuccessUploadMessage: any;
   processingMessage: any;
   actionDisconnectionMessage: any;
   actionVerifiedEmailSendMessage: any;
   actionDeleteAccountHeader: any;
   actionDeleteAccountMessage: any;
+  alertPasswordMessage: any;
+  alertPasswordSizeMessage: any;
+  alertPasswordErrorHeader: any;
+  alertPasswordDifferentMessage: any;
 
   user: User = UserUtil.getEmptyUser();
   userBeforeUpdate: User;
   hasVerifiedEmail = true;
+  empty_string = "";
 
   constructor(public aGuard: AuthGuard, private router: Router, public alertController: AlertController, public afAuth: AngularFireAuth, translateS: TranslateService, private loadingController: LoadingController,
     private entityService: EntityService) {
@@ -60,13 +63,15 @@ export class ProfilePage implements OnInit {
     translateS.get('PROFILE.popup-email-verification-header').subscribe((value: any) => { this.alertVerifiedEmailSendHeader = value; });
     translateS.get('PROFILE.popup-email-verification-message').subscribe((value: any) => { this.alertVerifiedEmailSendMessage = value; });
     translateS.get('UTILS.error').subscribe((value: any) => { this.alertErrorHeader = value; });
-    translateS.get('UTILS.error-choose-message').subscribe((value: any) => { this.alertErrorChooseMessage = value; });
     translateS.get('UTILS.success').subscribe((value: any) => { this.alertSuccessHeader = value; });
-    translateS.get('UTILS.success-upload-message').subscribe((value: any) => { this.alertSuccessUploadMessage = value; });
     translateS.get('PROFILE.popup-before-logout-message').subscribe((value: any) => { this.actionDisconnectionMessage = value; });
     translateS.get('PROFILE.popup-before-email-verification-message').subscribe((value: any) => { this.actionVerifiedEmailSendMessage = value; });
     translateS.get('PROFILE.delete-account').subscribe((value: any) => { this.actionDeleteAccountHeader = value; });
     translateS.get('PROFILE.popup-before-delete-account-message').subscribe((value: any) => { this.actionDeleteAccountMessage = value; });
+    translateS.get('PROFILE.popup-password-changed-message').subscribe((value: any) => { this.alertPasswordMessage = value; });
+    translateS.get('PROFILE.popup-password-size-error-message').subscribe((value: any) => { this.alertPasswordSizeMessage = value; });
+    translateS.get('PROFILE.popup-password-error-header').subscribe((value: any) => { this.alertPasswordErrorHeader = value; });
+    translateS.get('PROFILE.popup-password-different-message').subscribe((value: any) => { this.alertPasswordDifferentMessage = value; });
 
     this.afAuth.currentUser.then((user) => {
       if(user === null || user === undefined) return false
@@ -153,25 +158,20 @@ export class ProfilePage implements OnInit {
             if (data.newPassword == data.confirmNewPassword) {
               await this.afAuth.signInWithEmailAndPassword(this.userBeforeUpdate.email.trim(), data.oldPassword).then(
                 async (connectedUser) => {
-                  // TODO traduction
                   connectedUser.user.updatePassword(data.newPassword).then(
                     () => {
-                      //TODO traduction
-                      this.showAlertMessage("Mot de passe mis à jour", "");
+                      this.showAlertMessage(this.alertPasswordMessage, this.empty_string);
                     }
                   ).catch((error) => {
-                    //TODO traduction
-                    this.showAlertMessage("Erreur", "Le mot de passe n'a pas été mis à jour. Il doit faire au moins 6 caractères");
+                    this.showAlertMessage(this.alertErrorHeader, this.alertPasswordSizeMessage);
                   });
                 }
               ).catch(async error => {
-                //TODO traduction
-                await this.showAlertMessage("Ancien mot de passe incorrect", "");
+                await this.showAlertMessage(this.alertPasswordErrorHeader, this.empty_string);
               });
             }
             else {
-              //TODO faire la traduction
-              this.showAlertMessage("Mot de passe différents", "");
+              this.showAlertMessage(this.alertPasswordDifferentMessage, this.empty_string);
             }
           }
         }

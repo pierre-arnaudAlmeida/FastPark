@@ -21,22 +21,19 @@
         "lastname": "Apelido",
         "phone-number": "Telemóvel",
         "login-title": "Iniciar sessão",
-
-
-
-
+        "error": "Erro",
         "valid" : "Validar",
         "cancel": "Cancelar",
-        "archives-title": "Arquivo",
+        "popup-email-error": "O email não é válido !",
+        "success": "Bem sucedido",
+
+
+
+
         "home-title": "Menu",
         "profile-title": "Perfil",
         "reset-title" : "Redefinir senha",
         "email-reset-title": "Redefinição",
-        "popup-email-error": "O email não é válido !",
-        "error": "Erro",
-        "success": "Bem sucedido",
-        "error-choose-message": "Ocorreu um erro durante a seleção",
-        "success-upload-message": "Arquivo corretamente enviado",
         "infos-title": "Informações",
         "delete-title": "Eliminar",
         "language-message": "Idioma atualizado"
@@ -78,9 +75,6 @@
     "HOME": {
     },
     "PROFILE": {
-        "gender-placeholder": "Escolher",
-        "female": "Mulher",
-        "male": "Homem",
         "delete-account": "Eliminar minha conta",
         "disconnect": "Terminar sessão",
         "popup-logout-header": "Desconectado",
@@ -95,10 +89,13 @@
         "popup-email-verification-message": "Um email de verificação foi enviado para você",
         "processing-message" : "Processamento...",
         "verify-email": "Verificar email",
-        "picture-account": "Alterar foto de perfil",
         "popup-before-logout-message": "Tem certeza de que deseja desconectar ?",
         "popup-before-email-verification-message": "Quer verificar seu email ?",
-        "popup-before-delete-account-message": "Tem certeza de que deseja remover sua conta ?"
+        "popup-before-delete-account-message": "Tem certeza de que deseja remover sua conta ?",
+        "popup-password-changed-message": "Sua senha foi bem alterado",
+        "popup-password-size-error-message": "A senha não foi atualizada. Deve ter pelo menos 6 caracteres",
+        "popup-password-error-header":"Senha antiga incorreta",
+        "popup-password-different-message": "Senhas diferentes"
     },
     "LOGIN": {
         "sign-up-button": "Ainda não está registrado ? \r\nCrie uma conta",

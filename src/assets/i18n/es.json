@@ -21,20 +21,19 @@
         "phone-number": "Teléfono",
         "password-title": "Contraseña",
         "login-title": "Iniciar sesión",
-
-
-
+        "error": "Error",
         "valid" : "Validar",
         "cancel": "Anular",
+        "popup-email-error": "El email no es válido!",
+        "success": "Exitoso",
+
+
+
+
         "home-title": "Menú",
         "profile-title": "Perfil",
         "reset-title" : "Restablecer contraseña",
         "email-reset-title": "Restabelecimiento",
-        "popup-email-error": "El email no es válido!",
-        "error": "Error",
-        "success": "Exitoso",
-        "error-choose-message": "Se ha producido un error durante la selección",
-        "success-upload-message": "Archivo correctamente subido",
         "infos-title": "Infos",
         "delete-title": "Borrar",
         "language-message": "Lengua actualizada"
@@ -76,9 +75,6 @@
     "HOME": {
     },
     "PROFILE": {
-        "gender-placeholder": "Escojer",
-        "female": "Mujer",
-        "male": "Hombre",
         "delete-account": "Borrar mi cuenta",
         "disconnect": "Desconectarse",
         "popup-logout-header": "Desconectado",
@@ -93,10 +89,13 @@
         "popup-email-verification-message": "Se te ha enviado un email de verificación.",
         "processing-message" : "Tratamiento...",
         "verify-email": "Revisa el email",
-        "picture-account": "Cambiar la foto de perfil",
         "popup-before-logout-message": "¿ Seguro que quieres desconectar ?",
         "popup-before-email-verification-message": "¿ Quieres consultar tu email ?",
-        "popup-before-delete-account-message": "¿ Estás seguro de que quieres eliminar tu cuenta ?"
+        "popup-before-delete-account-message": "¿ Estás seguro de que quieres eliminar tu cuenta ?",
+        "popup-password-changed-message": "Tu contraseña ha sido cambiado",
+        "popup-password-size-error-message": "La contraseña no se ha actualizado. Debe tener al menos 6 caracteres",
+        "popup-password-error-header":"Contraseña antigua incorrecta",
+        "popup-password-different-message": "Diferentes contraseñas"
     },
     "LOGIN": {
         "sign-up-button": "¿ Aún no estás registrado ? Crea una cuenta",

@@ -21,22 +21,19 @@
         "lastname": "Nom",
         "phone-number": "Téléphone",
         "login-title": "Connexion",
-
-
-
-        
+        "error": "Erreur",
         "valid" : "Valider",
         "cancel": "Annuler",
-        "archives-title": "Archives",
+        "popup-email-error": "L'adresse mail n'est pas valide !",
+        "success": "Réussi",
+
+
+
+
         "home-title": "Menu",
         "profile-title": "Profil",
         "reset-title" : "Réinitialisation du mot de passe",
         "email-reset-title": "Réinitialisation",
-        "popup-email-error": "L'adresse mail n'est pas valide !",
-        "error": "Erreur",
-        "success": "Réussi",
-        "error-choose-message": "Une érreur est survenu pendant la selection",
-        "success-upload-message": "Fichier correctement uploader",
         "infos-title": "Infos",
         "delete-title": "Supprimer",
         "language-message": "Langue mise à jour"
@@ -78,9 +75,6 @@
     "HOME": {
     },
     "PROFILE": {
-        "gender-placeholder": "Choisir",
-        "female": "Femme",
-        "male": "Homme",
         "delete-account": "Supprimer mon compte",
         "disconnect": "Se deconnecter",
         "popup-logout-header": "Déconnection",
@@ -95,10 +89,13 @@
         "popup-email-verification-message": "Un email de vérification vous a été envoyer",
         "processing-message" : "Traitement...",
         "verify-email": "Verifier l'adresse mail",
-        "picture-account": "Changer la photo de profil",
         "popup-before-logout-message": "Voulez-vous vraiment vous déconnecter ?",
         "popup-before-email-verification-message": "Voulez-vous vérifier votre email ?",
-        "popup-before-delete-account-message": "Voulez-vous vraiment supprimer votre compte ?"
+        "popup-before-delete-account-message": "Voulez-vous vraiment supprimer votre compte ?",
+        "popup-password-changed-message": "Mot de passe mis à jour",
+        "popup-password-size-error-message": "Le mot de passe n'a pas été mis à jour. Il doit faire au moins 6 caractères",
+        "popup-password-error-header":"Ancien mot de passe incorrect",
+        "popup-password-different-message": "Mot de passe différents"
     },
     "LOGIN": {
         "sign-up-button": "Pas encore inscrit ? Créer un compte dès maintenant",

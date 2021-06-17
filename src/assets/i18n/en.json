@@ -21,20 +21,18 @@
         "phone-number": "Phone Number",
         "password-title": "Password",
         "login-title": "Sign in",
-
-
-
+        "error": "Error",
         "valid" : "Valid",
         "cancel": "Cancel",
+        "popup-email-error": "Invalid email !",
+        "success": "Success",
+
+
+
         "home-title": "Home",
         "profile-title": "Profile",
         "reset-title" : "Reset password",
         "email-reset-title": "Reset",
-        "popup-email-error": "Invalid email !",
-        "error": "Error",
-        "success": "Success",
-        "error-choose-message": "An error occurred during the selection",
-        "success-upload-message": "File correctly uploaded",
         "infos-title": "Infos",
         "delete-title": "Delete",
         "language-message": "Language updated"
@@ -76,9 +74,6 @@
     "HOME": {
     },
     "PROFILE": {
-        "gender-placeholder": "Select One",
-        "female": "Female",
-        "male": "Male",
         "delete-account": "Delete account",
         "disconnect": "Disconnect",
         "popup-logout-header": "Log-out",
@@ -93,10 +88,13 @@
         "popup-email-verification-message": "A verification email has been sent to you",
         "processing-message" : "Processing...",
         "verify-email": "Check email",
-        "picture-account": "Change profile picture",
         "popup-before-logout-message": "Are you sure you want to disconnect ?",
         "popup-before-email-verification-message": "Do you want to check your email ?",
-        "popup-before-delete-account-message": "Are you sure you want to delete your account ?"
+        "popup-before-delete-account-message": "Are you sure you want to delete your account ?",
+        "popup-password-changed-message": "Your password have been changed",
+        "popup-password-size-error-message": "The password has not been updated. It must be at least 6 characters long",
+        "popup-password-error-header":"Incorrect old password",
+        "popup-password-different-message": "Different passwords"
     },
     "LOGIN": {
         "sign-up-button": "Not registered ? Create an account right now",
