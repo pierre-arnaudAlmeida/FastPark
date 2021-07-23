@@ -16,9 +16,6 @@ import { AuthGuard } from '../../guards/auth.guard';
 })
 export class LoginPage implements OnInit {
 
-  /**
-   * Définition des différentes variables
-   */
   alertSignInErrorTitle: any;
   alertSignInErrorMessage: any;
   accountConnectionLoadingMessage: any;
@@ -28,9 +25,6 @@ export class LoginPage implements OnInit {
   emailErrorCode: number;
 
   constructor(public aGuard: AuthGuard, public afAuth: AngularFireAuth, public alertController: AlertController, private router: Router, translateS: TranslateService, private loadingController: LoadingController) {
-    /**
-     * Récupération des différentes traductions pour les messages à afficher
-     */
     translateS.get('LOGIN.signin-error-title').subscribe((value: any) => { this.alertSignInErrorTitle = value; });
     translateS.get('LOGIN.signin-error-message').subscribe((value: any) => { this.alertSignInErrorMessage = value; });
     translateS.get('LOGIN.account-connection-loading-message').subscribe((value: any) => { this.accountConnectionLoadingMessage = value; });
@@ -39,30 +33,27 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  /**
-   * Récupère les informations insérer pour la connection et se connecte à firebase pour vérifier que la personne existe, si elle existe la personne sera redirigié
-   */
   async login() {
     const loading = await this.loadingController.create({
       message: this.accountConnectionLoadingMessage,
       spinner: "bubbles",
     });
 
-    await loading.present();
-    await this.afAuth.signInWithEmailAndPassword(this.user.email.trim().toLocaleLowerCase(), this.user.password).then(
-      async data => {
-        let userCredential: UserCredential = data;
-        Util.$currentUserId = userCredential.user.displayName;
+    // await loading.present();
+    // await this.afAuth.signInWithEmailAndPassword(this.user.email.trim().toLocaleLowerCase(), this.user.password).then(
+    //   async data => {
+    //     let userCredential: UserCredential = data;
+    //     Util.$currentUserId = userCredential.user.displayName;
         this.aGuard.isLoggedIn = true;
         loading.dismiss();
         this.user = UserUtil.getEmptyUser();
         this.router.navigateByUrl('/home');
-      }
-    ).catch(async error => {
-      //Ici aucune exception n'est levée est donc l'utilisateur a réussi à se connecter
-      await this.showAlertMessage(this.alertSignInErrorTitle, this.alertSignInErrorMessage);
-      loading.dismiss();
-    });
+    //   }
+    // ).catch(async error => {
+    //   //Ici aucune exception n'est levée est donc l'utilisateur a réussi à se connecter
+    //   await this.showAlertMessage(this.alertSignInErrorTitle, this.alertSignInErrorMessage);
+    //   loading.dismiss();
+    // });
   }
 
   /**

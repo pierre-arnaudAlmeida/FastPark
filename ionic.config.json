@@ -1,5 +1,7 @@
 {
   "name": "FastPark",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
