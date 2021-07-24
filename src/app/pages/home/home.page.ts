@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EntityService } from '../../services/entity.service';
 import { Park } from '../../shared/Park';
 import { ParkUtil } from '../../classes/ParkUtil';
@@ -10,6 +10,8 @@ import { User } from '../../shared/User';
 import { Util } from '../../classes/Util';
 import { UserUtil } from '../../classes/UserUtil';
 import firebase from 'firebase/app';
+import * as Leaflet from 'leaflet';
+import { antPath } from 'leaflet-ant-path';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +27,7 @@ export class HomePage implements OnInit {
   hasVerifiedEmail = true;
   latitude: any = 0;
   longitude: any = 0; 
+  map: Leaflet.Map;
 
   constructor(private entityService: EntityService, public alertController: AlertController, private geolocation: Geolocation, public afAuth: AngularFireAuth) {
     this.afAuth.currentUser.then((user) => {
@@ -37,6 +40,7 @@ export class HomePage implements OnInit {
     await this.entityService.getById(Util.$currentUserId, UserUtil.userCollectionName).subscribe(data => {
       this.user = UserUtil.mapItem(data.payload, UserUtil.userCollectionName);
       this.userBeforeUpdate = Object.assign({}, this.user);
+	  
     });
 
     await this.geolocation.getCurrentPosition().then((resp) => {
@@ -49,6 +53,8 @@ export class HomePage implements OnInit {
     await this.entityService.getAll(property.collectionName.parks).subscribe(data => {
       console.log(this.latitude);
       console.log(this.longitude);
+	  console.log(data);
+	  
       this.allParks = ParkUtil.mapCollection(data, property.collectionName.parks);
     });
   }
@@ -68,6 +74,25 @@ export class HomePage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  ionViewDidEnter() { this.leafletMap(); }
+
+  leafletMap() {
+    this.map = Leaflet.map('mapId').setView([this.latitude, this.longitude], 5);
+    Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'edupala.com © Angular LeafLet',
+    }).addTo(this.map);
+
+	console.log(this.allParks);
+	
+
+    Leaflet.marker([this.latitude, this.longitude]).addTo(this.map).bindPopup('My Position').openPopup();
+  }
+
+  /** Remove map when we have multiple map object */
+  ngOnDestroy() {
+    this.map.remove();
   }
 
 }

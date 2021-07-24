@@ -45,3 +45,7 @@ ion-icon {
     --border-radius: 20px;
     text-align: center;
   }
+  .leaflet-default-icon-path {
+    background-image: url(https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png);
+}
+  @import "~leaflet/dist/leaflet.css"
