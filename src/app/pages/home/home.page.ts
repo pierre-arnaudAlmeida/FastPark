@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EntityService } from '../../services/entity.service';
 import { Park } from '../../shared/Park';
+import { Address } from '../../shared/Address';
 import { ParkUtil } from '../../classes/ParkUtil';
+import { AddressUtil } from '../../classes/AddressUtil';
 import { property } from '../../app.property';
 import { AlertController } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -21,8 +23,10 @@ import { antPath } from 'leaflet-ant-path';
 export class HomePage implements OnInit {
 
   allParks = [];
+  allAddresses = [];
   user: User = UserUtil.getEmptyUser();
   park: Park = ParkUtil.getEmptyPark();
+  address: Address = AddressUtil.getEmptyAddress();
   userBeforeUpdate: User;
   hasVerifiedEmail = true;
   latitude: any = 0;
@@ -51,12 +55,12 @@ export class HomePage implements OnInit {
      });
 
     await this.entityService.getAll(property.collectionName.parks).subscribe(data => {
-      console.log(this.latitude);
-      console.log(this.longitude);
-	  console.log(data);
-	  
       this.allParks = ParkUtil.mapCollection(data, property.collectionName.parks);
     });
+
+	await this.entityService.getAll(property.collectionName.addresses).subscribe(data => {
+		this.allAddresses = AddressUtil.mapCollection(data, property.collectionName.addresses);
+	  });
   }
 
   async updateAccount() {
@@ -84,7 +88,9 @@ export class HomePage implements OnInit {
       attribution: 'edupala.com © Angular LeafLet',
     }).addTo(this.map);
 
-	console.log(this.allParks);
+	this.allAddresses.map( address =>{
+		Leaflet.marker([address.position._lat, address.position._long]).addTo(this.map);
+	});
 	
 
     Leaflet.marker([this.latitude, this.longitude]).addTo(this.map).bindPopup('My Position').openPopup();
