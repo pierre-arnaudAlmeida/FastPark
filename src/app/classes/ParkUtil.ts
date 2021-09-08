@@ -24,11 +24,11 @@ export class ParkUtil {
                 const record = {
                     id: e.payload.doc.id,
                     name: e.payload.doc.data()['name'],
-                    addressId: e.payload.doc.data()['email'],
-                    managerId: e.payload.doc.data()['password'],
+                    addressId: e.payload.doc.data()['addressId'],
+                    managerId: e.payload.doc.data()['managerId'],
                     phoneNumber: e.payload.doc.data()['phoneNumber'],
-                    freePlaces: e.payload.doc.data()['username'],
-                    totalPlaces: e.payload.doc.data()['firstName'],
+                    freePlaces: e.payload.doc.data()['freePlaces'],
+                    totalPlaces: e.payload.doc.data()['totalPlaces'],
                     creationDate: new Date(e.payload.doc.data()['creationDate']).toISOString(),
                     updateDate: new Date(e.payload.doc.data()['updateDate']).toISOString(),
                 }

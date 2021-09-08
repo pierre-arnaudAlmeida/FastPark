@@ -39,21 +39,20 @@ export class LoginPage implements OnInit {
       spinner: "bubbles",
     });
 
-    // await loading.present();
-    // await this.afAuth.signInWithEmailAndPassword(this.user.email.trim().toLocaleLowerCase(), this.user.password).then(
-    //   async data => {
-    //     let userCredential: UserCredential = data;
-    //     Util.$currentUserId = userCredential.user.displayName;
+    await loading.present();
+    await this.afAuth.signInWithEmailAndPassword(this.user.email.trim().toLocaleLowerCase(), this.user.password).then(
+      async data => {
+        let userCredential: UserCredential = data;
+        Util.$currentUserId = userCredential.user.displayName;
         this.aGuard.isLoggedIn = true;
         loading.dismiss();
         this.user = UserUtil.getEmptyUser();
         this.router.navigateByUrl('/home');
-    //   }
-    // ).catch(async error => {
-    //   //Ici aucune exception n'est levée est donc l'utilisateur a réussi à se connecter
-    //   await this.showAlertMessage(this.alertSignInErrorTitle, this.alertSignInErrorMessage);
-    //   loading.dismiss();
-    // });
+      }
+    ).catch(async error => {
+      await this.showAlertMessage(this.alertSignInErrorTitle, this.alertSignInErrorMessage);
+      loading.dismiss();
+    });
   }
 
   /**

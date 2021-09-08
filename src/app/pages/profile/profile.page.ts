@@ -8,6 +8,7 @@ import { EntityService } from '../../services/entity.service';
 import { UserUtil } from '../../classes/UserUtil';
 import { Router } from '@angular/router';
 import { AuthGuard } from '../../guards/auth.guard';
+import { ParkUtil } from 'src/app/classes/ParkUtil';
 
 @Component({
   selector: 'app-profile',
@@ -41,6 +42,7 @@ export class ProfilePage implements OnInit {
   alertPasswordErrorHeader: any;
   alertPasswordDifferentMessage: any;
 
+  allParks = [];
   user: User = UserUtil.getEmptyUser();
   userBeforeUpdate: User;
   hasVerifiedEmail = true;
@@ -234,5 +236,17 @@ export class ProfilePage implements OnInit {
       return user.delete();
     });
     await this.entityService.delete(this.user.id, UserUtil.userCollectionName);
+  }
+
+  async deleteManager() {
+    await this.entityService.getAll(ParkUtil.parkCollectionName).subscribe(data => {
+      this.allParks = ParkUtil.mapCollection(data, ParkUtil.parkCollectionName);
+    });
+    this.allParks.forEach(async park => {
+      if (park.managerId == this.user.id) {
+        park.managerId = "";
+        await this.entityService.update(park.id, park, ParkUtil.parkCollectionName);
+      }
+    });
   }
 }

@@ -54,12 +54,12 @@ export class HomePage implements OnInit {
        console.log('Error getting location', error);
      });
 
-    await this.entityService.getAll(property.collectionName.parks).subscribe(data => {
-      this.allParks = ParkUtil.mapCollection(data, property.collectionName.parks);
+    await this.entityService.getAll(ParkUtil.parkCollectionName).subscribe(data => {
+      this.allParks = ParkUtil.mapCollection(data, ParkUtil.parkCollectionName);
     });
 
-	await this.entityService.getAll(property.collectionName.addresses).subscribe(data => {
-		this.allAddresses = AddressUtil.mapCollection(data, property.collectionName.addresses);
+	await this.entityService.getAll(AddressUtil.addressCollectionName).subscribe(data => {
+		this.allAddresses = AddressUtil.mapCollection(data, AddressUtil.addressCollectionName);
 	  });
   }
 
