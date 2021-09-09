@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: 'home', redirectTo: '/home', pathMatch: 'full' },
   { path: 'add-park', redirectTo: '/add-park', pathMatch: 'full' },
   { path: 'profile', redirectTo: '/profile', pathMatch: 'full' },
-  { path: 'settings', redirectTo: '/settings', pathMatch: 'full' }
+  { path: 'settings', redirectTo: '/settings', pathMatch: 'full' },
+  { path: 'parks', redirectTo: '/parks', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -64,6 +64,12 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'parks',
+    loadChildren: () => import('./pages/parks/parks.module').then( m => m.ParksPageModule),
+    canActivate: [AuthGuard]
+  },
+
+  {
     path: 'run',
     loadChildren: () => import('./pages/run/run.module').then( m => m.RunPageModule)
   },
