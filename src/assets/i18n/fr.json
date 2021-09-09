@@ -41,7 +41,8 @@
     "PARK": {
         "add-park-title" : "Ajouter un parking",
         "parking-name-title": "Nom du parking",
-        "parking-manager-title": "Nom du gestionnaire",
+        "parking-manager-selection-title": "Sélectionner un gestionnaire",
+        "parking-address-changer-title": "Changer l'adresse",
         "parking-address-title": "Adresse",
         "parking-phone-title": "Téléphone",
         "parking-free-places-title": "Places libres",

@@ -40,7 +40,8 @@
     "PARK": {
         "add-park-title" : "Add Park",
         "parking-name-title": "Park name",
-        "parking-manager-title": "Manager Name",
+        "parking-manager-selection-title": "Change manager",
+        "parking-address-changer-title": "Change address",
         "parking-address-title": "Address",
         "parking-phone-title": "Phone Number",
         "parking-free-places-title": "Free places",
