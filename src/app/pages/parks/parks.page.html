@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>parks</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let p of allParks">
+    <ion-label>
+      {{p.name}}
+    </ion-label>
+  </ion-item>  
+</ion-content>
