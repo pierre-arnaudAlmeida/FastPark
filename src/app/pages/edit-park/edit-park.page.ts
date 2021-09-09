@@ -70,7 +70,8 @@ export class EditParkPage implements OnInit {
     const modalAddManager = await this.modal.create({
       component: ModalAddManagerPage,
       componentProps: { 
-        park: this.park
+        park: this.park,
+        source: "/edit-park"
       }
     });
     

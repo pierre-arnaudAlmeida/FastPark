@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class ModalAddManagerPage implements OnInit {
 
   park;
+  source;
   users = [];
   user: User = UserUtil.getEmptyUser();
 
@@ -28,7 +29,7 @@ export class ModalAddManagerPage implements OnInit {
 
   closeModal() {
     this.modal.dismiss(this.user);
-    this.router.navigateByUrl("/add-park");
+    this.router.navigateByUrl(this.source);
   }
 
   async validate(user_selected) {
