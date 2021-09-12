@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { AuthGuard } from './guards/auth.guard';
+import { ManagerGuard } from './guards/manager.guard';
+import { AdminGuard } from './guards/admin.guard';
+import { UserGuard } from './guards/user.guard';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
@@ -11,62 +14,62 @@ const routes: Routes = [
   {
     path: 'add-park',
     loadChildren: () => import('./pages/add-park/add-park.module').then( m => m.AddParkPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, AdminGuard]
   },
   {
     path: 'edit-park/:id',
     loadChildren: () => import('./pages/edit-park/edit-park.module').then( m => m.EditParkPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, ManagerGuard]
   },
   {
     path: 'settings',
     loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, UserGuard]
   },
   {
     path: 'languages',
     loadChildren: () => import('./pages/languages/languages.module').then( m => m.LanguagesPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, UserGuard]
   },
   {
     path: 'display',
     loadChildren: () => import('./pages/display/display.module').then( m => m.DisplayPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, UserGuard]
   },
   {
     path: 'authorization',
     loadChildren: () => import('./pages/authorization/authorization.module').then( m => m.AuthorizationPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, UserGuard]
   },
   {
     path: 'notifications',
     loadChildren: () => import('./pages/notifications/notifications.module').then( m => m.NotificationsPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, UserGuard]
   },
   {
     path: 'terms',
     loadChildren: () => import('./pages/terms/terms.module').then( m => m.TermsPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, UserGuard]
   },
   {
     path: 'policy',
     loadChildren: () => import('./pages/policy/policy.module').then( m => m.PolicyPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, UserGuard]
   },
   {
     path: 'credits',
     loadChildren: () => import('./pages/credits/credits.module').then( m => m.CreditsPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, UserGuard]
   },
   {
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, UserGuard]
   },
   {
     path: 'parks',
     loadChildren: () => import('./pages/parks/parks.module').then( m => m.ParksPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, UserGuard]
   },
 
   {

@@ -7,6 +7,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthGuard implements CanActivate {
 
   isLoggedIn = false;
