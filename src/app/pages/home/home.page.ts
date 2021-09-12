@@ -14,6 +14,9 @@ import { UserUtil } from '../../classes/UserUtil';
 import firebase from 'firebase/app';
 import * as Leaflet from 'leaflet';
 import { antPath } from 'leaflet-ant-path';
+import { AdminGuard } from '../../guards/admin.guard';
+import { ManagerGuard } from '../../guards/manager.guard';
+import { UserGuard } from '../../guards/user.guard';
 
 @Component({
   selector: 'app-home',
@@ -33,7 +36,7 @@ export class HomePage implements OnInit {
   longitude: any = 0; 
   map: Leaflet.Map;
 
-  constructor(private entityService: EntityService, public alertController: AlertController, private geolocation: Geolocation, public afAuth: AngularFireAuth) {
+  constructor(public aGuard: AdminGuard, public mGuard: ManagerGuard, public uGuard: UserGuard, private entityService: EntityService, public alertController: AlertController, private geolocation: Geolocation, public afAuth: AngularFireAuth) {
     this.afAuth.currentUser.then((user) => {
       if(user === null || user === undefined) return false
         this.hasVerifiedEmail = user.emailVerified;
@@ -44,7 +47,16 @@ export class HomePage implements OnInit {
     await this.entityService.getById(Util.$currentUserId, UserUtil.userCollectionName).subscribe(data => {
       this.user = UserUtil.mapItem(data.payload, UserUtil.userCollectionName);
       this.userBeforeUpdate = Object.assign({}, this.user);
-	  
+      if (this.user.role === "ADMIN") {
+        this.aGuard.isAdmin = true;
+        this.mGuard.isManager = true;
+        this.uGuard.isUser = true;
+      } else if (this.user.role === "MANAGER") {
+        this.mGuard.isManager = true;
+        this.uGuard.isUser = true;
+      } else if (this.user.role === "USER") {
+        this.uGuard.isUser = true;
+      }
     });
 
     await this.geolocation.getCurrentPosition().then((resp) => {
