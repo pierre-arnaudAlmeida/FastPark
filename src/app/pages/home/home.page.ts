@@ -26,6 +26,7 @@ import { UserGuard } from '../../guards/user.guard';
 export class HomePage implements OnInit {
 
   allParks = [];
+  searchedParks = [];
   allAddresses = [];
   user: User = UserUtil.getEmptyUser();
   park: Park = ParkUtil.getEmptyPark();
@@ -35,6 +36,7 @@ export class HomePage implements OnInit {
   latitude: any = 0;
   longitude: any = 0; 
   map: Leaflet.Map;
+  searchInput='';
 
   constructor(public aGuard: AdminGuard, public mGuard: ManagerGuard, public uGuard: UserGuard, private entityService: EntityService, public alertController: AlertController, private geolocation: Geolocation, public afAuth: AngularFireAuth) {
     this.afAuth.currentUser.then((user) => {
@@ -113,4 +115,15 @@ export class HomePage implements OnInit {
     this.map.remove();
   }
 
+  /** Get parks searched in search bar by name */
+  getItems(ev) {
+    var val = ev.target.value;
+
+    if (val && val.trim() != '') {
+      this.searchedParks = this.allParks;
+      this.searchedParks = this.searchedParks.filter((item) => {
+        return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
+  }
 }

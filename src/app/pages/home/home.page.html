@@ -8,6 +8,13 @@
 </ion-header>
   
 <ion-content>
+  <ion-searchbar [(ngModel)]="searchInput" (ionInput)="getItems($event)" [showCancelButton]="shouldShowCancel"></ion-searchbar>
+  <ion-list *ngIf="searchInput !== ''">
+   <ion-item *ngFor="let park of searchedParks">
+    {{ park.name }}
+   </ion-item>
+</ion-list>
+
 	<div id="mapId" style="width: 100%; height: 100%"></div>
 </ion-content>
 
