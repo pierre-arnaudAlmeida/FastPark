@@ -1,6 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>parks</ion-title>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back" routerLink="/home"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -8,7 +10,12 @@
   <ion-grid>
     <ion-row *ngFor="let p of allParks">
       <ion-col>
-        <ion-card clear [routerLink]="['/edit-park/', p.id]">
+        <ion-card *ngIf="p.managerId === user.id || user.role === 'ADMIN'" clear [routerLink]="['/edit-park/', p.id]">
+          <ion-card-header>
+            <ion-card-title>{{ p.name }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+        <ion-card *ngIf="p.managerId !== user.id && user.role !== 'ADMIN'" clear [routerLink]="['/park/', p.id]">
           <ion-card-header>
             <ion-card-title>{{ p.name }}</ion-card-title>
           </ion-card-header>
