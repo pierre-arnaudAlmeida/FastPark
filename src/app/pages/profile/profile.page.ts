@@ -80,7 +80,7 @@ export class ProfilePage implements OnInit {
         this.hasVerifiedEmail = user.emailVerified;
     });
   }
-
+  
   async ngOnInit() {
     await this.entityService.getById(Util.$currentUserId, UserUtil.userCollectionName).subscribe(data => {
       this.user = UserUtil.mapItem(data.payload, UserUtil.userCollectionName);

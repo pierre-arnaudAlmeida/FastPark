@@ -17,6 +17,16 @@ const routes: Routes = [
     canActivate: [AuthGuard, AdminGuard]
   },
   {
+    path: 'users',
+    loadChildren: () => import('./pages/users/users.module').then( m => m.UsersPageModule),
+    canActivate: [AuthGuard, AdminGuard]
+  },
+  {
+    path: 'user/:id',
+    loadChildren: () => import('./pages/user/user.module').then( m => m.UserPageModule),
+    canActivate: [AuthGuard, AdminGuard]
+  },
+  {
     path: 'edit-park/:id',
     loadChildren: () => import('./pages/edit-park/edit-park.module').then( m => m.EditParkPageModule),
     canActivate: [AuthGuard, ManagerGuard]
@@ -71,7 +81,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/parks/parks.module').then( m => m.ParksPageModule),
     canActivate: [AuthGuard, UserGuard]
   },
-
+  {
+    path: 'park/:id',
+    loadChildren: () => import('./pages/park/park.module').then( m => m.ParkPageModule),
+    canActivate: [AuthGuard, UserGuard]
+  },
   {
     path: 'run',
     loadChildren: () => import('./pages/run/run.module').then( m => m.RunPageModule)

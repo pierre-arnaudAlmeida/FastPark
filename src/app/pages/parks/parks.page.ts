@@ -5,8 +5,6 @@ import { ParkUtil } from '../../classes/ParkUtil';
 import { User } from '../../shared/User';
 import { Util } from '../../classes/Util';
 import { UserUtil } from '../../classes/UserUtil';
-import { AddressUtil } from '../../classes/AddressUtil';
-import { Address } from '../../shared/Address';
 
 @Component({
   selector: 'app-parks',
@@ -15,8 +13,7 @@ import { Address } from '../../shared/Address';
 })
 export class ParksPage implements OnInit {
 
-  allParks = [];  
-  allAddresses = [];
+  allParks = [];
   user: User = UserUtil.getEmptyUser();
   park: Park = ParkUtil.getEmptyPark();
 
@@ -31,10 +28,5 @@ export class ParksPage implements OnInit {
     await this.entityService.getAll(ParkUtil.parkCollectionName).subscribe(data => {
       this.allParks = ParkUtil.mapCollection(data, ParkUtil.parkCollectionName);
     });
-
-	await this.entityService.getAll(AddressUtil.addressCollectionName).subscribe(data => {
-		this.allAddresses = AddressUtil.mapCollection(data, AddressUtil.addressCollectionName);
-	  });
   }
-
 }
