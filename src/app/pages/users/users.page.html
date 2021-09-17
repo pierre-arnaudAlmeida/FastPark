@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back" routerLink="/home"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let u of allUsers">
+      <ion-col>
+        <ion-card clear *ngIf="u.id === user.id" [routerLink]="['/profile/']">
+          <ion-card-header>
+            <ion-card-title>{{ u.firstName }} {{ u.lastName }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+        <ion-card clear *ngIf="u.id !== user.id" [routerLink]="['/user/', u.id]">
+          <ion-card-header>
+            <ion-card-title>{{ u.firstName }} {{ u.lastName }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-button fill="clear" disabled="true" id="no-result-title" *ngIf='allUsers?.length === 0'>
+      <ion-icon name="close-circle-outline"></ion-icon>{{ 'UTILS.no-content-message' | translate }}
+    </ion-button>
+  </ion-grid>
+</ion-content>
