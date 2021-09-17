@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Park } from '../../shared/Park';
 import { ParkUtil } from '../../classes/ParkUtil';
+import { UserUtil } from '../../classes/UserUtil';
+import { User } from '../../shared/User';
+import { Util } from '../../classes/Util';
 import { Address } from '../../shared/Address';
 import { AddressUtil } from '../../classes/AddressUtil';
 import { EntityService } from '../../services/entity.service';
@@ -28,6 +31,7 @@ export class EditParkPage implements OnInit {
   alertPlaceNumberErrorMessage: any;
 
   park: Park = ParkUtil.getEmptyPark();
+  user: User = UserUtil.getEmptyUser();
   address: Address = AddressUtil.getEmptyAddress();
   parkBeforeUpdate: Park;
   
@@ -48,6 +52,10 @@ export class EditParkPage implements OnInit {
       this.park = ParkUtil.mapItem(data.payload, ParkUtil.parkCollectionName);
       this.parkBeforeUpdate = Object.assign({}, this.park);
     });
+
+    await this.entityService.getById(Util.$currentUserId, UserUtil.userCollectionName).subscribe(data => {
+      this.user = UserUtil.mapItem(data.payload, UserUtil.userCollectionName);
+    });
   }
 
   onChangeName() {
@@ -63,7 +71,8 @@ export class EditParkPage implements OnInit {
       }
     }
     this.park.name = name;
-    this.updatePark();
+    if (this.canUpdate())
+      this.updatePark();
   }
 
   async updateManager() {
@@ -80,7 +89,8 @@ export class EditParkPage implements OnInit {
         this.park.managerId = manager_selected.data.id
       }
     });
-    this.updatePark();
+    if (this.canUpdate())
+      this.updatePark();
 
     return await modalAddManager.present();
   }
@@ -100,12 +110,12 @@ export class EditParkPage implements OnInit {
           });
       }
     });
-    this.updatePark();
+    if (this.canUpdate())
+      this.updatePark();
 
     return await modalAddAddress.present();
   }
   
-  //TODO vérifier que le numero de telephone est non vide
   async updatePark() {
     if (this.park.addressId === "" || this.park.addressId === null) {
       await this.showAlertMessage(this.alertAddressErrorTitle, this.alertAddressErrorMessage);
@@ -137,5 +147,12 @@ export class EditParkPage implements OnInit {
       buttons: ['OK']
     });
     await alert.present();
+  }
+
+  canUpdate() {
+    if (this.user.id === this.park.managerId || this.user.role === 'ADMIN')
+      return true;
+    else
+      return false
   }
 }

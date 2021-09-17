@@ -8,14 +8,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
     <ion-item name="item-name">
       <ion-label>{{ 'PARK.parking-name-title' | translate }}</ion-label>
       <ion-input required="true" type="text" autocomplete="on" [(ngModel)]='park.name'
         (change)='onChangeName()'></ion-input>
     </ion-item>
 
-    <ion-item name="item-manager" (click)="updateManager()">
+    <ion-item *ngIf="user.role === 'ADMIN'" name="item-manager" (click)="updateManager()">
       <ion-label>{{ 'PARK.parking-manager-selection-title' | translate }}</ion-label>
     </ion-item>
   
@@ -41,8 +40,8 @@
         (change)='updatePark()'></ion-input>
     </ion-item>
     
-    <ion-button id="button-delete-account" expand="full" fill="clear" (click)="deletePark()">
+    <ion-button *ngIf="user.role === 'ADMIN'" id="button-delete-account" expand="full" fill="clear" (click)="deletePark()">
       <ion-label color="danger">{{ 'PARK.delete-park' | translate }}</ion-label>
     </ion-button>
-  </ion-list>
+  
 </ion-content>
