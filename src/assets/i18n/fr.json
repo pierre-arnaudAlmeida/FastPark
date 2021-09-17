@@ -26,6 +26,8 @@
         "cancel": "Annuler",
         "popup-email-error": "L'adresse mail n'est pas valide !",
         "success": "Réussi",
+        "users-title": "Utilisateurs",
+        "user-detail-title": "Détails utilisateurs",
 
 
 
@@ -49,6 +51,7 @@
         "parking-total-places-title": "Places totales",
         "delete-park": "Supprimer le parking",
         "edit-name-title": "Mettre à jour un parking",
+        "detail-name-title": "Details du parking",
         "address-error-title": "Problème d'adresse",
         "address-error-message": "L'adresse n'est pas renseigné",
         "manager-error-title": "Problème de manager",

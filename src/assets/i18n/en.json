@@ -26,6 +26,8 @@
         "cancel": "Cancel",
         "popup-email-error": "Invalid email !",
         "success": "Success",
+        "users-title": "Users",
+        "user-detail-title": "User details",
 
 
 
@@ -48,6 +50,7 @@
         "parking-total-places-title": "Total places",
         "delete-park": "Delete park",
         "edit-name-title": "Update park",
+        "detail-name-title": "Details park",
         "address-error-title": "Address problem",
         "address-error-message": "The address is not filled in",
         "manager-error-title": "Manager problem",
