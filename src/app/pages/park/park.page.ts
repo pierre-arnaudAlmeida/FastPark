@@ -25,8 +25,12 @@ export class ParkPage implements OnInit {
    }
 
   async ngOnInit() {
-    await this.entityService.getById(this.park.id, ParkUtil.parkCollectionName).subscribe(data => {
+    await this.entityService.getById(this.park.id, ParkUtil.parkCollectionName).subscribe(async data => {
       this.park = ParkUtil.mapItem(data.payload, ParkUtil.parkCollectionName);
+      
+      await this.entityService.getAll(AddressUtil.addressCollectionName).subscribe(data => {
+        this.address = AddressUtil.mapCollection(data, AddressUtil.addressCollectionName, this.park.addressId)[0];
+      });
     });
 
     await this.entityService.getById(Util.$currentUserId, UserUtil.userCollectionName).subscribe(data => {
