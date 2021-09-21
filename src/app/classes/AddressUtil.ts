@@ -18,10 +18,11 @@ export class AddressUtil {
      * @param e 
      * @param entityName 
      */
-    static mapCollection<T>(data: DocumentChangeAction<T>[], entityName: string): any[] {
+    static mapCollection<T>(data: DocumentChangeAction<T>[], entityName: string, id: string): any[] {
         let records: any = [];
         if (entityName == this.addressCollectionName) {
             data.forEach(e => {
+                if (id == null || id == e.payload.doc.id) {
                 const record = {
                     id: e.payload.doc.id,
                     street_number: e.payload.doc.data()['street_number'],
@@ -34,6 +35,7 @@ export class AddressUtil {
                     updateDate: new Date(e.payload.doc.data()['updateDate']).toISOString(),
                 }
                 records.push(record);
+                }
             });
             return records;
         }
