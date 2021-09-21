@@ -25,6 +25,7 @@ import { UserGuard } from '../../guards/user.guard';
 })
 export class HomePage implements OnInit {
 
+  elements = [];
   allParks = [];
   searchedParks = [];
   allAddresses = [];
@@ -70,11 +71,16 @@ export class HomePage implements OnInit {
 
     await this.entityService.getAll(ParkUtil.parkCollectionName).subscribe(data => {
       this.allParks = ParkUtil.mapCollection(data, ParkUtil.parkCollectionName);
+      
+      this.allParks.forEach(async park => {
+        await this.entityService.getAll(AddressUtil.addressCollectionName).subscribe(data => {
+          this.elements = AddressUtil.mapCollection(data, AddressUtil.addressCollectionName, park.addressId);
+          park.addressDetails = this.elements[0];
+        });
+      });
     });
 
-	await this.entityService.getAll(AddressUtil.addressCollectionName).subscribe(data => {
-		this.allAddresses = AddressUtil.mapCollection(data, AddressUtil.addressCollectionName);
-	  });
+	  
   }
 
   async updateAccount() {
