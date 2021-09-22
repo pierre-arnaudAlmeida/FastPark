@@ -28,7 +28,6 @@ export class HomePage implements OnInit {
   elements = [];
   allParks = [];
   searchedParks = [];
-  allAddresses = [];
   user: User = UserUtil.getEmptyUser();
   park: Park = ParkUtil.getEmptyPark();
   address: Address = AddressUtil.getEmptyAddress();
@@ -119,6 +118,7 @@ export class HomePage implements OnInit {
 		dist = dist * 1.609344 // miles en Km
 		return dist;
 	}
+
 }
 
   ionViewDidEnter() { this.leafletMap(); }
@@ -138,13 +138,19 @@ export class HomePage implements OnInit {
 		shadowSize: [41, 41]
 	  });
 
-	this.allAddresses.map( address =>{
-		let distance = this.distance(address.position._lat, address.position._long, this.latitude, this.longitude);
-		if(distance <= 5){
-			Leaflet.marker([address.position._lat, address.position._long]).addTo(this.map);
+	  console.log(this.allParks);
+
+	this.allParks.map( address =>{		
+		let distance = this.distance(address.addressDetails.position._lat, address.addressDetails.position._long, this.latitude, this.longitude);
+		if(distance <= 5000){
+			var marker = Leaflet.marker([address.addressDetails.position._lat, address.addressDetails.position._long]).addTo(this.map)
+			marker.bindPopup('<p>'+address.name+'</p><p>'+address.freePlaces+'/'+address.totalPlaces+' Available Places </p>');
+			marker.on('click', function(e){
+				this.openPopup();
+			});
 		}		
 	});
-	
+
 
     Leaflet.marker([this.latitude, this.longitude], {icon: redIcon}).addTo(this.map).bindPopup('My Position').openPopup();
   }
