@@ -142,7 +142,7 @@ export class HomePage implements OnInit {
 
 	this.allParks.map( address =>{		
 		let distance = this.distance(address.addressDetails.position._lat, address.addressDetails.position._long, this.latitude, this.longitude);
-		if(distance <= 5000){
+		if(distance <= 5){
 			var marker = Leaflet.marker([address.addressDetails.position._lat, address.addressDetails.position._long]).addTo(this.map)
 			marker.bindPopup('<p>'+address.name+'</p><p>'+address.freePlaces+'/'+address.totalPlaces+' Available Places </p>');
 			marker.on('click', function(e){
