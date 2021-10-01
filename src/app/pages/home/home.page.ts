@@ -18,11 +18,6 @@ import { AdminGuard } from '../../guards/admin.guard';
 import { ManagerGuard } from '../../guards/manager.guard';
 import { UserGuard } from '../../guards/user.guard';
 
-import { BrowserModule } from '@angular/platform-browser';
-import { GoogleMapsModule } from '@angular/google-maps';
-import { } from '@angular/google-maps';
-import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -128,92 +123,46 @@ export class HomePage implements OnInit {
 
   leafletMap() {
     var parkMarker;
-
-    // this.map = Leaflet.map('mapId').setView([this.latitude, this.longitude], 5);
-    // Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    //   attribution: 'edupala.com © Angular LeafLet',
-    // }).addTo(this.map);
     
-	var redIcon = new Leaflet.Icon({
-		iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-		shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-		iconSize: [25, 41],
-		iconAnchor: [12, 41],
-		popupAnchor: [1, -34],
-		shadowSize: [41, 41]
-	  });
+    this.map = Leaflet.map('mapId').setView([this.latitude, this.longitude], 5);
+    Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'edupala.com © Angular LeafLet',
+    }).addTo(this.map);
 
-	  console.log(this.allParks);
+    var require: any;
+    var L = require('leaflet-routing-machine');
+
+    L.Routing.control({
+        waypoints: [
+          L.latLng(57.74, 11.94),
+          L.latLng(57.6792, 11.949)
+        ],
+        routeWhileDragging: true
+    }).addTo(this.map);
+
+	// var redIcon = new Leaflet.Icon({
+	// 	iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+	// 	shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+	// 	iconSize: [25, 41],
+	// 	iconAnchor: [12, 41],
+	// 	popupAnchor: [1, -34],
+	// 	shadowSize: [41, 41]
+	//   });
+
+	//   console.log(this.allParks);
     
-	this.allParks.map( address =>{		
-		let distance = this.distance(address.addressDetails.position._lat, address.addressDetails.position._long, this.latitude, this.longitude);
-		if(distance <= 5){
-			parkMarker = Leaflet.marker([address.addressDetails.position._lat, address.addressDetails.position._long]).addTo(this.map)
-			parkMarker.bindPopup('<p>'+address.name+'</p><p>'+address.freePlaces+'/'+address.totalPlaces+' Available Places </p>');
-			parkMarker.on('click', function(e){
-				this.openPopup();
-			});
-		}		
-  });
+	// this.allParks.map( address =>{		
+	// 	let distance = this.distance(address.addressDetails.position._lat, address.addressDetails.position._long, this.latitude, this.longitude);
+	// 	if(distance <= 5){
+	// 		parkMarker = Leaflet.marker([address.addressDetails.position._lat, address.addressDetails.position._long]).addTo(this.map)
+	// 		parkMarker.bindPopup('<p>'+address.name+'</p><p>'+address.freePlaces+'/'+address.totalPlaces+' Available Places </p>');
+	// 		parkMarker.on('click', function(e){
+	// 			this.openPopup();
+	// 		});
+	// 	}		
+  // });
   
-    Leaflet.marker([this.latitude, this.longitude], {icon: redIcon}).addTo(this.map).bindPopup('My Position').openPopup();
-    
-    // Choose park with direction on click
-    // parkMarker.on('click', function(e){
-    //   var angular: any
-    //   var app = angular.module('plunker', ['google-maps']);
-
-    //   app.controller('MainCtrl', function($scope, $document) {
-    //     // map object
-    //     $scope.map = {
-    //       control: {},
-    //       center: {
-    //           latitude: -37.812150,
-    //           longitude: 144.971008
-    //       },
-    //       zoom: 14
-    //     };
-        
-    //     // marker object
-    //     $scope.marker = {
-    //       center: {
-    //           latitude: -37.812150,
-    //           longitude: 144.971008
-    //       }
-    //     }
-        
-    //     // instantiate google map objects for directions
-    //     var directionsDisplay = new google.maps.DirectionsRenderer();
-    //     var directionsService = new google.maps.DirectionsService();
-    //     var geocoder = new google.maps.Geocoder();
-        
-    //     // directions object -- with defaults
-    //     $scope.directions = {
-    //       origin: "Collins St, Melbourne, Australia",
-    //       destination: "MCG Melbourne, Australia",
-    //       showList: false
-    //     }
-        
-    //     // get directions using google maps api
-    //     $scope.getDirections = function () {
-    //       var request = {
-    //         origin: $scope.directions.origin,
-    //         destination: $scope.directions.destination,
-    //         // travelMode: google.maps.DirectionsTravelMode.DRIVING
-    //       };
-    //       directionsService.route(request, function (response, status) {
-    //         if (status === google.maps.DirectionsStatus.OK) {
-    //           directionsDisplay.setDirections(response);
-    //           directionsDisplay.setMap($scope.map.control.getGMap());
-    //           directionsDisplay.setPanel(document.getElementById('directionsList'));
-    //           $scope.directions.showList = true;
-    //         } else {
-    //           alert('Google route unsuccesfull!');
-    //         }
-    //       });
-    //     }
-    //   });
-    // });
+  //   Leaflet.marker([this.latitude, this.longitude], {icon: redIcon}).addTo(this.map).bindPopup('My Position').openPopup();
   }
 
   /** Remove map when we have multiple map object */
