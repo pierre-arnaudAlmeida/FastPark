@@ -129,11 +129,11 @@ export class HomePage implements OnInit {
   leafletMap() {
     var parkMarker;
 
-    this.map = Leaflet.map('mapId').setView([this.latitude, this.longitude], 5);
-    Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'edupala.com © Angular LeafLet',
-    }).addTo(this.map);
-
+    // this.map = Leaflet.map('mapId').setView([this.latitude, this.longitude], 5);
+    // Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //   attribution: 'edupala.com © Angular LeafLet',
+    // }).addTo(this.map);
+    
 	var redIcon = new Leaflet.Icon({
 		iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
 		shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
