@@ -124,10 +124,16 @@ export class HomePage implements OnInit {
   ionViewDidEnter() { this.leafletMap(); }
 
   leafletMap() {
-    this.map = Leaflet.map('mapId').setView([this.latitude, this.longitude], 5);
-    Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'edupala.com © Angular LeafLet',
+    this.map = Leaflet.map('mapId', {attributionControl: false}).setView([this.latitude, this.longitude], 5);
+    // Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    // Leaflet.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
+    // Leaflet.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    //Leaflet.tileLayer('	https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', { // Positron
+    Leaflet.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', { // Dark
+      // attribution: 'edupala.com © Angular LeafLet',
     }).addTo(this.map);
+
+
 
 	var redIcon = new Leaflet.Icon({
 		iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',

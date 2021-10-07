@@ -1,25 +1,52 @@
 .theme-dark {
   ion-header {
-    background-color: #000000;
+    --background: linear-gradient(90deg, #D600E8 0%, #5057FD 100%);;
+    ion-icon{
+      color: white;
+    }
     ion-toolbar{
-      --background: #000000;
+      --background: linear-gradient(90deg, #D600E8 0%, #5057FD 100%);
+      height: 100%;
     }
     ion-buttons{
-      background-color: #000000;
+      --background: linear-gradient(90deg, #D600E8 0%, #5057FD 100%);
     }
     ion-icon{
-      margin-left: 10px;
+      margin-left: 15px;
       height: 25px;
       width: 25px;
     }
   }
-  ion-footer{
-    color : white;
-    height: 7%;
-    background-color:   rgb(70, 70, 70);
+
+  ion-tab-bar {
+    background-color: #D600E8;
+    ion-icon{
+      color: white;
+    }
+    ion-toolbar{
+      --background: linear-gradient(90deg, #D600E8 0%, #5057FD 100%);;
+    }
+    ion-buttons{
+      --background: #D600E8;
+    }
+    ion-icon{
+      margin-left: 15px;
+      height: 25px;
+      width: 25px;
+    }
   }
+
+  ion-footer{
+    height: 7%;
+    background-color: #ffffff;
+  }
+
+  ion-footer{
+    color : black;
+  }
+  
   ion-title{
-    background-color: #000000;
+    // background-color: #D600E8;
     color: white;
   }
 
@@ -28,30 +55,30 @@
   }
  
   ion-content{
-    --background: rgb(70, 70, 70);
+    --background:#ffffff;
   }
 
   ion-list{   
-    background-color: rgb(70, 70, 70);
+    background-color: #ffffff;
   }
 
   ion-item{
-    --background:  rgb(70, 70, 70);
-    color: white;
-    --detail-icon-color: white;
+    --background:  #ffffff;
+    color: black;
+    --detail-icon-color: black;
   }
 
   ion-label{
-     --background: rgb(70, 70, 70);
-     --color: white;
+     --background: #ffffff;
+     --color: black;
   }
 
   ion-icon{
-    color: white;
+    color: black;
   }
 
   #authors{
-    color : white;
+    color : black;
   }
 
   #no-result-title{
@@ -59,43 +86,48 @@
     margin-top: 50px;
     margin-bottom: 50px;
     width: 100%;
-    --background:rgb(70, 70, 70);
+    --background:#ffffff;
   }
 
   p{
-    color: white;
+    color: black;
   }
 
   h1,
   h2,
   h4,
   h5{
-    color: orange;
+    color: 3880ff;
   }
-
   ion-toggle{
-    --background-checked: gray;
+    --background-checked: #D600E8;
   }
   
   ion-menu{
-    --background: rgb(70, 70, 70);
+    --background: #D600E8;
   }
 
-  ion-button{
-    --background: orange;
+  ion-button {
+    border-radius: 5px;
+    --background: linear-gradient(90deg, #D600E8 0%, #5057FD 100%);
     color: white;
-    --background-activated: orange;
-    --border-radius: 10px;
+    --background-activated: #ffffff;
+  }
+
+  .inverted {
+    --background: white !important;
+    color: #9927F1;
+    --background-activated: #ffffff !important;
   }
 
   ion-card{
-    --background : rgb(160, 160, 160);
-    color : white;
+    --background : #ffffff;
+    color : black;
   }
 
+  #picture-profile,
   #button-disconnection,
   #button-delete-account,
-  #button-update-account,
   #button-verify-email,
   #button-change-picture-account,
   #button-add-participant,
@@ -105,15 +137,37 @@
   #button-list-members,
   #button-leave,
   #button-delete-contact{
-    --background: rgb(70, 70, 70);
-    --background-activated:rgb(70, 70, 70);
+    --background: #ffffff;
+    --background-activated:#ffffff;
+  }
+
+  #button-update-account{
+    --background: #ffffff;
+    --background-activated:#ffffff;
+    color : red;
+  }
+
+  #content-runpage{
+    --background: #ffffff;
+  }
+
+  #icon-in-button-colored{
+    color: white;
+  }
+
+  #icon-run-page{
+    color : white;
+  }
+
+  #list-run-page{
+    background-color: #ffffff;
   }
 
   ion-searchbar{
-    --color: white;
-    --background: rgb(160, 160, 160);
+    --color: black;
   }
 
-  background-color: rgb(70, 70, 70);
-  --ion-color-primary: orange;
-}
+  background-color: #ffffff;
+  --ion-color-primary: #D600E8;
+  --ion-color-secondary: #3880ff;
+  }

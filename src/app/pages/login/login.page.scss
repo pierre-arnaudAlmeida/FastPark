@@ -2,7 +2,13 @@ ion-icon{
     margin-left: 5px;
 }
 
+ion-item {
+    // --border-style: none;
+    padding: 0px;
+}
+
 ion-content{
+    --overflow: hidden;
     text-align: center;
 }
 
@@ -17,7 +23,19 @@ ion-label{
     white-space: initial;
     width: 90%;
 }
+
+ion-header {
+    height: 20%;
+}
+
+ion-toolbar {
+    height: 100%;
+    --min-height:100%!important;
+    --border-width: 0 0 0px !important;
+}
+
 #item-signin-email{
+    margin-top: 30%;
     width: 75%;
     margin-left: auto;
     margin-right: auto;
@@ -27,7 +45,6 @@ ion-label{
     width: 75%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
 }
 
 #icon-signin{
@@ -37,5 +54,17 @@ ion-label{
 }
 
 #reset-button{
+    height: 15px;
+    font-size:smaller;
+}
+
+#login-button {
+    height: 48px;
+    margin-top: 10%;
+}
+
+#account-button{
+    margin-top: 48px;
     height: 25px;
+    font-size:smaller!important;
 }

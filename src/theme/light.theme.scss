@@ -1,14 +1,15 @@
 .theme-light {
   ion-header {
-    background-color: #74d9e4;
+    --background: linear-gradient(90deg, #D600E8 0%, #5057FD 100%);;
     ion-icon{
       color: white;
     }
     ion-toolbar{
-      --background: #74d9e4;
+      --background: linear-gradient(90deg, #D600E8 0%, #5057FD 100%);
+      height: 100%;
     }
     ion-buttons{
-      --background: #74d9e4;
+      --background: linear-gradient(90deg, #D600E8 0%, #5057FD 100%);
     }
     ion-icon{
       margin-left: 15px;
@@ -18,15 +19,15 @@
   }
 
   ion-tab-bar {
-    background-color: #74d9e4;
+    background-color: #D600E8;
     ion-icon{
       color: white;
     }
     ion-toolbar{
-      --background: #74d9e4;
+      --background: linear-gradient(90deg, #D600E8 0%, #5057FD 100%);;
     }
     ion-buttons{
-      --background: #74d9e4;
+      --background: #D600E8;
     }
     ion-icon{
       margin-left: 15px;
@@ -37,7 +38,7 @@
 
   ion-footer{
     height: 7%;
-    background-color: #e9e7e7;
+    background-color: #ffffff;
   }
 
   ion-footer{
@@ -45,7 +46,7 @@
   }
   
   ion-title{
-    background-color: #74d9e4;
+    // background-color: #D600E8;
     color: white;
   }
 
@@ -54,21 +55,21 @@
   }
  
   ion-content{
-    --background:#e9e7e7;
+    --background:#ffffff;
   }
 
   ion-list{   
-    background-color: #e9e7e7;
+    background-color: #ffffff;
   }
 
   ion-item{
-    --background:  #e9e7e7;
+    --background:  #ffffff;
     color: black;
     --detail-icon-color: black;
   }
 
   ion-label{
-     --background: #e9e7e7;
+     --background: #ffffff;
      --color: black;
   }
 
@@ -85,7 +86,7 @@
     margin-top: 50px;
     margin-bottom: 50px;
     width: 100%;
-    --background:#e9e7e7;
+    --background:#ffffff;
   }
 
   p{
@@ -99,22 +100,28 @@
     color: 3880ff;
   }
   ion-toggle{
-    --background-checked: #74d9e4;
+    --background-checked: #D600E8;
   }
   
   ion-menu{
-    --background: #e9e7e7;
+    --background: #D600E8;
   }
 
-  ion-button{
-    --background: #74d9e4;
+  ion-button {
+    border-radius: 5px;
+    --background: linear-gradient(90deg, #D600E8 0%, #5057FD 100%);
     color: white;
-    --background-activated: #74d9e4;
-    --border-radius: 10px;
+    --background-activated: #ffffff;
+  }
+
+  .inverted {
+    --background: white !important;
+    color: #9927F1;
+    --background-activated: #ffffff !important;
   }
 
   ion-card{
-    --background : #74d9e4;
+    --background : #ffffff;
     color : black;
   }
 
@@ -130,18 +137,18 @@
   #button-list-members,
   #button-leave,
   #button-delete-contact{
-    --background: #e9e7e7;
-    --background-activated:#e9e7e7;
+    --background: #ffffff;
+    --background-activated:#ffffff;
   }
 
   #button-update-account{
-    --background: #e9e7e7;
-    --background-activated:#e9e7e7;
+    --background: #ffffff;
+    --background-activated:#ffffff;
     color : red;
   }
 
   #content-runpage{
-    --background: #74d9e4;
+    --background: #ffffff;
   }
 
   #icon-in-button-colored{
@@ -153,14 +160,14 @@
   }
 
   #list-run-page{
-    background-color: #74d9e4;
+    background-color: #ffffff;
   }
 
   ion-searchbar{
     --color: black;
   }
 
-  background-color: #e9e7e7;
-  --ion-color-primary: #74d9e4;
+  background-color: #ffffff;
+  --ion-color-primary: #D600E8;
   --ion-color-secondary: #3880ff;
   }

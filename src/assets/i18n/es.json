@@ -20,6 +20,7 @@
         "lastname": "Apellido",
         "phone-number": "Teléfono",
         "password-title": "Contraseña",
+        "password-confirm-title": "Contraseña",
         "login-title": "Iniciar sesión",
         "error": "Error",
         "valid" : "Validar",

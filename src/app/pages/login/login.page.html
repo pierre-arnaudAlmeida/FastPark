@@ -7,8 +7,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-icon id="icon-signin" name="log-in"></ion-icon>
+<ion-content shape="round">
+  <!-- <ion-icon id="icon-signin" name="log-in"></ion-icon> -->
 
   <ion-item id="item-signin-email">
     <ion-label position="floating">{{ 'UTILS.email-title' | translate }}</ion-label>
@@ -20,14 +20,21 @@
     <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
 
-  <ion-button (click)="login()" color="success" class="account-button" id="login-button">
-    <ion-icon id="icon-in-button-colored" slot="icon-only" name="log-in"></ion-icon>
+  <ion-button routerLink="/reset-password" id="reset-button" class="inverted">
+    <ion-label>{{ 'LOGIN.reset-password-button' | translate }}</ion-label>
+  </ion-button>
+
+  <ion-button (click)="login()" class="account-button" id="login-button">
+    <!-- <ion-icon id="icon-in-button-colored" slot="icon-only" name="log-in"></ion-icon> -->
     <ion-label>{{ 'UTILS.login-button-title' | translate }}</ion-label>
   </ion-button>
 
-  <ion-button color="medium" routerLink="/reset-password" id="reset-button">
-    <ion-label>{{ 'LOGIN.reset-password-button' | translate }}</ion-label>
+  <ion-button class="account-button inverted" id="account-button" routerLink="/signup">
+    <!-- <ion-icon id="icon-in-button-colored" name="person-add"></ion-icon> -->
+    <ion-label>{{ 'LOGIN.sign-up-button' | translate }}</ion-label>
   </ion-button>
+
+
 
   <!-- Il faut créer sur firebase une application android et ios pour les utilisés
   <ion-button color="secondary">
@@ -40,8 +47,5 @@
     <ion-label>{{ 'LOGIN.sign-in-google' | translate }}</ion-label>
   </ion-button>
   -->
-  <ion-button color="warning" class="account-button" routerLink="/signup">
-    <ion-icon id="icon-in-button-colored" name="person-add"></ion-icon>
-    <ion-label>{{ 'LOGIN.sign-up-button' | translate }}</ion-label>
-  </ion-button>
+
 </ion-content>
