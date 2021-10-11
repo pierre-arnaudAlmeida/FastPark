@@ -1,12 +1,6 @@
 .logo{
     margin: auto;
     margin-top: 35%;
-    width: 50%;
-    margin-bottom: 25%;
-}
-
-ion-content {
-    --overflow: hidden;
 }
 
 ion-button{
@@ -16,7 +10,6 @@ ion-button{
 }
 
 ion-label{
-    justify-content: center;
     white-space: initial;
     width: 90%;
 }

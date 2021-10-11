@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{ 'UTILS.sign-up-title' | translate }}<ion-icon id="icon-signup" name="person-add"></ion-icon></ion-title>
-    
+    <ion-title>{{ 'UTILS.sign-up-title' | translate }}</ion-title>
     <ion-buttons slot="start">
       <ion-icon name="arrow-back" routerLink="/run"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content shape="round">
+<ion-content>
+  <ion-icon id="icon-signup" name="person-add"></ion-icon>
 
   <ion-item id="item-signup-lastName">
     <ion-label position="floating">{{ 'UTILS.lastname' | translate }}*</ion-label>
@@ -36,11 +36,11 @@
   </ion-item>
 
   <ion-item id="item-signup-confirm-password">
-    <ion-label position="floating">{{ 'UTILS.password-confirm-title' | translate }}</ion-label>
+    <ion-label position="floating">{{ 'UTILS.password-title' | translate }}</ion-label>
     <ion-input type="password" [(ngModel)]="passwordConfirmation"></ion-input>
   </ion-item>
 
-  <ion-button (click)="createAccount()" id="sign-in-button">
+  <ion-button (click)="createAccount()" color="success" id="sign-in-button">
     <ion-icon id="icon-in-button-colored" slot="icon-only" name="log-in"></ion-icon>
     <label>{{ 'UTILS.sign-up-title' | translate }}</label>
   </ion-button>

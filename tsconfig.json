@@ -13,6 +13,7 @@
     "target": "es2015",
     "module": "esnext",
     "strict": false,
+    "allowJs": true,
     "lib": ["es2018", "dom"]
   },
   "angularCompilerOptions": {

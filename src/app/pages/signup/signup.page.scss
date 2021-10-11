@@ -1,5 +1,4 @@
 ion-content{
-    --overflow: hidden;
     text-align: center;
 }
 
@@ -16,30 +15,14 @@ ion-label{
     width: 90%;
 }
 
-ion-header {
-    height: 20%;
-}
-
-ion-toolbar {
-    height: 100%;
-    --min-height:100%!important;
-    --border-width: 0 0 0px !important;
-}
-
 #item-signup-email,
 #item-signup-password,
 #item-signup-phoneNumber,
 #item-signup-firstName,
-#item-signup-lastName,
-#item-signup-confirm-password{
-    font-size: small;
+#item-signup-lastName{
     width: 75%;
     margin-left: auto;
     margin-right: auto;
-}
-
-#item-signup-lastName {
-    margin-top: 15px;
 }
 
 #item-signup-confirm-password{
@@ -50,11 +33,7 @@ ion-toolbar {
 }
 
 #icon-signup{
-    height: 15px;
-}
-
-#sign-in-button {
-    margin-top: 48px;
-    --border-radius: 50px;
-    height: 48px;
+    margin-top: 15%;
+    width: 35%;
+    height: 35%;
 }

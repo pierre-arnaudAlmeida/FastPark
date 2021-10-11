@@ -20,7 +20,6 @@
         "lastname": "Last Name",
         "phone-number": "Phone Number",
         "password-title": "Password",
-        "password-confirm-title": "Password confirm",
         "login-title": "Sign in",
         "error": "Error",
         "valid" : "Valid",
