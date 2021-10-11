@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back" routerLink="/home"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let p of allParks">
+      <ion-col>
+        <ion-card *ngIf="p.managerId === user.id || user.role === 'ADMIN'" clear [routerLink]="['/edit-park/', p.id]">
+          <ion-card-header>
+            <ion-card-title>{{ p.name }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+        <ion-card *ngIf="p.managerId !== user.id && user.role !== 'ADMIN'" clear [routerLink]="['/park/', p.id]">
+          <ion-card-header>
+            <ion-card-title>{{ p.name }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-button fill="clear" disabled="true" id="no-result-title" *ngIf='allParks?.length === 0'>
+      <ion-icon name="close-circle-outline"></ion-icon>{{ 'UTILS.no-content-message' | translate }}
+    </ion-button>
+  </ion-grid>
+</ion-content>

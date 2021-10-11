@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back" routerLink="/home"></ion-icon>
+    </ion-buttons>
+    <ion-title>{{ 'PARK.detail-name-title' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item name="item-name">
+    <ion-label>{{ 'PARK.parking-name-title' | translate }}</ion-label>
+    <ion-input [(ngModel)]='park.name'></ion-input>
+  </ion-item>
+
+  <ion-item name="item-phone-number">
+    <ion-label>{{ 'PARK.parking-phone-title' | translate }}</ion-label>
+    <ion-input [(ngModel)]='park.phoneNumber'></ion-input>
+  </ion-item>
+
+  <ion-item name="item-free-places">
+    <ion-label>{{ 'PARK.parking-free-places-title' | translate }}</ion-label>
+    <ion-input [(ngModel)]='park.freePlaces'></ion-input>
+  </ion-item>
+
+  <ion-item name="item-total-places">
+    <ion-label>{{ 'PARK.parking-total-places-title' | translate }}</ion-label>
+    <ion-input [(ngModel)]='park.totalPlaces'></ion-input>
+  </ion-item>
+</ion-content>

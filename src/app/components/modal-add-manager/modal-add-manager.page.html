@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="closeModal()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-buttons>
+    <ion-title>{{ 'MANAGER.add-manager-title' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngFor="let u of users">
+      <ion-item *ngIf="u.role === 'MANAGER'">
+        <ion-label (click)="validate(u)">{{ u.firstName }} {{ u.lastName }}</ion-label>
+        <ion-icon *ngIf='park.managerId === u.id' slot="end" name="checkmark"></ion-icon>
+      </ion-item>
+    </div>
+    <ion-button fill="clear" disabled="true" id="no-result-title" *ngIf='users?.length === 0'>
+      <ion-icon name="close-circle-outline"></ion-icon>{{ 'UTILS.no-content-title' | translate }}
+    </ion-button>  
+  </ion-list>
+</ion-content>
