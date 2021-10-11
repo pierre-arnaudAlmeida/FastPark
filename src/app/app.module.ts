@@ -27,6 +27,8 @@ import { environment } from '../environments/environment';
 import { ModalAddAddressPageModule } from '../app/components/modal-add-address/modal-add-address.module';
 import { ModalAddManagerPageModule } from '../app/components/modal-add-manager/modal-add-manager.module';
 
+import { LeafletModule } from "@asymmetrik/ngx-leaflet";
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -36,6 +38,7 @@ export function createTranslateLoader(http: HttpClient) {
   entryComponents: [],
   imports: [
     BrowserModule, 
+    LeafletModule,
     IonicModule.forRoot(), 
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
