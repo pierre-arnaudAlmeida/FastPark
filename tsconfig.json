@@ -12,7 +12,6 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "strict": false,
     "lib": ["es2018", "dom"]
   },
   "angularCompilerOptions": {
