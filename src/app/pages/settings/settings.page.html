@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back" routerLink="/home"></ion-icon>
+    </ion-buttons>
+    <ion-title>{{ 'UTILS.settings-title' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item lines="none">
+      <ion-label>{{ 'UTILS.theme-title' | translate }}</ion-label>
+      <ion-toggle [checked]="isToggled" (ionChange)="toggleAppTheme()"></ion-toggle>
+      <ion-icon name="moon" color="warning"></ion-icon>
+    </ion-item>
+
+    <ion-item lines="none" name="item-language" expand="full" fill="clear" routerLink="/languages">
+      <ion-label>{{ 'UTILS.languages-title' | translate }}</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" name="item-display" expand="full" fill="clear" routerLink="/display">
+      <ion-label>{{ 'UTILS.display-title' | translate }}</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" name="item-authorization" expand="full" fill="clear" routerLink="/authorization">
+      <ion-label>{{ 'UTILS.authorization-title' | translate }}</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" name="item-notification" expand="full" fill="clear" routerLink="/notifications">
+      <ion-label>{{ 'UTILS.notifications-title' | translate }}</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" expand="full" fill="clear" routerLink="/terms">
+      <ion-label>{{ 'UTILS.terms-title' | translate }}</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" name="item-policy" expand="full" fill="clear" routerLink="/policy">
+      <ion-label>{{ 'UTILS.policy-title' | translate }}</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" name="item-credits" expand="full" fill="clear" routerLink="/credits">
+      <ion-label>{{ 'UTILS.credits-title' | translate }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div class="logos">
+    <a target="_blank" rel="noopener" href="https://www.facebook.com">
+      <ion-icon name="logo-facebook"></ion-icon>
+    </a>
+
+    <a target="_blank" rel="noopener" href="https://www.google.com">
+      <ion-icon name="logo-google"></ion-icon>
+    </a>
+  </div>
+
+  <div class="logos">
+    <a target="_blank" rel="noopener" href="https://www.instagram.com">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </a>
+
+    <a target="_blank" rel="noopener" href="https://www.snapchat.com">
+      <ion-icon name="logo-snapchat"></ion-icon>
+    </a>
+  </div>
+</ion-content>

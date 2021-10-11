@@ -1,0 +1,59 @@
+ion-content{
+  --overflow: hidden;
+  text-align: center;
+  --offset-bottom: 16%!important;
+  border: none !important;
+}
+
+ion-footer {
+  border: none !important;
+  border-radius: 100px 100px 0px 0px !important;
+  background-color: white!important;
+}
+
+ion-tab-bar {
+  border: none !important;
+  height: 100%;
+  background-color: transparent!important;
+}
+
+ion-tab-button {
+  border: none !important;
+  background-color: transparent!important;
+}
+
+ion-icon {
+  color:black!important;
+}
+
+.add-park {
+  color:white!important;
+}
+
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}

@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'UTILS.sign-up-title' | translate }}<ion-icon id="icon-signup" name="person-add"></ion-icon></ion-title>
+    
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back" routerLink="/run"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content shape="round">
+
+  <ion-item id="item-signup-lastName">
+    <ion-label position="floating">{{ 'UTILS.lastname' | translate }}*</ion-label>
+    <ion-input [(ngModel)]="user.lastName"></ion-input>
+  </ion-item>
+
+  <ion-item id="item-signup-firstName">
+    <ion-label position="floating">{{ 'UTILS.firstname' | translate }}*</ion-label>
+    <ion-input [(ngModel)]="user.firstName"></ion-input>
+  </ion-item>
+
+  <ion-item id="item-signup-email">
+    <ion-label position="floating">{{ 'UTILS.email-title' | translate }}*</ion-label>
+    <ion-input [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+
+  <ion-item id="item-signup-phoneNumber">
+    <ion-label position="floating">{{ 'UTILS.phone-number' | translate }}</ion-label>
+    <ion-input [(ngModel)]="user.phoneNumber"></ion-input>
+  </ion-item>
+
+  <ion-item id="item-signup-password">
+    <ion-label position="floating">{{ 'UTILS.password-title' | translate }}</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+
+  <ion-item id="item-signup-confirm-password">
+    <ion-label position="floating">{{ 'UTILS.password-confirm-title' | translate }}</ion-label>
+    <ion-input type="password" [(ngModel)]="passwordConfirmation"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="createAccount()" id="sign-in-button">
+    <ion-icon id="icon-in-button-colored" slot="icon-only" name="log-in"></ion-icon>
+    <label>{{ 'UTILS.sign-up-title' | translate }}</label>
+  </ion-button>
+
+  <!-- Il faut créer sur firebase une application android et ios pour les utilisés
+
+  <ion-button color="secondary">
+    <ion-icon id="icon-in-button-colored" name="logo-facebook" slot="start"></ion-icon>
+    <ion-label>{{ 'SIGNUP.sign-up-facebook' | translate }}</ion-label>
+  </ion-button>
+
+  <ion-button color="danger">
+    <ion-icon id="icon-in-button-colored" name="logo-google" slot="start"></ion-icon>
+    <ion-label>{{ 'SIGNUP.sign-up-google' | translate }}</ion-label>
+  </ion-button>
+  -->
+</ion-content>

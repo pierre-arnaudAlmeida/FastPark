@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back" routerLink="/settings"></ion-icon>
+    </ion-buttons>
+    <ion-title>{{'UTILS.credits-title' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="infos">
+    <ion-img [src]="imageUrl"></ion-img>
+    <br>
+    <div id="authors">
+      {{ 'CREDITS.authors' | translate }}
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  &copy; FastPark - 2021-2022
+</ion-footer>

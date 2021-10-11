@@ -1,0 +1,173 @@
+.theme-dark {
+  ion-header {
+    --background: linear-gradient(90deg, #D600E8 0%, #5057FD 100%);;
+    ion-icon{
+      color: white;
+    }
+    ion-toolbar{
+      --background: linear-gradient(90deg, #D600E8 0%, #5057FD 100%);
+      height: 100%;
+    }
+    ion-buttons{
+      --background: linear-gradient(90deg, #D600E8 0%, #5057FD 100%);
+    }
+    ion-icon{
+      margin-left: 15px;
+      height: 25px;
+      width: 25px;
+    }
+  }
+
+  ion-tab-bar {
+    background-color: #D600E8;
+    ion-icon{
+      color: white;
+    }
+    ion-toolbar{
+      --background: linear-gradient(90deg, #D600E8 0%, #5057FD 100%);;
+    }
+    ion-buttons{
+      --background: #D600E8;
+    }
+    ion-icon{
+      margin-left: 15px;
+      height: 25px;
+      width: 25px;
+    }
+  }
+
+  ion-footer{
+    height: 7%;
+    background-color: #ffffff;
+  }
+
+  ion-footer{
+    color : black;
+  }
+  
+  ion-title{
+    // background-color: #D600E8;
+    color: white;
+  }
+
+  ion-menu-button{
+    color: white;
+  }
+ 
+  ion-content{
+    --background:#ffffff;
+  }
+
+  ion-list{   
+    background-color: #ffffff;
+  }
+
+  ion-item{
+    --background:  #ffffff;
+    color: black;
+    --detail-icon-color: black;
+  }
+
+  ion-label{
+     --background: #ffffff;
+     --color: black;
+  }
+
+  ion-icon{
+    color: black;
+  }
+
+  #authors{
+    color : black;
+  }
+
+  #no-result-title{
+    color: rgb(160, 160, 160);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    --background:#ffffff;
+  }
+
+  p{
+    color: black;
+  }
+
+  h1,
+  h2,
+  h4,
+  h5{
+    color: 3880ff;
+  }
+  ion-toggle{
+    --background-checked: #D600E8;
+  }
+  
+  ion-menu{
+    --background: #D600E8;
+  }
+
+  ion-button {
+    border-radius: 5px;
+    --background: linear-gradient(90deg, #D600E8 0%, #5057FD 100%);
+    color: white;
+    --background-activated: #ffffff;
+  }
+
+  .inverted {
+    --background: white !important;
+    color: #9927F1;
+    --background-activated: #ffffff !important;
+  }
+
+  ion-card{
+    --background : #ffffff;
+    color : black;
+  }
+
+  #picture-profile,
+  #button-disconnection,
+  #button-delete-account,
+  #button-verify-email,
+  #button-change-picture-account,
+  #button-add-participant,
+  #button-delete-participant,
+  #button-add-quizz,
+  #button-delete-quizz,
+  #button-list-members,
+  #button-leave,
+  #button-delete-contact{
+    --background: #ffffff;
+    --background-activated:#ffffff;
+  }
+
+  #button-update-account{
+    --background: #ffffff;
+    --background-activated:#ffffff;
+    color : red;
+  }
+
+  #content-runpage{
+    --background: #ffffff;
+  }
+
+  #icon-in-button-colored{
+    color: white;
+  }
+
+  #icon-run-page{
+    color : white;
+  }
+
+  #list-run-page{
+    background-color: #ffffff;
+  }
+
+  ion-searchbar{
+    --color: black;
+  }
+
+  background-color: #ffffff;
+  --ion-color-primary: #D600E8;
+  --ion-color-secondary: #3880ff;
+  }

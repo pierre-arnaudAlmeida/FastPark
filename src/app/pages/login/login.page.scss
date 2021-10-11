@@ -1,0 +1,70 @@
+ion-icon{
+    margin-left: 5px;
+}
+
+ion-item {
+    // --border-style: none;
+    padding: 0px;
+}
+
+ion-content{
+    --overflow: hidden;
+    text-align: center;
+}
+
+ion-button{
+    width: 75%;
+    height: auto;
+}
+
+ion-label{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    white-space: initial;
+    width: 90%;
+}
+
+ion-header {
+    height: 20%;
+}
+
+ion-toolbar {
+    height: 100%;
+    --min-height:100%!important;
+    --border-width: 0 0 0px !important;
+}
+
+#item-signin-email{
+    margin-top: 30%;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#item-signin-password{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#icon-signin{
+    margin-top: 15%;
+    width: 35%;
+    height: 35%;
+}
+
+#reset-button{
+    height: 15px;
+    font-size:smaller;
+}
+
+#login-button {
+    height: 48px;
+    margin-top: 10%;
+}
+
+#account-button{
+    margin-top: 48px;
+    height: 25px;
+    font-size:smaller!important;
+}

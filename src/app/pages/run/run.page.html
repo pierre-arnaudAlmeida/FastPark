@@ -1,0 +1,15 @@
+<ion-content id="content-runpage">
+  <ion-img class="logo" [src]="logoUrl"></ion-img>
+
+  <ion-list id="list-run-page">
+    <ion-button expand="full" shape="round" routerLink="/login">
+      <!-- <ion-icon id="icon-run-page" name="contact"></ion-icon> -->
+      <label>{{ 'UTILS.login-button-title' | translate }}</label>
+    </ion-button>
+  
+    <ion-button class="inverted" shape="round" expand="full" routerLink="/signup">
+      <!-- <ion-icon id="icon-run-page" name="create"></ion-icon> -->
+      <label class="inverted">{{ 'UTILS.sign-up-title' | translate }}</label>
+    </ion-button>
+  </ion-list>
+</ion-content>

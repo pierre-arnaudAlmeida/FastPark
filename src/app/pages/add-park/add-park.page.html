@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ 'PARK.add-park-title' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back" routerLink="/home"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item id="item-park-name">
+    <ion-label position="floating">{{ 'PARK.parking-name-title' | translate }}</ion-label>
+    <ion-input [(ngModel)]="park.name"></ion-input>
+  </ion-item>
+
+  <ion-item name="item-manager" (click)="addManager()">
+    <ion-label>{{ 'PARK.parking-manager-selection-title' | translate }}</ion-label>
+  </ion-item>
+
+  <ion-item name="item-address" (click)="addAddress()">
+    <ion-label>{{ 'PARK.parking-address-title' | translate }}</ion-label>
+  </ion-item>
+
+  <ion-item name="item-phone-number">
+    <ion-label position="floating">{{ 'PARK.parking-phone-title' | translate }}</ion-label>
+    <ion-input type="number" [(ngModel)]='park.phoneNumber'></ion-input>
+  </ion-item>
+
+  <ion-item name="item-free-places">
+    <ion-label position="floating">{{ 'PARK.parking-free-places-title' | translate }}</ion-label>
+    <ion-input type="number" [(ngModel)]='park.freePlaces'></ion-input>
+  </ion-item>
+
+  <ion-item name="item-total-places">
+    <ion-label position="floating">{{ 'PARK.parking-total-places-title' | translate }}</ion-label>
+    <ion-input type="number" [(ngModel)]='park.totalPlaces'></ion-input>
+  </ion-item>
+
+  <ion-button (click)="createPark()" color="success" id="sign-in-button">
+    <ion-icon id="icon-in-button-colored" slot="icon-only" name="log-in"></ion-icon>
+    <label>{{ 'UTILS.add-title' | translate }}</label>
+  </ion-button>
+</ion-content>
