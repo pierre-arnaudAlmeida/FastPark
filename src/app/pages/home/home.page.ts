@@ -141,14 +141,15 @@ export class HomePage implements OnInit {
     // Leaflet.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
     // Leaflet.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
     //Leaflet.tileLayer('	https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', { // Positron
-    Leaflet.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', { // Dark
+    //Leaflet.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', { // Dark
+    Leaflet.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', { // Light
       // attribution: 'edupala.com © Angular LeafLet',
     }).addTo(this.map);
 
 
 
     var redIcon = new Leaflet.Icon({
-		  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+		  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
 		  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
 		  iconSize: [25, 41],
 		  iconAnchor: [12, 41],
@@ -177,10 +178,10 @@ export class HomePage implements OnInit {
         Leaflet.latLng(parkLat, parkLng)
       ],
       router: Leaflet.Routing.osrmv1({
-        language: 'en',
+        language: 'fr',
         profile: 'car'
       }),
-      routeWhileDragging: true
+      routeWhileDragging: false
     }).addTo(this.map);
 
     Leaflet.marker([this.latitude, this.longitude], {icon: redIcon}).addTo(this.map).bindPopup('My Position').openPopup();
