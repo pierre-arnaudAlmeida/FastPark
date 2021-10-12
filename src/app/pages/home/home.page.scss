@@ -5,6 +5,16 @@ ion-content{
   border: none !important;
 }
 
+ion-header {
+  --background : black!important;
+  --opacity: 1;
+}
+
+ion-toolbar {
+  --background : black!important;
+  --opacity: 1;
+}
+
 ion-footer {
   border: none !important;
   border-radius: 100px 100px 0px 0px !important;
@@ -28,6 +38,28 @@ ion-icon {
 
 .add-park {
   color:white!important;
+}
+
+.search-bar {
+  background-color: white;
+  text-align: center;
+  color:black!important;
+  // position: absolute;
+  // margin-top: 13%;
+  // width: 80%;
+  height: 6%;
+  border: none;
+  //border-radius: 25px;
+  // margin-left: 5%;
+}
+
+ion-searchbar {
+  height: 100%;
+  padding: 3%;
+}
+
+.toolbar-container {
+  height: 100%;
 }
 
 #container {

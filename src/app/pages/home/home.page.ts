@@ -136,7 +136,7 @@ export class HomePage implements OnInit {
     var parkLat;
     var parkLng;
 
-    this.map = Leaflet.map('mapId', {attributionControl: false}).setView([this.latitude, this.longitude], 5);
+    this.map = Leaflet.map('mapId', {attributionControl: false, zoomControl: false}).setView([this.latitude, this.longitude], 5);
     // Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     // Leaflet.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
     // Leaflet.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
