@@ -179,6 +179,15 @@ export class HomePage implements OnInit {
 		  shadowSize: [41, 41]
 	  });
 
+    var blueIcon = new Leaflet.Icon({
+		  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+		  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+		  iconSize: [25, 41],
+		  iconAnchor: [12, 41],
+		  popupAnchor: [1, -34],
+		  shadowSize: [41, 41]
+    });
+    
     var redIcon = new Leaflet.Icon({
 		  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
 		  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -220,9 +229,9 @@ export class HomePage implements OnInit {
           showDir = Leaflet.Routing.control({
             createMarker: function(i,wp, n) {
               if (i == 0) {
-                var mark = L.marker(wp.latLng, {opacity: 0});
-              } else {
                 var mark = L.marker(wp.latLng, {opacity: 10, icon: redIcon});
+              } else {
+                var mark = L.marker(wp.latLng, {opacity: 10, icon: blueIcon});
               }
               return mark;
             },
@@ -251,7 +260,7 @@ export class HomePage implements OnInit {
 
     // this.showDir(parkLat, parkLng);
 	
-    Leaflet.marker([this.latitude, this.longitude], {icon: blackIcon}).addTo(this.map).bindPopup('My Position').openPopup();
+    Leaflet.marker([this.latitude, this.longitude], {icon: redIcon}).addTo(this.map).bindPopup('My Position').openPopup();
   }
 
   /** Remove map when we have multiple map object */
