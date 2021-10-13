@@ -45,6 +45,7 @@ export class HomePage implements OnInit {
   longitude: any = 0; 
   map: Leaflet.Map;
   searchInput='';
+  _showDir;
 
   constructor(public aGuard: AdminGuard, public mGuard: ManagerGuard, public uGuard: UserGuard, private entityService: EntityService, public alertController: AlertController, private geolocation: Geolocation, public afAuth: AngularFireAuth) {
     this.afAuth.currentUser.then((user) => {
@@ -129,7 +130,7 @@ export class HomePage implements OnInit {
 	}
 
   showDir(parkLat, parkLng, map) {
-    Leaflet.Routing.control({
+    return Leaflet.Routing.control({
       waypoints: [
         Leaflet.latLng(this.latitude, this.longitude),
         Leaflet.latLng(parkLat, parkLng)
@@ -140,19 +141,21 @@ export class HomePage implements OnInit {
       }),
       routeWhileDragging: false
     }).addTo(map);
-    return 0;
   }
   
   ionViewDidEnter() { this.leafletMap(); }
 
+  tmpParkLat = 0.0;
+  tmpParkLng = 0.0;
+  
   leafletMap() {
     var parkMarker;
     var parkLat;
-    var parkLng;
+    var parkLng;    
     var myLat = this.latitude;
     var myLng = this.longitude;
     var myMap;
-    var showDir = null;
+    //var showDir = null;
 
     if (this.map != null) 
       return;
@@ -222,11 +225,11 @@ export class HomePage implements OnInit {
           parkLat = address.addressDetails.position._lat;
           parkLng = address.addressDetails.position._long;
 
-          if (showDir != null) {
-            myMap.removeControl(showDir);
+          if (this._showDir != null) {
+            myMap.removeControl(this._showDir);
           }
 
-          showDir = Leaflet.Routing.control({
+          this._showDir = Leaflet.Routing.control({
             createMarker: function(i,wp, n) {
               if (i == 0) {
                 var mark = L.marker(wp.latLng, {opacity: 10, icon: redIcon});
@@ -237,7 +240,7 @@ export class HomePage implements OnInit {
             },
             waypoints: [
               Leaflet.latLng(myLat, myLng),
-              Leaflet.latLng(parkLat, parkLng)
+              Leaflet.latLng(this.parkLat, this.parkLng)
             ],
             lineOptions: {addWaypoints:false, styles: [{ color: 'black', opacity: 1, weight: 5 }]},
             router: Leaflet.Routing.osrmv1({
@@ -279,5 +282,16 @@ export class HomePage implements OnInit {
         return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
+  }
+
+  affiche(mon_p : Park) {
+    console.log(mon_p);
+    this.allParks.forEach(element => {
+      if (element.id === mon_p.id) {
+        this.tmpParkLat = element.addressDetails.position._lat;
+        this.tmpParkLng = element.addressDetails.position._long;
+        this._showDir = this.showDir(this.tmpParkLat, this.tmpParkLng, this.map);
+      }
+    });
   }
 }
