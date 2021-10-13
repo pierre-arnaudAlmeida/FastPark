@@ -192,7 +192,7 @@ export class HomePage implements OnInit {
 
 	  this.allParks.map( address =>{		
 		  let distance = this.distance(address.addressDetails.position._lat, address.addressDetails.position._long, this.latitude, this.longitude);
-		  if(distance <= 50){
+		 // if(distance <= 50){
 		  	parkMarker = Leaflet.marker([address.addressDetails.position._lat, address.addressDetails.position._long]).addTo(this.map);
         parkMarker.dragging.disable();
         parkMarker.setIcon(greyIcon);
@@ -233,7 +233,7 @@ export class HomePage implements OnInit {
           //   'Routing'
           // ).addTo(myMap);
         });
-      }		
+     // }		
     });
 
     // this.showDir(parkLat, parkLng);
