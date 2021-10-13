@@ -178,12 +178,23 @@ export class HomePage implements OnInit {
 		  shadowSize: [41, 41]
 	  });
 
+    var greyIcon = new Leaflet.Icon({
+		  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png',
+		  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+		  iconSize: [25, 41],
+		  iconAnchor: [12, 41],
+		  popupAnchor: [1, -34],
+		  shadowSize: [41, 41]
+	  });
+
 	  console.log(this.allParks);
 
 	  this.allParks.map( address =>{		
 		  let distance = this.distance(address.addressDetails.position._lat, address.addressDetails.position._long, this.latitude, this.longitude);
 		  if(distance <= 50){
-		  	parkMarker = Leaflet.marker([address.addressDetails.position._lat, address.addressDetails.position._long]).addTo(this.map)
+		  	parkMarker = Leaflet.marker([address.addressDetails.position._lat, address.addressDetails.position._long]).addTo(this.map);
+        parkMarker.dragging.disable();
+        parkMarker.setIcon(greyIcon);
         parkMarker.bindPopup('<p>'+address.name+'</p><p>'+address.freePlaces+'/'+address.totalPlaces+' Available Places </p>');
         parkLat = address.addressDetails.position._lat;
         parkLng = address.addressDetails.position._long;
@@ -193,6 +204,7 @@ export class HomePage implements OnInit {
               Leaflet.latLng(myLat, myLng),
               Leaflet.latLng(parkLat, parkLng)
             ],
+            lineOptions: {addWaypoints:false},
             router: Leaflet.Routing.osrmv1({
               language: 'fr',
               profile: 'car'
