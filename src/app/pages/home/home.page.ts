@@ -170,8 +170,17 @@ export class HomePage implements OnInit {
     myMap = this.map;
 
 
-    var redIcon = new Leaflet.Icon({
+    var blackIcon = new Leaflet.Icon({
 		  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
+		  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+		  iconSize: [25, 41],
+		  iconAnchor: [12, 41],
+		  popupAnchor: [1, -34],
+		  shadowSize: [41, 41]
+	  });
+
+    var redIcon = new Leaflet.Icon({
+		  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
 		  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
 		  iconSize: [25, 41],
 		  iconAnchor: [12, 41],
@@ -210,14 +219,18 @@ export class HomePage implements OnInit {
 
           showDir = Leaflet.Routing.control({
             createMarker: function(i,wp, n) {
-              var mark = L.marker(wp.latLng, {opacity: 10});
+              if (i == 0) {
+                var mark = L.marker(wp.latLng, {opacity: 0});
+              } else {
+                var mark = L.marker(wp.latLng, {opacity: 10, icon: redIcon});
+              }
               return mark;
             },
             waypoints: [
               Leaflet.latLng(myLat, myLng),
               Leaflet.latLng(parkLat, parkLng)
             ],
-            lineOptions: {addWaypoints:false, styles: [{ color: 'red', opacity: 1, weight: 5 }]},
+            lineOptions: {addWaypoints:false, styles: [{ color: 'black', opacity: 1, weight: 5 }]},
             router: Leaflet.Routing.osrmv1({
               language: 'fr',
               profile: 'car'
@@ -238,7 +251,7 @@ export class HomePage implements OnInit {
 
     // this.showDir(parkLat, parkLng);
 	
-    Leaflet.marker([this.latitude, this.longitude], {icon: redIcon}).addTo(this.map).bindPopup('My Position').openPopup();
+    Leaflet.marker([this.latitude, this.longitude], {icon: blackIcon}).addTo(this.map).bindPopup('My Position').openPopup();
   }
 
   /** Remove map when we have multiple map object */
