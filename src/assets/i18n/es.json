@@ -80,7 +80,7 @@
     "HOME": {
     },
     "PROFILE": {
-        "delete-account": "Borrar mi cuenta",
+        "delete-account": "Borrar cuenta",
         "disconnect": "Desconectarse",
         "popup-logout-header": "Desconectado",
         "popup-logout-message": "Has sido desconectado",

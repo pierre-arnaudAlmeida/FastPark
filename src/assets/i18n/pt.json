@@ -79,7 +79,7 @@
     "HOME": {
     },
     "PROFILE": {
-        "delete-account": "Eliminar minha conta",
+        "delete-account": "Eliminar conta",
         "disconnect": "Terminar sessão",
         "popup-logout-header": "Desconectado",
         "popup-logout-message": "Você foi desconectado",
