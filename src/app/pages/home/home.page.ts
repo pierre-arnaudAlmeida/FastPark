@@ -232,7 +232,7 @@ export class HomePage implements OnInit {
           this._showDir = Leaflet.Routing.control({
             createMarker: function(i,wp, n) {
               if (i == 0) {
-                var mark = L.marker(wp.latLng, {opacity: 10, icon: redIcon});
+                var mark = L.marker(wp.latLng, {opacity: 0, icon: redIcon});
               } else {
                 var mark = L.marker(wp.latLng, {opacity: 10, icon: blueIcon});
               }
@@ -242,7 +242,7 @@ export class HomePage implements OnInit {
               Leaflet.latLng(myLat, myLng),
               Leaflet.latLng(this.parkLat, this.parkLng)
             ],
-            lineOptions: {addWaypoints:false, styles: [{ color: 'black', opacity: 1, weight: 5 }]},
+            lineOptions: {addWaypoints:false, styles: [{ color: 'black', opacity: 1, weight: 3 }]},
             router: Leaflet.Routing.osrmv1({
               language: 'fr',
               profile: 'car'
@@ -263,7 +263,7 @@ export class HomePage implements OnInit {
 
     // this.showDir(parkLat, parkLng);
 	
-    Leaflet.marker([this.latitude, this.longitude], {icon: redIcon}).addTo(this.map).bindPopup('My Position').openPopup();
+    Leaflet.marker([this.latitude, this.longitude], {icon: blackIcon}).addTo(this.map).bindPopup('My Position').openPopup();
   }
 
   /** Remove map when we have multiple map object */

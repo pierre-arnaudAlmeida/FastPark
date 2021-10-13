@@ -1,0 +1,29 @@
+ion-item {
+    margin-top: 20px;
+}
+
+ion-label {
+    font-weight: bold;
+}
+
+ion-input {
+    text-align: right;
+}
+
+ion-input {
+    margin: 0px;
+}
+
+ion-button {
+    --background: white!important;
+}
+
+.ion-color-danger {
+    font-weight: normal;
+    --ion-color-base: var(--ion-color-danger, #eb445a) !important;
+    --ion-color-base-rgb: var(--ion-color-danger-rgb, 235, 68, 90) !important;
+    --ion-color-contrast: var(--ion-color-danger-contrast, #fff) !important;
+    --ion-color-contrast-rgb: var(--ion-color-danger-contrast-rgb, 255, 255, 255) !important;
+    --ion-color-shade: var(--ion-color-danger-shade, #cf3c4f) !important;
+    --ion-color-tint: var(--ion-color-danger-tint, #ed576b) !important;
+}

@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content scroll-y="false" >
     <ion-item name="item-name">
       <ion-label>{{ 'PARK.parking-name-title' | translate }}</ion-label>
       <ion-input required="true" type="text" autocomplete="on" [(ngModel)]='park.name'

@@ -36,8 +36,9 @@
     <ion-input type="number" [(ngModel)]='park.totalPlaces'></ion-input>
   </ion-item>
 
-  <ion-button (click)="createPark()" color="success" id="sign-in-button">
+  <ion-button (click)="createPark()" class="account-button" id="sign-in-button">
     <ion-icon id="icon-in-button-colored" slot="icon-only" name="log-in"></ion-icon>
     <label>{{ 'UTILS.add-title' | translate }}</label>
   </ion-button>
+
 </ion-content>
