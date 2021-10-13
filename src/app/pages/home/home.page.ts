@@ -45,7 +45,9 @@ export class HomePage implements OnInit {
   longitude: any = 0; 
   map: Leaflet.Map;
   searchInput='';
-  _showDir;
+  dirOnSearchClick = null;
+  // dirOnMarkerClick = null;
+
 
   constructor(public aGuard: AdminGuard, public mGuard: ManagerGuard, public uGuard: UserGuard, private entityService: EntityService, public alertController: AlertController, private geolocation: Geolocation, public afAuth: AngularFireAuth) {
     this.afAuth.currentUser.then((user) => {
@@ -86,9 +88,7 @@ export class HomePage implements OnInit {
           park.addressDetails = this.elements[0];
         });
       });
-    });
-
-	  
+    }); 
   }
 
   async updateAccount() {
@@ -129,18 +129,49 @@ export class HomePage implements OnInit {
 		}
 	}
 
-  showDir(parkLat, parkLng, map) {
-    return Leaflet.Routing.control({
+  showDirOnSearch(parkLat, parkLng, map) {
+
+    var blueIcon = new Leaflet.Icon({
+		  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+		  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+		  iconSize: [25, 41],
+		  iconAnchor: [12, 41],
+		  popupAnchor: [1, -34],
+		  shadowSize: [41, 41]
+    });
+    
+    var redIcon = new Leaflet.Icon({
+		  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+		  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+		  iconSize: [25, 41],
+		  iconAnchor: [12, 41],
+		  popupAnchor: [1, -34],
+		  shadowSize: [41, 41]
+    });
+    
+    var dirOnSearchClick = Leaflet.Routing.control({
+      createMarker: function(i,wp, n) {
+        if (i == 0) {
+          var mark = L.marker(wp.latLng, {opacity: 10, icon: redIcon});
+        } else {
+          var mark = L.marker(wp.latLng, {opacity: 10, icon: blueIcon});
+        }
+        return mark;
+      },
       waypoints: [
         Leaflet.latLng(this.latitude, this.longitude),
         Leaflet.latLng(parkLat, parkLng)
       ],
+      lineOptions: {addWaypoints:false, styles: [{ color: 'red', opacity: 1, weight: 3 }]},
       router: Leaflet.Routing.osrmv1({
         language: 'fr',
         profile: 'car'
       }),
-      routeWhileDragging: false
+      routeWhileDragging: true,
+      show: false
     }).addTo(map);
+
+    return dirOnSearchClick;
   }
   
   ionViewDidEnter() { this.leafletMap(); }
@@ -155,7 +186,7 @@ export class HomePage implements OnInit {
     var myLat = this.latitude;
     var myLng = this.longitude;
     var myMap;
-    //var showDir = null;
+    var dirOnMarkerClick = null;
 
     if (this.map != null) 
       return;
@@ -224,15 +255,18 @@ export class HomePage implements OnInit {
           this.openPopup();
           parkLat = address.addressDetails.position._lat;
           parkLng = address.addressDetails.position._long;
-
-          if (this._showDir != null) {
-            myMap.removeControl(this._showDir);
+          
+          if (this.dirOnSearchClick != null) {
+            myMap.removeControl(this.dirOnSearchClick);
+          }
+          if(dirOnMarkerClick != null) {
+            myMap.removeControl(dirOnMarkerClick);
           }
 
-          this._showDir = Leaflet.Routing.control({
+          dirOnMarkerClick = Leaflet.Routing.control({
             createMarker: function(i,wp, n) {
               if (i == 0) {
-                var mark = L.marker(wp.latLng, {opacity: 0, icon: redIcon});
+                var mark = L.marker(wp.latLng, {opacity: 10, icon: redIcon});
               } else {
                 var mark = L.marker(wp.latLng, {opacity: 10, icon: blueIcon});
               }
@@ -240,7 +274,7 @@ export class HomePage implements OnInit {
             },
             waypoints: [
               Leaflet.latLng(myLat, myLng),
-              Leaflet.latLng(this.parkLat, this.parkLng)
+              Leaflet.latLng(parkLat, parkLng)
             ],
             lineOptions: {addWaypoints:false, styles: [{ color: 'black', opacity: 1, weight: 3 }]},
             router: Leaflet.Routing.osrmv1({
@@ -251,19 +285,10 @@ export class HomePage implements OnInit {
             show: false
           }).addTo(myMap);
 
-          // Leaflet.easyButton('fa-compass',
-          //   function (){
-          //     $('.leaflet-routing-container').is(':visible') ? showDir.removeFrom(myMap) : showDir.addTo(myMap)
-          //   },
-          //   'Routing'
-          // ).addTo(myMap);
-        });
-     // }		
+          // dirOnMarkerClick = this.showDirOnSearch(this.tmpParkLat, this.tmpParkLng, this.map);
+        });	
     });
-
-    // this.showDir(parkLat, parkLng);
-	
-    Leaflet.marker([this.latitude, this.longitude], {icon: blackIcon}).addTo(this.map).bindPopup('My Position').openPopup();
+    Leaflet.marker([this.latitude, this.longitude], {icon: blackIcon}).addTo(myMap).bindPopup('My Position').openPopup();
   }
 
   /** Remove map when we have multiple map object */
@@ -290,7 +315,10 @@ export class HomePage implements OnInit {
       if (element.id === mon_p.id) {
         this.tmpParkLat = element.addressDetails.position._lat;
         this.tmpParkLng = element.addressDetails.position._long;
-        this._showDir = this.showDir(this.tmpParkLat, this.tmpParkLng, this.map);
+        if (this.dirOnSearchClick != null) {
+          this.map.removeControl(this.dirOnSearchClick);
+        }
+        this.dirOnSearchClick = this.showDirOnSearch(this.tmpParkLat, this.tmpParkLng, this.map);
       }
     });
   }
