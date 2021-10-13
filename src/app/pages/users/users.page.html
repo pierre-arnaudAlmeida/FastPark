@@ -12,12 +12,13 @@
       <ion-col>
         <ion-card clear *ngIf="u.id === user.id" [routerLink]="['/profile/']">
           <ion-card-header>
-            <ion-card-title>{{ u.firstName }} {{ u.lastName }}</ion-card-title>
+            <ion-card-title style="color : #be10ec!important;"><ion-icon style="color : #be10ec!important;" name="happy"></ion-icon>{{ u.firstName }} {{ u.lastName }}</ion-card-title>
           </ion-card-header>
         </ion-card>
         <ion-card clear *ngIf="u.id !== user.id" [routerLink]="['/user/', u.id]">
           <ion-card-header>
-            <ion-card-title>{{ u.firstName }} {{ u.lastName }}</ion-card-title>
+            
+            <ion-card-title><ion-icon name="happy"></ion-icon>{{ u.firstName }} {{ u.lastName }}</ion-card-title>
           </ion-card-header>
         </ion-card>
       </ion-col>

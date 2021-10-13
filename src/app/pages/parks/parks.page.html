@@ -12,12 +12,12 @@
       <ion-col>
         <ion-card *ngIf="p.managerId === user.id || user.role === 'ADMIN'" clear [routerLink]="['/edit-park/', p.id]">
           <ion-card-header>
-            <ion-card-title>{{ p.name }}</ion-card-title>
+            <ion-card-title><ion-icon name="car"></ion-icon>{{ p.name }}</ion-card-title>
           </ion-card-header>
         </ion-card>
         <ion-card *ngIf="p.managerId !== user.id && user.role !== 'ADMIN'" clear [routerLink]="['/park/', p.id]">
           <ion-card-header>
-            <ion-card-title>{{ p.name }}</ion-card-title>
+            <ion-card-title><ion-icon name="car"></ion-icon>{{ p.name }}</ion-card-title>
           </ion-card-header>
         </ion-card>
       </ion-col>
