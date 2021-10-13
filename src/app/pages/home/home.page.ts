@@ -128,7 +128,7 @@ export class HomePage implements OnInit {
 		}
 	}
 
-  showDir(parkLat, parkLng) {
+  showDir(parkLat, parkLng, map) {
     Leaflet.Routing.control({
       waypoints: [
         Leaflet.latLng(this.latitude, this.longitude),
@@ -139,7 +139,7 @@ export class HomePage implements OnInit {
         profile: 'car'
       }),
       routeWhileDragging: false
-    }).addTo(this.map);
+    }).addTo(map);
     return 0;
   }
   
@@ -152,6 +152,7 @@ export class HomePage implements OnInit {
     var myLat = this.latitude;
     var myLng = this.longitude;
     var myMap;
+    var showDir = null;
 
     if (this.map != null) 
       return;
@@ -188,7 +189,15 @@ export class HomePage implements OnInit {
         parkLat = address.addressDetails.position._lat;
         parkLng = address.addressDetails.position._long;
         parkMarker.on('click', function(e) {
-          Leaflet.Routing.control({
+          this.openPopup();
+          parkLat = address.addressDetails.position._lat;
+          parkLng = address.addressDetails.position._long;
+
+          if (showDir != null) {
+            myMap.removeControl(showDir);
+          }
+
+          showDir = Leaflet.Routing.control({
             waypoints: [
               Leaflet.latLng(myLat, myLng),
               Leaflet.latLng(parkLat, parkLng)
@@ -197,9 +206,16 @@ export class HomePage implements OnInit {
               language: 'fr',
               profile: 'car'
             }),
-            routeWhileDragging: false
+            routeWhileDragging: true,
+            show: false
           }).addTo(myMap);
-          return 0;
+
+          // Leaflet.easyButton('fa-compass',
+          //   function (){
+          //     $('.leaflet-routing-container').is(':visible') ? showDir.removeFrom(myMap) : showDir.addTo(myMap)
+          //   },
+          //   'Routing'
+          // ).addTo(myMap);
         });
       }		
     });
