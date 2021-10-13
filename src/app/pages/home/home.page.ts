@@ -209,11 +209,15 @@ export class HomePage implements OnInit {
           }
 
           showDir = Leaflet.Routing.control({
+            createMarker: function(i,wp, n) {
+              var mark = L.marker(wp.latLng, {opacity: 0});
+              return mark;
+            },
             waypoints: [
               Leaflet.latLng(myLat, myLng),
               Leaflet.latLng(parkLat, parkLng)
             ],
-            lineOptions: {addWaypoints:false},
+            lineOptions: {addWaypoints:false, styles: [{ color: 'black', opacity: 1, weight: 5 }]},
             router: Leaflet.Routing.osrmv1({
               language: 'fr',
               profile: 'car'
