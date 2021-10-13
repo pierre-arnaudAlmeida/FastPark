@@ -149,6 +149,9 @@ export class HomePage implements OnInit {
     var parkMarker;
     var parkLat;
     var parkLng;
+    var myLat = this.latitude;
+    var myLng = this.longitude;
+    var myMap;
 
     if (this.map != null) 
       return;
@@ -163,7 +166,7 @@ export class HomePage implements OnInit {
       // attribution: 'edupala.com © Angular LeafLet',
     }).addTo(this.map);
   
-
+    myMap = this.map;
 
 
     var redIcon = new Leaflet.Icon({
@@ -179,16 +182,26 @@ export class HomePage implements OnInit {
 
 	  this.allParks.map( address =>{		
 		  let distance = this.distance(address.addressDetails.position._lat, address.addressDetails.position._long, this.latitude, this.longitude);
-		  if(distance <= 5){
+		  if(distance <= 50){
 		  	parkMarker = Leaflet.marker([address.addressDetails.position._lat, address.addressDetails.position._long]).addTo(this.map)
         parkMarker.bindPopup('<p>'+address.name+'</p><p>'+address.freePlaces+'/'+address.totalPlaces+' Available Places </p>');
         parkLat = address.addressDetails.position._lat;
         parkLng = address.addressDetails.position._long;
-		  	parkMarker.on('click', function(e){
-		  		this.openPopup();
-				this.showDir(parkLat, parkLng);
-		  	});
-		  }		
+        parkMarker.on('click', function(e) {
+          Leaflet.Routing.control({
+            waypoints: [
+              Leaflet.latLng(myLat, myLng),
+              Leaflet.latLng(parkLat, parkLng)
+            ],
+            router: Leaflet.Routing.osrmv1({
+              language: 'fr',
+              profile: 'car'
+            }),
+            routeWhileDragging: false
+          }).addTo(myMap);
+          return 0;
+        });
+      }		
     });
 
     // this.showDir(parkLat, parkLng);
