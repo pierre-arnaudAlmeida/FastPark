@@ -31,6 +31,15 @@
           [(ngModel)]='userDetails.email' (change)='onChangeUserEmail($event.target.value)'></ion-input>
       </ion-item>
       <ion-label *ngIf="user.role !== 'ADMIN'">userDetails.email</ion-label>
+      
+      <ion-item>
+        <ion-label>{{ 'UTILS.role-title' | translate }}</ion-label>
+        <ion-select [(ngModel)]="userDetails.role" (ionChange)='updateUserAccount()'>
+          <ion-select-option value="ADMIN">Admin</ion-select-option>
+          <ion-select-option value="USER">User</ion-select-option>
+          <ion-select-option value="MANAGER">Manager</ion-select-option>
+        </ion-select>
+      </ion-item>
 
       <ion-item *ngIf="user.role === 'ADMIN'" name="item-phoneNumber">
         <ion-label>{{ 'UTILS.phone-number' | translate }}</ion-label>
@@ -40,7 +49,7 @@
       </ion-item>
       <ion-label *ngIf="user.role !== 'ADMIN'">userDetails.phoneNumber</ion-label>
 
-      <ion-button id="button-delete-account" expand="full" fill="clear" (click)="deleteUserManager(); deleteUserAccount();">
+      <ion-button *ngIf="user.role === 'ADMIN'" id="button-delete-account" expand="full" fill="clear" (click)="deleteUserManager(); deleteUserAccount();">
         <ion-label color="danger">{{ 'PROFILE.delete-account' | translate }}</ion-label>
       </ion-button>
     </ion-list>

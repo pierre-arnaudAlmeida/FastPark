@@ -8,6 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { ParkUtil } from 'src/app/classes/ParkUtil';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -25,7 +26,7 @@ export class UserPage implements OnInit {
   alertEmailMessage: any;
   alertEmailError: any;
 
-  constructor(private entityService: EntityService, public afAuth: AngularFireAuth, private actRoute: ActivatedRoute, public alertController: AlertController, translateS: TranslateService, private loadingController: LoadingController) {
+  constructor(private router: Router, private entityService: EntityService, public afAuth: AngularFireAuth, private actRoute: ActivatedRoute, public alertController: AlertController, translateS: TranslateService, private loadingController: LoadingController) {
     this.user.id = this.actRoute.snapshot.paramMap.get('id');
     translateS.get('PROFILE.processing-message').subscribe((value: any) => { this.processingMessage = value; });
     translateS.get('PROFILE.popup-email-changed-header').subscribe((value: any) => { this.alertEmailHeader = value; });
@@ -96,6 +97,7 @@ export class UserPage implements OnInit {
 
   async deleteUserAccount() {
     await this.entityService.delete(this.userDetails.id, UserUtil.userCollectionName);
+    this.router.navigateByUrl('/users');
   }
 
   async deleteUserManager() {
