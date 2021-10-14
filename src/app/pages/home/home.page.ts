@@ -29,6 +29,8 @@ declare let L;
 
 declare global {
   var directions: null;
+  var srchBarParkLat: 0.0;
+  var srchBarParkLng: 0.0;
 }
 
 @Component({
@@ -140,7 +142,7 @@ export class HomePage implements OnInit {
 		}
 	}
 
-  showDirOnSearch(parkLat, parkLng, map) {
+  showDir(parkLat, parkLng, map) {
 
     var blueIcon = new Leaflet.Icon({
 		  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
@@ -160,7 +162,7 @@ export class HomePage implements OnInit {
 		  shadowSize: [41, 41]
     });
     
-    var dirOnSearchClick = Leaflet.Routing.control({
+    var directions = Leaflet.Routing.control({
       createMarker: function(i,wp, n) {
         if (i == 0) {
           var mark = L.marker(wp.latLng, {opacity: 10, icon: redIcon});
@@ -182,7 +184,7 @@ export class HomePage implements OnInit {
       show: false
     }).addTo(map);
 
-    return dirOnSearchClick;
+    return directions;
   }
   
   ionViewDidEnter() { this.leafletMap(); }
@@ -194,9 +196,6 @@ export class HomePage implements OnInit {
     var parkMarker;
     var parkLat;
     var parkLng;    
-    var myLat = this.latitude;
-    var myLng = this.longitude;
-    var myMap;
 
     if (this.map != null) 
       return;
@@ -210,27 +209,6 @@ export class HomePage implements OnInit {
     Leaflet.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', { // Light
       // attribution: 'edupala.com © Angular LeafLet',
     }).addTo(this.map);
-  
-    myMap = this.map;
-
-
-    var blackIcon = new Leaflet.Icon({
-		  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
-		  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-		  iconSize: [25, 41],
-		  iconAnchor: [12, 41],
-		  popupAnchor: [1, -34],
-		  shadowSize: [41, 41]
-	  });
-
-    var blueIcon = new Leaflet.Icon({
-		  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
-		  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-		  iconSize: [25, 41],
-		  iconAnchor: [12, 41],
-		  popupAnchor: [1, -34],
-		  shadowSize: [41, 41]
-    });
     
     var redIcon = new Leaflet.Icon({
 		  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
@@ -261,41 +239,18 @@ export class HomePage implements OnInit {
         parkMarker.bindPopup('<p>'+address.name+'</p><p>'+address.freePlaces+'/'+address.totalPlaces+' Available Places </p>');
         parkLat = address.addressDetails.position._lat;
         parkLng = address.addressDetails.position._long;
-        parkMarker.on('click', function(e) {
-          this.openPopup();
+        parkMarker.on('click', (e) => {
+          parkMarker.openPopup();
           parkLat = address.addressDetails.position._lat;
           parkLng = address.addressDetails.position._long;
           
           if (globalThis.directions != null) {
-            myMap.removeControl(globalThis.directions);
+            this.map.removeControl(globalThis.directions);
           }
-
-          globalThis.directions = Leaflet.Routing.control({
-            createMarker: function(i,wp, n) {
-              if (i == 0) {
-                var mark = L.marker(wp.latLng, {opacity: 10, icon: redIcon});
-              } else {
-                var mark = L.marker(wp.latLng, {opacity: 10, icon: blueIcon});
-              }
-              return mark;
-            },
-            waypoints: [
-              Leaflet.latLng(myLat, myLng),
-              Leaflet.latLng(parkLat, parkLng)
-            ],
-            lineOptions: {addWaypoints:false, styles: [{ color: 'black', opacity: 1, weight: 3 }]},
-            router: Leaflet.Routing.osrmv1({
-              language: 'fr',
-              profile: 'car'
-            }),
-            routeWhileDragging: true,
-            show: false
-          }).addTo(myMap);
-
-          // dirOnMarkerClick = this.showDirOnSearch(this.tmpParkLat, this.tmpParkLng, this.map);
+          globalThis.directions = this.showDir(parkLat, parkLng, this.map);
         });	
     });
-    Leaflet.marker([this.latitude, this.longitude], {icon: redIcon}).addTo(myMap).bindPopup('My Position').openPopup();
+    Leaflet.marker([this.latitude, this.longitude], {icon: redIcon}).addTo(this.map).bindPopup('My Position').openPopup();
   }
 
   /** Remove map when we have multiple map object */
@@ -320,13 +275,13 @@ export class HomePage implements OnInit {
     console.log(mon_p);
     this.allParks.forEach(element => {
       if (element.id === mon_p.id) {
-        this.tmpParkLat = element.addressDetails.position._lat;
-        this.tmpParkLng = element.addressDetails.position._long;
+        globalThis.srchBarParkLat = element.addressDetails.position._lat;
+        globalThis.srchBarParkLng = element.addressDetails.position._long;
 
         if (globalThis.directions != null) {
           this.map.removeControl(globalThis.directions);
         }
-        globalThis.directions = this.showDirOnSearch(this.tmpParkLat, this.tmpParkLng, this.map);
+        globalThis.directions = this.showDir(globalThis.srchBarParkLat, globalThis.srchBarParkLng, this.map);
       }
     });
   }
