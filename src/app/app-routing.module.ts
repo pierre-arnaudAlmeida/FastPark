@@ -102,7 +102,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'run',
     pathMatch: 'full'
+  },  {
+    path: 'reset-password',
+    loadChildren: () => import('./pages/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   },
+
 ];
 
 @NgModule({
