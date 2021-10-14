@@ -11,7 +11,7 @@
   <div style="margin-top: 15px" >
     <ion-searchbar [(ngModel)]="searchInput" (ionInput)="getItems($event)" [showCancelButton]="shouldShowCancel"></ion-searchbar>
     <ion-list *ngIf="searchInput !== ''">
-     <ion-item lines="none" *ngFor="let park of searchedParks" (click)="affiche(park)">
+     <ion-item lines="none" *ngFor="let park of searchedParks" (click)="showParkFromSearch(park)">
       {{ park.name }}
      </ion-item>
     </ion-list>

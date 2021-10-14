@@ -26,6 +26,10 @@ import "leaflet/dist/leaflet.css";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 declare let L;
 
+declare global {
+  var directions: null;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -45,9 +49,6 @@ export class HomePage implements OnInit {
   longitude: any = 0; 
   map: Leaflet.Map;
   searchInput='';
-  dirOnSearchClick = null;
-  // dirOnMarkerClick = null;
-
 
   constructor(public aGuard: AdminGuard, public mGuard: ManagerGuard, public uGuard: UserGuard, private entityService: EntityService, public alertController: AlertController, private geolocation: Geolocation, public afAuth: AngularFireAuth) {
     this.afAuth.currentUser.then((user) => {
@@ -162,7 +163,7 @@ export class HomePage implements OnInit {
         Leaflet.latLng(this.latitude, this.longitude),
         Leaflet.latLng(parkLat, parkLng)
       ],
-      lineOptions: {addWaypoints:false, styles: [{ color: 'red', opacity: 1, weight: 3 }]},
+      lineOptions: {addWaypoints:false, styles: [{ color: 'black', opacity: 1, weight: 3 }]},
       router: Leaflet.Routing.osrmv1({
         language: 'fr',
         profile: 'car'
@@ -186,7 +187,6 @@ export class HomePage implements OnInit {
     var myLat = this.latitude;
     var myLng = this.longitude;
     var myMap;
-    var dirOnMarkerClick = null;
 
     if (this.map != null) 
       return;
@@ -256,14 +256,11 @@ export class HomePage implements OnInit {
           parkLat = address.addressDetails.position._lat;
           parkLng = address.addressDetails.position._long;
           
-          if (this.dirOnSearchClick != null) {
-            myMap.removeControl(this.dirOnSearchClick);
-          }
-          if(dirOnMarkerClick != null) {
-            myMap.removeControl(dirOnMarkerClick);
+          if (globalThis.directions != null) {
+            myMap.removeControl(globalThis.directions);
           }
 
-          dirOnMarkerClick = Leaflet.Routing.control({
+          globalThis.directions = Leaflet.Routing.control({
             createMarker: function(i,wp, n) {
               if (i == 0) {
                 var mark = L.marker(wp.latLng, {opacity: 10, icon: redIcon});
@@ -288,7 +285,7 @@ export class HomePage implements OnInit {
           // dirOnMarkerClick = this.showDirOnSearch(this.tmpParkLat, this.tmpParkLng, this.map);
         });	
     });
-    Leaflet.marker([this.latitude, this.longitude], {icon: blackIcon}).addTo(myMap).bindPopup('My Position').openPopup();
+    Leaflet.marker([this.latitude, this.longitude], {icon: redIcon}).addTo(myMap).bindPopup('My Position').openPopup();
   }
 
   /** Remove map when we have multiple map object */
@@ -309,16 +306,17 @@ export class HomePage implements OnInit {
     }
   }
 
-  affiche(mon_p : Park) {
+  showParkFromSearch(mon_p : Park) {
     console.log(mon_p);
     this.allParks.forEach(element => {
       if (element.id === mon_p.id) {
         this.tmpParkLat = element.addressDetails.position._lat;
         this.tmpParkLng = element.addressDetails.position._long;
-        if (this.dirOnSearchClick != null) {
-          this.map.removeControl(this.dirOnSearchClick);
+
+        if (globalThis.directions != null) {
+          this.map.removeControl(globalThis.directions);
         }
-        this.dirOnSearchClick = this.showDirOnSearch(this.tmpParkLat, this.tmpParkLng, this.map);
+        globalThis.directions = this.showDirOnSearch(this.tmpParkLat, this.tmpParkLng, this.map);
       }
     });
   }
