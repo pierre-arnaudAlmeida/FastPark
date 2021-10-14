@@ -17,6 +17,7 @@ import { antPath } from 'leaflet-ant-path';
 import { AdminGuard } from '../../guards/admin.guard';
 import { ManagerGuard } from '../../guards/manager.guard';
 import { UserGuard } from '../../guards/user.guard';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 //Leaflet
 import * as Leaflet from 'leaflet';
@@ -50,7 +51,7 @@ export class HomePage implements OnInit {
   map: Leaflet.Map;
   searchInput='';
 
-  constructor(public aGuard: AdminGuard, public mGuard: ManagerGuard, public uGuard: UserGuard, private entityService: EntityService, public alertController: AlertController, private geolocation: Geolocation, public afAuth: AngularFireAuth) {
+  constructor(private firestore: AngularFirestore, public aGuard: AdminGuard, public mGuard: ManagerGuard, public uGuard: UserGuard, private entityService: EntityService, public alertController: AlertController, private geolocation: Geolocation, public afAuth: AngularFireAuth) {
     this.afAuth.currentUser.then((user) => {
       if(user === null || user === undefined) return false
         this.hasVerifiedEmail = user.emailVerified;
@@ -80,16 +81,25 @@ export class HomePage implements OnInit {
        console.log('Error getting location', error);
      });
 
-    await this.entityService.getAll(ParkUtil.parkCollectionName).subscribe(data => {
-      this.allParks = ParkUtil.mapCollection(data, ParkUtil.parkCollectionName);
-      
-      this.allParks.forEach(async park => {
-        await this.entityService.getAll(AddressUtil.addressCollectionName).subscribe(data => {
-          this.elements = AddressUtil.mapCollection(data, AddressUtil.addressCollectionName, park.addressId);
-          park.addressDetails = this.elements[0];
-        });
+    await this.firestore.collection(ParkUtil.parkCollectionName).get().toPromise().then(res => this.allParks = res.docs.map(doc => doc.data()));
+    //this.allParks = snapshot.docs.map(doc => doc.data());
+    this.allParks.forEach(async park => {
+      await this.entityService.getAll(AddressUtil.addressCollectionName).subscribe(data => {
+        this.elements = AddressUtil.mapCollection(data, AddressUtil.addressCollectionName, park.addressId);
+        park.addressDetails = this.elements[0];
       });
-    }); 
+    });
+    
+    // await this.entityService.getAll(ParkUtil.parkCollectionName).subscribe(data => {
+    //   this.allParks = ParkUtil.mapCollection(data, ParkUtil.parkCollectionName);
+      
+    //   this.allParks.forEach(async park => {
+    //     await this.entityService.getAll(AddressUtil.addressCollectionName).subscribe(data => {
+    //       this.elements = AddressUtil.mapCollection(data, AddressUtil.addressCollectionName, park.addressId);
+    //       park.addressDetails = this.elements[0];
+    //     });
+    //   });
+    // }); 
   }
 
   async updateAccount() {
