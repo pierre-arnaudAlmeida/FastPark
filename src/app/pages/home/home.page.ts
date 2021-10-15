@@ -31,6 +31,7 @@ declare global {
   var directions: null;
   var srchBarParkLat: 0.0;
   var srchBarParkLng: 0.0;
+  var map : Leaflet.map;
 }
 
 @Component({
@@ -50,7 +51,7 @@ export class HomePage implements OnInit {
   hasVerifiedEmail = true;
   latitude: any = 0;
   longitude: any = 0; 
-  map: Leaflet.Map;
+  // map: Leaflet.Map;
   searchInput='';
 
   constructor(private firestore: AngularFirestore, public aGuard: AdminGuard, public mGuard: ManagerGuard, public uGuard: UserGuard, private entityService: EntityService, public alertController: AlertController, private geolocation: Geolocation, public afAuth: AngularFireAuth) {
@@ -142,7 +143,7 @@ export class HomePage implements OnInit {
 		}
 	}
 
-  showDir(parkLat, parkLng, map) {
+  showDir(_parkLat, _parkLng, map) {
 
     var blueIcon = new Leaflet.Icon({
 		  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
@@ -173,7 +174,7 @@ export class HomePage implements OnInit {
       },
       waypoints: [
         Leaflet.latLng(this.latitude, this.longitude),
-        Leaflet.latLng(parkLat, parkLng)
+        Leaflet.latLng(_parkLat, _parkLng)
       ],
       lineOptions: {addWaypoints:false, styles: [{ color: 'black', opacity: 1, weight: 3 }]},
       router: Leaflet.Routing.osrmv1({
@@ -188,19 +189,16 @@ export class HomePage implements OnInit {
   }
   
   ionViewDidEnter() { this.leafletMap(); }
-
-  tmpParkLat = 0.0;
-  tmpParkLng = 0.0;
   
   leafletMap() {
     var parkMarker;
     var parkLat;
     var parkLng;    
 
-    if (this.map != null) 
+    if (globalThis.map != null) 
       return;
       
-    this.map = Leaflet.map('mapId', {attributionControl: false, zoomControl: false}).setView([this.latitude, this.longitude], 5);
+    globalThis.map = Leaflet.map('mapId', {attributionControl: false, zoomControl: false}).setView([this.latitude, this.longitude], 5);
     // Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     // Leaflet.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
     // Leaflet.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
@@ -208,7 +206,7 @@ export class HomePage implements OnInit {
     //Leaflet.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', { // Dark
     Leaflet.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', { // Light
       // attribution: 'edupala.com © Angular LeafLet',
-    }).addTo(this.map);
+    }).addTo(globalThis.map);
     
     var redIcon = new Leaflet.Icon({
 		  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
@@ -233,7 +231,7 @@ export class HomePage implements OnInit {
 	  this.allParks.map( address =>{		
 		  let distance = this.distance(address.addressDetails.position._lat, address.addressDetails.position._long, this.latitude, this.longitude);
 		 // if(distance <= 50){
-		  	parkMarker = Leaflet.marker([address.addressDetails.position._lat, address.addressDetails.position._long]).addTo(this.map);
+		  	parkMarker = Leaflet.marker([address.addressDetails.position._lat, address.addressDetails.position._long]).addTo(globalThis.map);
         parkMarker.dragging.disable();
         parkMarker.setIcon(greyIcon);
         parkMarker.bindPopup('<p>'+address.name+'</p><p>'+address.freePlaces+'/'+address.totalPlaces+' Available Places </p>');
@@ -245,18 +243,18 @@ export class HomePage implements OnInit {
           parkLng = address.addressDetails.position._long;
           
           if (globalThis.directions != null) {
-            this.map.removeControl(globalThis.directions);
+            globalThis.map.removeControl(globalThis.directions);
           }
-          globalThis.directions = this.showDir(parkLat, parkLng, this.map);
+          globalThis.directions = this.showDir(parkLat, parkLng, globalThis.map);
         });	
     });
-    Leaflet.marker([this.latitude, this.longitude], {icon: redIcon}).addTo(this.map).bindPopup('My Position').openPopup();
+    Leaflet.marker([this.latitude, this.longitude], {icon: redIcon}).addTo(globalThis.map).bindPopup('My Position').openPopup();
   }
 
   /** Remove map when we have multiple map object */
   ngOnDestroy() {
     console.log("Remove map when we have multiple map object");
-    this.map.remove();
+    globalThis.map.remove();
   }
 
   /** Get parks searched in search bar by name */
@@ -274,14 +272,14 @@ export class HomePage implements OnInit {
   showParkFromSearch(mon_p : Park) {
     console.log(mon_p);
     this.allParks.forEach(element => {
-      if (element.id === mon_p.id) {
+      if (element.addressId === mon_p.addressId) {
         globalThis.srchBarParkLat = element.addressDetails.position._lat;
         globalThis.srchBarParkLng = element.addressDetails.position._long;
 
         if (globalThis.directions != null) {
-          this.map.removeControl(globalThis.directions);
+          globalThis.map.removeControl(globalThis.directions);
         }
-        globalThis.directions = this.showDir(globalThis.srchBarParkLat, globalThis.srchBarParkLng, this.map);
+        globalThis.directions = this.showDir(globalThis.srchBarParkLat, globalThis.srchBarParkLng, globalThis.map);
       }
     });
   }
